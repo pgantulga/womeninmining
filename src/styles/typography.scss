@@ -1,0 +1,15 @@
+/*******************************typography*******************************************/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+@import '~@angular/material/theming';
+
+
+// Light 300
+// Regular 400
+// Medium 500
+// Semi-bold 600
+// Bold 700
+$womeninmining-typography: mat-typography-config(
+  $font-family: "Fira Sans, sans-serif",
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);

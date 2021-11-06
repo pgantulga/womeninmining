@@ -1,0 +1,25 @@
+
+@import '~@angular/material/theming';
+@import 'custom-palette.scss';
+@import 'typography.scss';
+@include mat-core();
+
+$womeninmining-primary: mat-palette($my-amber);
+$womeninmining-accent: mat-palette($my-brown);
+$womeninmining-warn: mat-palette($mat-red);
+$womeninmining-theme: mat-light-theme((
+  color: (
+    primary: $womeninmining-primary,
+    accent: $womeninmining-accent,
+    warn: $womeninmining-warn,
+  )
+));
+
+
+@include angular-material-theme($womeninmining-theme);
+@include mat-base-typography($womeninmining-typography);
+@include angular-material-typography($womeninmining-typography);
+
+//Global styles
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
