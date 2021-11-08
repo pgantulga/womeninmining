@@ -21,5 +21,48 @@ $womeninmining-theme: mat-light-theme((
 @include angular-material-typography($womeninmining-typography);
 
 //Global styles
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0}
+@media only screen and (min-width: 1920px) {
+  .container {
+    width: 1110px;
+  }
+}
+@media only screen and (max-width: 1920px) and (min-width: 1280px) {
+  .container {
+    width: 1110px;
+  }
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 960px) {
+  .container {
+    width: 945px;
+    box-sizing: border-box;
+    // padding-left: 8px !important;
+    // padding-right: 8px !important;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .container {
+    width: 100%;
+    // box-sizing: border-box;
+    // padding-left: 8px !important;
+    // padding-right: 8px !important;
+  }
+}
+
+
+
+@mixin top-toolbar {
+  position: -webkit-sticky;
+  position: fixed;
+  background-color: mat-color($my-amber, 50);
+
+}
+// mat-toolbar
+.remove-border-bottom .mat-tab-header {
+  border-bottom: none;
+}
+.mat-tab-label {
+  height: 64px !important;
+  text-transform: uppercase;
+}

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShellComponent } from './shell/shell.component';
 import { ToptoolbarComponent } from './toptoolbar/toptoolbar.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -10,7 +11,8 @@ import { ToptoolbarComponent } from './toptoolbar/toptoolbar.component';
   declarations: [ShellComponent, ToptoolbarComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   exports: [ShellComponent]
 })

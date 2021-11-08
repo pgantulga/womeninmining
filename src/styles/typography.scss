@@ -8,8 +8,22 @@
 // Medium 500
 // Semi-bold 600
 // Bold 700
+
+// angular material - figma adaption
+// h1 - h3
+// h2 - h5
+// h3 - h6
+//body 1 - body 1
+//body 2 - body 2
+//button -button
+//caption - caption
 $womeninmining-typography: mat-typography-config(
   $font-family: "Fira Sans, sans-serif",
-  $headline: mat-typography-level(32px, 48px, 700),
-  $body-1: mat-typography-level(16px, 24px, 500)
+  $headline: mat-typography-level(48px, 56px, 600),
+  $title: mat-typography-level(24px, 24px, 600),
+  $subheading-2: mat-typography-level(20px, 24px, 500),
+  $body-1: mat-typography-level(16px, 24px, 500),
+  $body-2: mat-typography-level(14px, 20px, 400),
+  $button: mat-typography-level(14px, 20px, 600, $letter-spacing: 1.25 px),
+  $caption: mat-typography-level(12px, 16px, 400),
 );

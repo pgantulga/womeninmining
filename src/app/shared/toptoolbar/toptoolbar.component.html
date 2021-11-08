@@ -1,6 +1,23 @@
-<mat-toolbar>
+<mat-toolbar class="top-toolbar">
   <mat-toolbar-row>
-    <span>Title</span>
-
+    <div fxFlex></div>
+    <div class="container" fxLayout="row" fxLayoutAlign = "center center">
+      <p>logo</p>
+    </div>
+    <div fxFlex></div>
+  </mat-toolbar-row>
+  <mat-toolbar-row >
+    <div fxFlex></div>
+    <div class="container" fxLayout="row" fxLayoutAlign = "center center">
+      <mat-tab-group mat-align-tabs="center" class="remove-border-bottom" disableRipple>
+        <mat-tab [label]="item.name" *ngFor="let item of topMenus">
+          <ng-template mat-tab-label>
+            {{item.name}}
+            <mat-icon>expand_less</mat-icon>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div fxFlex></div>
   </mat-toolbar-row>
 </mat-toolbar>
