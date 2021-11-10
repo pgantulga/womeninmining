@@ -56,13 +56,27 @@ body { margin: 0}
   position: -webkit-sticky;
   position: fixed;
   background-color: mat-color($my-amber, 50);
+  .mat-button.toolbar-nav{
+    text-transform: uppercase;
+    border-radius: 0;
 
+  }
+  .mat-button.toolbar-nav.selected {
+    border-bottom: 2px solid mat-color($my-amber, 500);
+    mat-icon {
+      transform: rotate(180deg);
+    }
+  }
 }
 // mat-toolbar
-.remove-border-bottom .mat-tab-header {
-  border-bottom: none;
-}
-.mat-tab-label {
-  height: 64px !important;
-  text-transform: uppercase;
-}
+// .remove-border-bottom .mat-tab-header {
+//   border-bottom: none;
+// }
+// .remove-border-bottom .mat-tab-nav-bar, .mat-tab-header {
+//   border-bottom: none;
+
+// }
+// .mat-tab-link {
+//   height: 64px !important;
+//   text-transform: uppercase;
+// }

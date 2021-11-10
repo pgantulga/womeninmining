@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 export interface Menu {
   name: string;
@@ -13,7 +14,13 @@ export interface Menu {
   styleUrls: ['./toptoolbar.component.scss']
 })
 export class ToptoolbarComponent implements OnInit {
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
+  someMethod() {
+    this.trigger.openMenu();
+  }
   // topMenus: Menu[];
+  activeLink: any;
 
   constructor() { }
   topMenus = [
@@ -36,5 +43,11 @@ export class ToptoolbarComponent implements OnInit {
   ];
   ngOnInit(): void {
   }
-
+  expand(link): void {
+    this.activeLink = link;
+    console.log(link)
+  }
+  closeMyMenu() {
+    this.trigger.closeMenu();
+  }  
 }
