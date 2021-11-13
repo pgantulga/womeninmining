@@ -7,13 +7,24 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
+import {CdkTableModule} from '@angular/cdk/table';
+import {CdkTreeModule} from '@angular/cdk/tree';
 
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MatToolbarModule, 
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatTabsModule
   ],
   exports: [
+    CdkTableModule,
+    CdkTreeModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,

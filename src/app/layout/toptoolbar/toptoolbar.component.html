@@ -1,0 +1,41 @@
+<mat-toolbar class="top-toolbar">
+  <mat-toolbar-row>
+    <div fxFlex></div>
+    <div class="container" fxLayout="row" fxLayoutAlign="center center">
+      <p>logo</p>
+    </div>
+    <div fxFlex></div>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <div fxFlex></div>
+    <div class="container" fxLayout="row" fxLayoutAlign="center center">
+      <ng-container *ngFor="let item of topMenus">
+        <button
+          mat-button
+          #button
+          class="toolbar-nav"
+          [class.selected]="activeLink == item"
+          [matMenuTriggerFor]="menu"
+          #menuTrigger="matMenuTrigger"
+          (mouseenter)="expand(item, menuTrigger)"
+          (mouseleave)="buttonLeave(menuTrigger, button)"
+          style="z-index: 1050"
+        >
+          {{ item.label }}
+          <mat-icon>expand_less</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" direction="down" yPosition="below">
+          <span (mouseenter)="menuenter()">
+            <ng-container *ngFor="let subitem of item.children">
+              <button mat-menu-item>
+                <mat-icon>dialpad</mat-icon>
+                {{ subitem.label }}
+              </button>
+            </ng-container>
+          </span>
+        </mat-menu>
+      </ng-container>
+    </div>
+    <div fxFlex></div>
+  </mat-toolbar-row>
+</mat-toolbar>

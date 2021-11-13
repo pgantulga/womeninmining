@@ -1,19 +1,17 @@
 import { MaterialModule } from './../material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShellComponent } from './shell/shell.component';
-import { ToptoolbarComponent } from './toptoolbar/toptoolbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 @NgModule({
-  declarations: [ShellComponent, ToptoolbarComponent],
+  declarations: [],
   imports: [
     CommonModule,
-    MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialModule
   ],
-  exports: [ShellComponent]
+  exports: []
 })
 export class SharedModule { }

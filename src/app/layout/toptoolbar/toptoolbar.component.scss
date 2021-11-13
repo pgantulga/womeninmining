@@ -1,5 +1,7 @@
 @import 'styles.scss';
 .top-toolbar {
   @include top-toolbar;
+  position: relative;
+
 }
 
