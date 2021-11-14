@@ -1,1 +1,14 @@
 <app-toptoolbar></app-toptoolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="over" > Sidenav content </mat-sidenav>
+  <!-- Body -->
+  <mat-sidenav-content>
+    <div fxLayout="row">
+      <div fxFlex></div>
+      <div class="container">
+        <ng-content></ng-content>
+      </div>
+      <div fxFlex></div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

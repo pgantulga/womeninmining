@@ -1,27 +1,29 @@
-
-@import '~@angular/material/theming';
-@import 'custom-palette.scss';
-@import 'typography.scss';
+@import "~@angular/material/theming";
+@import "custom-palette.scss";
+@import "typography.scss";
 @include mat-core();
 
 $womeninmining-primary: mat-palette($my-amber);
 $womeninmining-accent: mat-palette($my-brown);
 $womeninmining-warn: mat-palette($mat-red);
-$womeninmining-theme: mat-light-theme((
-  color: (
-    primary: $womeninmining-primary,
-    accent: $womeninmining-accent,
-    warn: $womeninmining-warn,
+$womeninmining-theme: mat-light-theme(
+  (
+    color: (
+      primary: $womeninmining-primary,
+      accent: $womeninmining-accent,
+      warn: $womeninmining-warn,
+    ),
   )
-));
-
+);
 
 @include angular-material-theme($womeninmining-theme);
 @include mat-base-typography($womeninmining-typography);
 @include angular-material-typography($womeninmining-typography);
 
 //Global styles
-body { margin: 0}
+body {
+  margin: 0;
+}
 @media only screen and (min-width: 1920px) {
   .container {
     width: 1110px;
@@ -50,16 +52,13 @@ body { margin: 0}
   }
 }
 
-
-
 @mixin top-toolbar {
   position: -webkit-sticky;
   position: fixed;
   background-color: mat-color($my-amber, 50);
-  .mat-button.toolbar-nav{
+  .mat-button.toolbar-nav {
     text-transform: uppercase;
     border-radius: 0;
-
   }
   .mat-button.toolbar-nav.selected {
     border-bottom: 2px solid mat-color($my-amber, 500);
@@ -67,16 +66,28 @@ body { margin: 0}
       transform: rotate(180deg);
     }
   }
+  ::ng-deep button.mat-menu-item {
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    line-height: 24px;
+    height: 48px;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    max-width: 100%;
+    position: relative;
+  }
 }
-// mat-toolbar
-// .remove-border-bottom .mat-tab-header {
-//   border-bottom: none;
-// }
-// .remove-border-bottom .mat-tab-nav-bar, .mat-tab-header {
-//   border-bottom: none;
-
-// }
-// .mat-tab-link {
-//   height: 64px !important;
-//   text-transform: uppercase;
-// }
+@mixin md-icon-size($size: 24px) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+  line-height: $size;
+  margin: 0 8px 0 0;
+}

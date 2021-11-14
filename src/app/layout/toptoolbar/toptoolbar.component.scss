@@ -2,6 +2,16 @@
 .top-toolbar {
   @include top-toolbar;
   position: relative;
-
+  .logo-button {
+    // @include md-icon-size(56px);
+    height: 61px;
+    width: 61px;
+    img {
+      height: 48px;
+      width: auto;
+      left: -6px;
+    }
+  }
 }
+
 

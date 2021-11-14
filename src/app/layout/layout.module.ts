@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShellComponent } from './shell/shell.component';
@@ -10,7 +11,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule
   ],
   exports: [
     ToptoolbarComponent, ShellComponent
