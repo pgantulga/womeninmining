@@ -15,14 +15,23 @@ $womeninmining-theme: mat-light-theme(
     ),
   )
 );
+$onSurfaceMedium: rgba(0,0,0,0.6);
+$onSurfaceHigh: rgba(0,0,0,0.87);
 
 @include angular-material-theme($womeninmining-theme);
 @include mat-base-typography($womeninmining-typography);
 @include angular-material-typography($womeninmining-typography);
 
 //Global styles
+
+html {
+  height: 100%;
+  background-color: #fff ;
+  font-size: 14px;
+}
 body {
   margin: 0;
+  background-color: #fff ;
 }
 @media only screen and (min-width: 1920px) {
   .container {
@@ -50,6 +59,15 @@ body {
     // padding-left: 8px !important;
     // padding-right: 8px !important;
   }
+}
+/***********************Typography****************************/
+
+a {
+  text-decoration: none;
+  color: $onSurfaceMedium;
+}
+a:hover {
+  cursor: pointer;
 }
 
 @mixin top-toolbar {
@@ -91,3 +109,19 @@ body {
   line-height: $size;
   margin: 0 8px 0 0;
 }
+/********************************Button styles***********************************/
+button.mat-button,
+button.mat-flat-button,
+button.mat-stroked-button {
+  border-radius: 32px;
+}
+.mat-stroked-button:not(.mat-button-disabled) {
+  border-color: inherit;
+}
+button.mat-stroked-button.primary {
+  border-color: mat-color($womeninmining-primary);
+}
+button.mat-stroked-button.accent {
+  border-color: mat-color($womeninmining-accent, 0.1);
+}
+

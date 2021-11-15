@@ -15,7 +15,8 @@ import { CommonModule } from '@angular/common';
     RouterModule
   ],
   exports: [
-    ToptoolbarComponent, ShellComponent
+    ToptoolbarComponent,
+    ShellComponent
   ]
 })
 export class LayoutModule { }

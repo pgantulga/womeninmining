@@ -1,17 +1,25 @@
 <mat-toolbar class="top-toolbar">
   <mat-toolbar-row>
     <div fxFlex></div>
-    <div class="container" fxLayout="row" fxLayoutAlign="center center">
-      <button mat-icon-button class="logo-button" [routerLink]="['/home']">
-        <img
-            src="../../../assets/toolbarLogo.jpg"
-            alt="Logo"
-          />
-      </button>
+    <div class="container" fxLayout="row" fxLayoutAlign = "space-between center" fxLayoutAlign.xs="space-between center">
+      <ng-content></ng-content>
+      <div fxFlex></div>
+      <div fxFlex fxLayoutAlign="center center">
+        <button mat-icon-button class="logo-button" [routerLink]="['/home']" >
+          <img
+              src="../../../assets/toolbarLogo.jpg"
+              alt="Logo"
+            />
+        </button>
+      </div>
+      <div fxLayout="row" fxFlex fxLayoutAlign="end center" >
+        <!-- <mat-icon class="mat-18">search</mat-icon> -->
+        <button mat-flat-button color="primary" fxHide.xs>Нэвтрэх</button>
+      </div>
     </div>
     <div fxFlex></div>
   </mat-toolbar-row>
-  <mat-toolbar-row>
+  <mat-toolbar-row fxHide.xs>
     <div fxFlex></div>
     <div class="container" fxLayout="row" fxLayoutAlign="center center">
       <ng-container *ngFor="let item of topMenus">

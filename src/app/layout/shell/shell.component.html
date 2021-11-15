@@ -1,11 +1,39 @@
-<app-toptoolbar></app-toptoolbar>
+<app-toptoolbar>
+  <button mat-icon-button (click)="drawer.open()" fxHide.gt-xs>
+    <mat-icon>menu</mat-icon>
+  </button>
+</app-toptoolbar>
 <mat-sidenav-container>
-  <mat-sidenav mode="over" > Sidenav content </mat-sidenav>
-  <!-- Body -->
+  <mat-sidenav
+    mode="over"
+    #drawer
+    class="mat-elevation-z3"
+    [attr.role]="'navigation'"
+  >
+    <div fxLayout="column" fxLayoutAlign="center start">
+      <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
+    </div>
+    <mat-nav-list fxLayout="column">
+      <a
+        mat-list-item
+        *ngFor="let item of [1, 2, 3, 4, 5]; last as last"
+        (click)="drawer.close()"
+      >
+        {{ item }}
+        <mat-divider *ngIf="!last"></mat-divider>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
   <mat-sidenav-content>
     <div fxLayout="row">
       <div fxFlex></div>
       <div class="container">
+        <div *ngIf="routeMenu" fxLayout="row" >
+          <div *ngFor="let item of routeMenu; let n = count" fxLayout="row" fxLayoutAlign = "start center">
+            <a routerLink="{{item.link}}" class="mat-caption route-menu">{{item.name}}</a>
+            <mat-icon *ngIf="count > 2">keyboard_arrow_right</mat-icon>
+          </div>
+        </div>
         <ng-content></ng-content>
       </div>
       <div fxFlex></div>
