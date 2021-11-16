@@ -1,0 +1,117 @@
+@import "styles.scss";
+@import "custom-palette.scss";
+.wrapper-hero--primary {
+  background-color: mat-color($womeninmining-accent);
+  h1 {
+    color: $onDarkSurface;
+  }
+  p.mat-body-2 {
+    color: $onDarkSurface;
+
+  }
+}
+.wrapper-hero--accent {
+  background-color: $whiteSurfaceMedium;
+  h1 {
+    color: $onSurfaceHigh;
+  }
+  p.mat-body-2 {
+    color: $onSurfaceHigh;
+  }
+}
+.wrapper-hero--red {
+  background-color: $redSurface;
+  h1 {
+    color: $onDarkSurface;
+  }
+  p.mat-body-2 {
+    color: $onDarkSurface;
+  }
+}
+.wrapper-hero-container--card {
+  width: 100%;
+  max-width: 490px;
+
+}
+.wrapper-hero-container {
+  border-radius: 32px;
+  width: 100%;
+  padding: 32px;
+  height: 500px;
+  .left-content {
+    margin: 32px 16px 32px 50px;
+    .mat-body-2 {
+      margin-bottom: 8px;
+    }
+    button.second-button {
+      margin-left: 16px;
+    }
+    .actions {
+      width: 100%;
+    }
+  }
+  .right-content {
+    .image-background {
+      img {
+        height: auto;
+      }
+    }
+  }
+
+}
+@media only screen and (max-width: 960px) and (min-width: 600px) {
+  .wrapper-hero-container {
+    padding: 24px;
+    height: 500px;
+    .left-content {
+      margin: 32px 16px 32px 16px;
+      .mat-headline {
+        color: $onDarkSurface;
+
+      }
+      .mat-body-2 {
+        margin-bottom: 8px;
+      }
+      button.second-button {
+        margin-left: 16px;
+      }
+      .actions {
+        width: 100%;
+      }
+    }
+    .right-content {
+      .image-background {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wrapper-hero-container {
+    padding: 16px;
+    height: 100%;
+    max-height: 550px;
+    .left-content {
+      margin: 32px 16px 16px 16px;
+      .mat-body-2 {
+        margin-bottom: 8px;
+      }
+      button.second-button {
+        margin-left: 16px;
+      }
+      .actions {
+        margin: 8px 0;
+        width: 100%;
+      }
+    }
+    .right-content {
+      .image-background {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

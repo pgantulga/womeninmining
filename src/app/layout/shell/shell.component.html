@@ -1,7 +1,9 @@
 <app-toptoolbar>
-  <button mat-icon-button (click)="drawer.open()" fxHide.gt-xs>
-    <mat-icon>menu</mat-icon>
-  </button>
+  <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
+    <button mat-icon-button (click)="drawer.open()" fxHide.gt-sm >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
 </app-toptoolbar>
 <mat-sidenav-container>
   <mat-sidenav
@@ -28,12 +30,12 @@
     <div fxLayout="row">
       <div fxFlex></div>
       <div class="container">
-        <div *ngIf="routeMenu" fxLayout="row" >
+        <!-- <div *ngIf="routeMenu" fxLayout="row" >
           <div *ngFor="let item of routeMenu; let n = count" fxLayout="row" fxLayoutAlign = "start center">
             <a routerLink="{{item.link}}" class="mat-caption route-menu">{{item.name}}</a>
             <mat-icon *ngIf="count > 2">keyboard_arrow_right</mat-icon>
           </div>
-        </div>
+        </div> -->
         <ng-content></ng-content>
       </div>
       <div fxFlex></div>

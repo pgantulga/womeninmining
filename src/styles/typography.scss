@@ -13,8 +13,9 @@
 
 // angular material - figma adaption
 // h1 - h3
-// h2 - h5
-// h3 - h6
+// h2 - h4
+// h3 - h5
+// h4 - h6
 //body 1 - body 1
 //body 2 - body 2
 //button -button
@@ -22,7 +23,8 @@
 $womeninmining-typography: mat-typography-config(
   $font-family: "Fira Sans, sans-serif",
   $headline: mat-typography-level(48px, 56px, 600),
-  $title: mat-typography-level(24px, 24px, 600),
+  $title: mat-typography-level(34px, 36px, 600),
+  $subheading-1: mat-typography-level(24px, 28px, 500),
   $subheading-2: mat-typography-level(20px, 24px, 500),
   $body-1: mat-typography-level(16px, 24px, 500),
   $body-2: mat-typography-level(14px, 20px, 400),

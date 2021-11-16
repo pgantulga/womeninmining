@@ -17,6 +17,10 @@ $womeninmining-theme: mat-light-theme(
 );
 $onSurfaceMedium: rgba(0,0,0,0.6);
 $onSurfaceHigh: rgba(0,0,0,0.87);
+$onDarkSurface: rgba(255,255,255);
+
+$whiteSurfaceMedium: #fafafa;
+$redSurface: #B00020;
 
 @include angular-material-theme($womeninmining-theme);
 @include mat-base-typography($womeninmining-typography);
@@ -48,16 +52,16 @@ body {
   .container {
     width: 945px;
     box-sizing: border-box;
-    // padding-left: 8px !important;
-    // padding-right: 8px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
   }
 }
 @media only screen and (max-width: 960px) {
   .container {
     width: 100%;
-    // box-sizing: border-box;
-    // padding-left: 8px !important;
-    // padding-right: 8px !important;
+    box-sizing: border-box;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
   }
 }
 /***********************Typography****************************/
@@ -68,6 +72,25 @@ a {
 }
 a:hover {
   cursor: pointer;
+}
+.mat-headline {
+  margin-bottom: 8px;
+}
+
+.divider {
+  background-color: mat-color($womeninmining-primary);
+  width: 40px;
+  height: 6px;
+  margin: 16px 0;
+  border-radius: 8px;
+
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: mat-font-size($womeninmining-typography, title);
+    line-height: 36px;
+  }
 }
 
 @mixin top-toolbar {

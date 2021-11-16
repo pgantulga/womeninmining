@@ -30,7 +30,7 @@ export class ShellComponent implements OnInit {
 
   }
 
-  getRouteMenu (route) {
+  getRouteMenu(route): any {
     return this.routeService.getRouteMenu(route)
   }
 

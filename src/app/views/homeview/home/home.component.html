@@ -1,0 +1,7 @@
+<div fxLayout="column" class="cards-container" fxLayout.gt-xs="row">
+  <wrapper-card
+    *ngFor="let item of cardContents"
+    fxFlex
+    [content]="item"
+  ></wrapper-card>
+</div>

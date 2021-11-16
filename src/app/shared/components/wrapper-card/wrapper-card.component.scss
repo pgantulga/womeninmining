@@ -1,0 +1,80 @@
+@import "styles.scss";
+@import "custom-palette.scss";
+.wrapper-card--primary {
+  background-color: mat-color($womeninmining-accent);
+  h1 {
+    color: $onDarkSurface;
+  }
+  p.mat-body-2 {
+    color: $onDarkSurface;
+
+  }
+}
+.wrapper-card--accent {
+  background-color: $whiteSurfaceMedium;
+  h1 {
+    color: $onSurfaceHigh;
+  }
+  p.mat-body-2 {
+    color: $onSurfaceHigh;
+  }
+}
+.wrapper-card--red {
+  background-color: $redSurface;
+  h1 {
+    color: $onDarkSurface;
+  }
+  p.mat-body-2 {
+    color: $onDarkSurface;
+  }
+}
+
+.wrapper-card-container {
+  border-radius: 32px;
+  width: 100%;
+  padding: 32px;
+  height: 650px;
+  .top-content {
+    margin: 26px 16px 16px 16px;
+    h1 {
+      text-align: center;
+    }
+    .mat-body-2 {
+      margin-bottom: 8px;
+      text-align: center;
+
+    }
+    .actions {
+      margin: 8px 0;
+      width: 100%;
+    }
+  }
+  .bottom-content {
+    .image-background {
+      img {
+        height: auto;
+      }
+    }
+  }
+
+}
+@media only screen and (max-width: 600px) {
+  .wrapper-card-container {
+    padding: 16px;
+    height: 100%;
+    max-height: 650px;
+    .top-content {
+      margin: 32px 16px 16px 16px;
+      .mat-body-2 {
+        margin-bottom: 8px;
+      }
+
+    }
+    .bottom-content {
+      img {
+        width: 100%;
+      }
+
+    }
+  }
+}

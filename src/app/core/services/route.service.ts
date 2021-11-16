@@ -8,7 +8,7 @@ export class RouteService {
   constructor() { }
 
   getCurrentRoute(url) {
-    if(url.includes('home') || url ==='/') {
+    if(url.includes('home') || url === '/') {
       return 'home'
     }
   }
