@@ -1,9 +1,11 @@
 @import 'styles.scss';
 .top-toolbar {
   @include top-toolbar;
+  top: 0;
+  visibility: visible;
+  transition: top 0.3s ease;
   position: relative;
   .logo-button {
-    // @include md-icon-size(56px);
     height: 61px;
     width: 61px;
     img {
@@ -12,6 +14,14 @@
       left: -6px;
     }
   }
+}
+.on-scroll {
+  top: -114px;
+  transition: top 0.3s ease;
+}
+
+.no-scroll {
+  @include mat-elevation(0);
 }
 
 

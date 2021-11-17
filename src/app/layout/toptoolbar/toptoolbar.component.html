@@ -1,19 +1,26 @@
-<mat-toolbar class="top-toolbar">
-  <mat-toolbar-row style="padding: 0;">
+<mat-toolbar
+  class="top-toolbar"
+  [class.no-scroll]="isOnTop"
+  cdkScrollable
+  [class.on-scroll]="hideToolbar"
+>
+  <mat-toolbar-row style="padding: 0">
     <div fxFlex></div>
-    <div class="container" fxLayout="row" fxLayoutAlign = "space-between center" fxLayoutAlign.xs="space-between center">
-      <ng-content ></ng-content>
+    <div
+      class="container"
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+      fxLayoutAlign.xs="space-between center"
+    >
+      <ng-content></ng-content>
       <div fxFlex fxLayoutAlign="center center">
-        <button mat-icon-button class="logo-button" [routerLink]="['/home']" >
-          <img
-              src="../../../assets/toolbarLogo.jpg"
-              alt="Logo"
-            />
+        <button mat-icon-button class="logo-button" [routerLink]="['/home']">
+          <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
         </button>
       </div>
-      <div fxLayout="row" fxFlex fxLayoutAlign="end center" >
+      <div fxLayout="row" fxFlex fxLayoutAlign="end center">
         <button mat-icon-button fxHide.gt-sm>
-          <mat-icon >search</mat-icon>
+          <mat-icon>search</mat-icon>
         </button>
         <button mat-flat-button color="primary" fxHide.xs>Нэвтрэх</button>
       </div>
@@ -23,7 +30,7 @@
   <mat-toolbar-row fxHide.xs="" fxHide.sm="">
     <div fxFlex></div>
     <div class="container" fxLayout="row" fxLayoutAlign="center center">
-      <ng-container *ngFor="let item of topMenus">
+      <!-- <ng-container *ngFor="let item of topMenus">
         <button
           mat-button
           #button
@@ -41,7 +48,7 @@
         <mat-menu #menu="matMenu" direction="down" yPosition="below">
           <span (mouseenter)="menuenter()">
             <ng-container *ngFor="let subitem of item.children">
-              <button mat-menu-item fxLayout="row" fxLayoutAlign="start center" >
+              <button mat-menu-item fxLayout="row" fxLayoutAlign="start center">
                 <mat-icon>diamond</mat-icon>
                 <div fxLayout="column">
                   <span class="mat-body-1">{{ subitem.label }}</span>
@@ -52,7 +59,7 @@
             </ng-container>
           </span>
         </mat-menu>
-      </ng-container>
+      </ng-container> -->
     </div>
     <div fxFlex></div>
   </mat-toolbar-row>

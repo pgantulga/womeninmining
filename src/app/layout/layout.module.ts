@@ -5,6 +5,8 @@ import { ShellComponent } from './shell/shell.component';
 import { ToptoolbarComponent } from './toptoolbar/toptoolbar.component';
 import { MaterialModule } from './../material/material.module';
 import { CommonModule } from '@angular/common';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+
 
 @NgModule({
   declarations: [ToptoolbarComponent, ShellComponent],
@@ -12,7 +14,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
-    RouterModule
+    RouterModule,
+    ScrollingModule,
   ],
   exports: [
     ToptoolbarComponent,

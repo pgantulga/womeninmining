@@ -31,7 +31,6 @@ $redSurface: #B00020;
 html {
   height: 100%;
   background-color: #fff ;
-  font-size: 14px;
 }
 body {
   margin: 0;
@@ -92,11 +91,23 @@ a:hover {
     line-height: 36px;
   }
 }
-
+// @mixin top-toolbar {
+//   position: -webkit-sticky;
+//   position: fixed;
+//   /* Sets the sticky toolbar to be on top */
+//   z-index: 5; /* Ensure that your app's content doesn't overlap the toolbar */
+//   background-color: mat-color($my-grey, 500);
+//   @include mat-elevation(2);
+//   .mat-toolbar-row {
+//     padding: 0;
+//   }
+// }
 @mixin top-toolbar {
   position: -webkit-sticky;
   position: fixed;
   background-color: mat-color($my-amber, 50);
+  z-index: 5; /* Ensure that your app's content doesn't overlap the toolbar */
+  @include mat-elevation(2);
   .mat-button.toolbar-nav {
     text-transform: uppercase;
     border-radius: 0;
