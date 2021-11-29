@@ -22,6 +22,9 @@ export class RouteService {
     if (url.includes('profile-settings')) {
       return 'profile-settings';
     }
+    if (url.includes('admin')) {
+      return 'admin';
+    }
   }
   getRouteMenu(route): any {
     switch (route) {

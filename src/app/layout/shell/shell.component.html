@@ -1,4 +1,4 @@
-<toptoolbar *ngIf="!layout?.layout3">
+<toptoolbar *ngIf="layout.layout1">
   <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
     <button mat-icon-button (click)="drawer.open()" fxHide.gt-sm >
       <mat-icon>menu</mat-icon>
@@ -7,7 +7,8 @@
 </toptoolbar>
 <mat-sidenav-container>
   <mat-sidenav
-    mode="over"
+    [mode] = "currentRoute === 'admin' ? 'side' : 'over'"
+    [opened]="currentRoute === 'admin'"
     #drawer
     class="mat-elevation-z3"
     [attr.role]="'navigation'"
@@ -15,11 +16,12 @@
     <div fxLayout="column" fxLayoutAlign="center start">
       <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
     </div>
-    <mat-nav-list fxLayout="column">
+    <mat-nav-list fxLayout="column" *>
       <a
         mat-list-item
-        *ngFor="let item of [1, 2, 3, 4, 5]; last as last"
+        *ngFor="let item of sideMenu; last as last"
         (click)="drawer.close()"
+        routerLink="{{item.link}}"
       >
         {{ item }}
         <mat-divider *ngIf="!last"></mat-divider>
@@ -27,7 +29,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div fxLayout="row" [class.layout-three] ="layout.layout3">
+    <div fxLayout="row" [class.layout-three] ="layout.layout3" [class.layout-four] ="layout.layout4">
       <div fxFlex></div>
       <div class="container">
         <!-- <div *ngIf="routeMenu" fxLayout="row" >
