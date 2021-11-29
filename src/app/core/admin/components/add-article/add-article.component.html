@@ -1,0 +1,19 @@
+<div class="sheet-medium" fxLayout="column">
+  <form (ngSubmit)="onSubmit()">
+    <h3>Article add</h3>
+    <mat-form-field appearance="outline" color="primary" [floatLabel]="'never'" style="padding: 0;">
+      <mat-label>Title</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Title"
+        [formControl]="title"
+        required
+      />
+      <mat-error *ngIf="title.touched">{{
+        getErrorMessage()
+      }}</mat-error>
+    </mat-form-field>
+
+  </form>
+</div>

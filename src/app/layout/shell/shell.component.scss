@@ -1,4 +1,4 @@
-@import 'styles.scss';
+@import "styles.scss";
 .mat-drawer-container {
   background-color: #ffffff;
 }
@@ -9,7 +9,14 @@ mat-sidenav {
   width: 250px;
   position: absolute;
   top: 0;
+  .sidenav-logo-container {
+    height: 100px;
+  }
+  .mat-list-base .mat-list-item {
+    font-size: 16px;
+  }
 }
+
 /*---------------------------Layouts---------------------------------*/
 .mat-sidenav-content-container {
   padding-top: 80px;
@@ -25,7 +32,7 @@ mat-sidenav {
   height: 100vh;
 }
 .layout-four {
+  padding-top: 8px;
   background-color: mat-color($womeninmining-primary);
   height: 100vh;
 }
-

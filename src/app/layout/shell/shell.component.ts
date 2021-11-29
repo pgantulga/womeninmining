@@ -40,7 +40,7 @@ export class ShellComponent implements OnInit {
         this.currentRoute = this.routeService.getCurrentRoute(e.url);
         this.routeMenu = this.routeService.getRouteMenu(this.currentRoute);
         this.layout = this.routeService.getLayout(this.currentRoute);
-        this.sideMenu = (this.currentRoute === 'admin') ? this.menuService.adminMenu: [1,2,3,3,4];
+        this.sideMenu = (this.currentRoute === 'admin') ? this.menuService.adminMenu : [1,2,3,3,4];
         console.log('Current route:', this.currentRoute);
         console.log('Current layout:', this.layout);
       });

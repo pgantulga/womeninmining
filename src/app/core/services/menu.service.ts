@@ -14,6 +14,10 @@ export class MenuService {
     {
       name: 'Articles',
       link: '/admin/articles'
+    },
+    {
+      name: 'Menu',
+      link: '/admin/articles'
     }
-  ]
+  ];
 }

@@ -15,12 +15,12 @@ $womeninmining-theme: mat-light-theme(
     ),
   )
 );
-$onSurfaceMedium: rgba(0,0,0,0.6);
-$onSurfaceHigh: rgba(0,0,0,0.87);
-$onDarkSurface: rgba(255,255,255);
+$onSurfaceMedium: rgba(0, 0, 0, 0.6);
+$onSurfaceHigh: rgba(0, 0, 0, 0.87);
+$onDarkSurface: rgba(255, 255, 255);
 
 $whiteSurfaceMedium: #fafafa;
-$redSurface: #B00020;
+$redSurface: #b00020;
 
 @include angular-material-theme($womeninmining-theme);
 @include mat-base-typography($womeninmining-typography);
@@ -30,11 +30,11 @@ $redSurface: #B00020;
 
 html {
   height: 100%;
-  background-color: #fff ;
+  background-color: #fff;
 }
 body {
   margin: 0;
-  background-color: #fff ;
+  background-color: #fff;
 }
 @media only screen and (min-width: 1920px) {
   .container {
@@ -82,7 +82,6 @@ a:hover {
   height: 6px;
   margin: 16px 0;
   border-radius: 8px;
-
 }
 
 @media only screen and (max-width: 600px) {
@@ -185,3 +184,50 @@ button.mat-flat-button.primary {
   -webkit-text-fill-color: transparent;
 }
 
+/***************************Shared styles*********************************/
+
+.sheet-medium {
+  background-color: $whiteSurfaceMedium;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+
+/************************Quill custom styles***********************************/
+
+/*********************************ql-editor styles********************************/
+
+.ql-container {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  height: 100%;
+  margin: 0px;
+}
+.ql-editor {
+  padding: 16px 8px 0px 8px;
+  p {
+    text-align: justify;
+  text-align-last: left;
+  }
+  line-height: inherit;
+  color: inherit;
+}
+
+.ql-snow .ql-editor img {
+  margin: 8px 0;
+}
+
+.ql-snow .ql-editor blockquote {
+  border-left: 4px solid mat-color($womeninmining-primary);
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 16px;
+}
+
+quill-editor.answer .ql-editor {
+  height: 150px;
+}
+.ql-video {
+  max-width: 100%;
+}
