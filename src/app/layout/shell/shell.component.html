@@ -1,10 +1,10 @@
-<app-toptoolbar>
+<toptoolbar *ngIf="!layout?.layout3">
   <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
     <button mat-icon-button (click)="drawer.open()" fxHide.gt-sm >
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-</app-toptoolbar>
+</toptoolbar>
 <mat-sidenav-container>
   <mat-sidenav
     mode="over"
@@ -27,7 +27,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div fxLayout="row">
+    <div fxLayout="row" [class.layout-three] ="layout.layout3">
       <div fxFlex></div>
       <div class="container">
         <!-- <div *ngIf="routeMenu" fxLayout="row" >

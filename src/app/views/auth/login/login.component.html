@@ -1,0 +1,32 @@
+<div class="layout3-container" fxLayout="row" fxLayoutAlign="center center">
+  <div class="login-card-container" fxLayout="row" fxLayout.xs="column">
+    <div fxLayout="column" fxFlex class="left-content">
+      <button mat-icon-button id="button_back" (click)="back()">
+        <mat-icon class="mat-18">arrow_back</mat-icon>
+      </button>
+      <div class="logo">
+        <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
+      </div>
+      <h3>Нэвтрэх</h3>
+      <p class="mat-body-2">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+      <div fxLayout="column" class="actions">
+        <button
+          mat-button
+          color="primary"
+          class="google-login"
+          (click)="googleLogin()"
+        >
+          <i class="fab fa-google fa-2x"></i>
+          Sign in with Google
+        </button>
+        <!-- <button mat-stroked-button color="primary">Facebook login</button> -->
+      </div>
+      <p class="mat-caption bottom-text">Үйлчлгээний нөхцөл</p>
+    </div>
+    <div fxLayout="column" fxFlex class="right-content" fxHide.xs="">
+      <img src="../../../../assets/images/login_wallpaper.jpg" alt="" />
+    </div>
+  </div>
+</div>

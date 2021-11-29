@@ -1,4 +1,4 @@
-import { RouteService } from './../../core/services/route.service';
+import { RouteService, Layout } from './../../core/services/route.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -13,11 +13,13 @@ import { filter, map, switchMap } from 'rxjs/operators';
 export class ShellComponent implements OnInit {
   currentRoute: string;
   routeMenu: any[];
+  layout: Layout;
   constructor(
     private router: Router,
     private routeService: RouteService
   ) {
-
+    this.currentRoute = this.routeService.getCurrentRoute(this.router.url);
+    this.layout = this.routeService.getLayout(this.currentRoute);
   }
 
   ngOnInit(): void {
@@ -26,6 +28,8 @@ export class ShellComponent implements OnInit {
       .subscribe((e: any) => {
         this.currentRoute = this.routeService.getCurrentRoute(e.url);
         this.routeMenu = this.routeService.getRouteMenu(this.currentRoute);
+        this.layout = this.routeService.getLayout(this.currentRoute);
+        console.log('Current route:', this.currentRoute);
       });
 
   }

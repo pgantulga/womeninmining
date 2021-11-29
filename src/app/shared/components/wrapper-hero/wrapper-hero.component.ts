@@ -4,6 +4,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 
 export interface WrapperContent {
+  subtitle: string;
   title: string;
   actionButton_1: {
     link: string;

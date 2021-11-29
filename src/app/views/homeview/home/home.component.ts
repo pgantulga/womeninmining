@@ -10,8 +10,10 @@ export class HomeComponent implements OnInit {
 
   heroContent: WrapperContent;
   cardContents: WrapperContent[];
+  accountCard: WrapperContent;
   constructor() {
     this.heroContent = {
+      subtitle: '',
       title: 'Эрдэс баялаг эмэгтэйчүүдийн чуулган',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
       actionButton_1: {
@@ -29,6 +31,7 @@ export class HomeComponent implements OnInit {
     };
     this.cardContents = [
       {
+        subtitle: '',
         title: 'Жишиг өөрчилсөн түүх',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
         actionButton_1: {
@@ -45,6 +48,7 @@ export class HomeComponent implements OnInit {
         type: 'card'
       },
       {
+        subtitle: '',
         title: 'Хүний эрх жендэрийн сургалт',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
         actionButton_1: {
@@ -61,8 +65,24 @@ export class HomeComponent implements OnInit {
         type: 'card'
       },
     ];
+    this.accountCard = {
+      subtitle: 'Сайн байна уу,',
+      title: 'Туяа',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
+      actionButton_1: {
+        label: 'Түүхээ хуваалцая',
+        link: ''
+      },
+      actionButton_2: {
+        label: 'Танилцуулга',
+        link: ''
+      },
+      imageUrl: '../../../../assets/images/hero_image_conference_big.png',
+      imageUrl_small: '../../../../assets/images/hero_image_conference_small.png',
+      style: 'primary',
+      type: 'hero'
+    };
   }
-  ngOnInit(): void {
+    ngOnInit(): void {
+    }
   }
-
-}

@@ -1,0 +1,59 @@
+@import '../wrapper-hero/wrapper-hero.component.scss';
+
+.wrapper-hero-container {
+  height: 350px;
+  .left-content {
+    margin: 16px 32px;
+    h1 {
+      margin: 0;
+    }
+    .mat-body-2 {
+      margin-bottom: 8px;
+    }
+  }
+  .right-content {
+    .image-background {
+      img {
+        height: auto;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 960px) and (min-width: 600px) {
+  .wrapper-hero-container {
+    padding: 24px;
+    height: 350px;
+    .left-content {
+      margin: 16px 32px;
+      .mat-headline {
+        color: $onDarkSurface;
+      }
+      .mat-body-2 {
+        margin-bottom: 8px;
+      }
+    }
+    .right-content {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wrapper-hero-container {
+    padding: 16px;
+    height: 100%;
+    max-height: 250px;
+    .left-content {
+      margin: 24px 16px;
+      .mat-body-2 {
+        margin-bottom: 8px;
+      }
+    }
+    .right-content {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

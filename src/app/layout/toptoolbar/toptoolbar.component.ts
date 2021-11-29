@@ -1,8 +1,11 @@
+import { ActionDialogComponent } from './../../shared/components/action-dialog/action-dialog.component';
+import { AuthService } from './../../core/services/auth.service';
 import { MenuList } from './../top-menus';
 import { Component, OnInit, ViewChild, Renderer2, NgZone } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { CdkScrollable, ScrollDispatcher } from '@angular/cdk/scrolling';
+import { MatDialog } from '@angular/material/dialog';
 
 
 export interface Menu {
@@ -11,7 +14,8 @@ export interface Menu {
 }
 
 @Component({
-  selector: 'app-toptoolbar',
+  // tslint:disable-next-line: component-selector
+  selector: 'toptoolbar',
   templateUrl: './toptoolbar.component.html',
   styleUrls: ['./toptoolbar.component.scss']
 })
@@ -28,7 +32,9 @@ export class ToptoolbarComponent implements OnInit {
 
   constructor(
     public scrollDispatcher: ScrollDispatcher,
-    private zone: NgZone,
+    public authService: AuthService,
+    public dialog: MatDialog,
+
 
   ) {
     this.topMenus = MenuList;
@@ -39,10 +45,10 @@ export class ToptoolbarComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.scrollDispatcher.scrolled().subscribe((event: CdkScrollable) => {
-      console.log(event);
-      // this.scrollable(event);
-    });
+    // this.scrollDispatcher.scrolled().subscribe((event: CdkScrollable) => {
+    //   // console.log(event);
+    //   // this.scrollable(event);
+    // });
   }
   expand(link, menuTrigger): void {
     this.activeLink = link;
@@ -70,7 +76,7 @@ export class ToptoolbarComponent implements OnInit {
     }, 100);
   }
   buttonLeave(trigger): void {
-    console.log('button leave');
+    // console.log('button leave');
     this.activeLink = null;
     setTimeout(() => {
       if (this.enteredButton && !this.isMenuOpen) {
@@ -85,7 +91,7 @@ export class ToptoolbarComponent implements OnInit {
   }
 
   menuenter(): void {
-    console.log('menu enter 1');
+    // console.log('menu enter 1');
     this.isMenuOpen = true;
     if (this.isMenu2Open) {
       this.isMenu2Open = false;
@@ -95,25 +101,25 @@ export class ToptoolbarComponent implements OnInit {
     console.log('menu enter 2');
     this.isMenu2Open = true;
   }
-  scrollable(ev): void {
-    console.log(ev);
-    const scroll = ev.measureScrollOffset('top');
-    let newIsOnTop: boolean = this.isOnTop;
-    newIsOnTop = !(scroll > 0);
-    if (newIsOnTop !== this.isOnTop) {
-        this.zone.run(() => {
-            this.isOnTop = newIsOnTop;
-        });
-    }
-    if (this.preScrollPos < scroll && this.preScrollPos > 0) {
-        this.zone.run(() => {
-            this.hideToolbar = true;
-        });
-    } else {
-        this.zone.run(() => {
-            this.hideToolbar = false;
-        });
-    }
-    this.preScrollPos = scroll;
-}
+//   scrollable(ev): void {
+//     // console.log(ev);
+//     const scroll = ev.measureScrollOffset('top');
+//     let newIsOnTop: boolean = this.isOnTop;
+//     newIsOnTop = !(scroll > 0);
+//     if (newIsOnTop !== this.isOnTop) {
+//         this.zone.run(() => {
+//             this.isOnTop = newIsOnTop;
+//         });
+//     }
+//     if (this.preScrollPos < scroll && this.preScrollPos > 0) {
+//         this.zone.run(() => {
+//             this.hideToolbar = true;
+//         });
+//     } else {
+//         this.zone.run(() => {
+//             this.hideToolbar = false;
+//         });
+//     }
+//     this.preScrollPos = scroll;
+// }
 }

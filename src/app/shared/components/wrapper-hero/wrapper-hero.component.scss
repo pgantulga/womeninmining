@@ -2,6 +2,9 @@
 @import "custom-palette.scss";
 .wrapper-hero--primary {
   background-color: mat-color($womeninmining-accent);
+  .mat-subheading-2 {
+    color: $onDarkSurface;
+  }
   h1 {
     color: $onDarkSurface;
   }
@@ -12,6 +15,9 @@
 }
 .wrapper-hero--accent {
   background-color: $whiteSurfaceMedium;
+  .mat-subheading-2 {
+    color: $onSurfaceHigh;
+  }
   h1 {
     color: $onSurfaceHigh;
   }
@@ -21,6 +27,9 @@
 }
 .wrapper-hero--red {
   background-color: $redSurface;
+  .mat-subheading-2 {
+    color: $onDarkSurface;
+  }
   h1 {
     color: $onDarkSurface;
   }
@@ -40,6 +49,9 @@
   height: 500px;
   .left-content {
     margin: 32px 16px 32px 50px;
+    .mat-subheading-2 {
+      margin: 0;
+    }
     .mat-body-2 {
       margin-bottom: 8px;
     }

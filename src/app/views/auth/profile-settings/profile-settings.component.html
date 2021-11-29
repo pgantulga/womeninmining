@@ -1,0 +1,10 @@
+<ng-container *ngIf="authService.user$ | async as user">
+  <user-avatar *ngIf="user" [user]="user"></user-avatar>
+</ng-container>
+<div class="settings-container" fxLayout="column">
+  <h3>Хэрэглэгчийн тохиргоо</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet fugiat pariatur omnis quaerat quod hic ipsam atque perspiciatis est. Fuga.</p>
+  <div class="actions" fxLayout="row" fxLayoutAlign="center end">
+    <button mat-flat-button color="primary" (click)="signOut()">Системээс гарах</button>
+  </div>
+</div>

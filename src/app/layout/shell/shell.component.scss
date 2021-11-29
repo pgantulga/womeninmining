@@ -1,3 +1,4 @@
+@import 'styles.scss';
 .mat-drawer-container {
   background-color: #ffffff;
 }
@@ -7,17 +8,19 @@ mat-sidenav-container {
 mat-sidenav {
   width: 250px;
   position: absolute;
-  top: 0
+  top: 0;
 }
 /*---------------------------Layouts---------------------------------*/
-  .mat-sidenav-content-container {
-      padding-top: 80px;
-  }
+.mat-sidenav-content-container {
+  padding-top: 80px;
+}
 
-// .layout-one {
-//   margin-top: 8px;
-//   min-height: calc(100vh - 200px);
-//   .mat-sidenav-content-container {
-//       padding-top: 80px;
-//   }
-// }
+.layout-one {
+  min-height: calc(100vh - 200px);
+  background-color: red;
+}
+
+.layout-three {
+  background-color: mat-color($womeninmining-primary);
+  height: 100vh;
+}

@@ -1,0 +1,49 @@
+@import '../title-wrapper/title-wrapper.component.scss';
+
+.wrapper-hero--primary {
+  background-color: mat-color($womeninmining-accent);
+  h1 {
+    color: mat-color($womeninmining-primary);
+  }
+}
+.wrapper-hero--accent {
+  background-color: $whiteSurfaceMedium;
+  h1 {
+    color: mat-color($womeninmining-primary);
+  }
+}
+.wrapper-hero--red {
+  background-color: $redSurface;
+  h1 {
+    color: mat-color($womeninmining-primary);
+  }
+}
+.wrapper-hero-container--card {
+  width: 100%;
+  max-width: 490px;
+}
+
+.wrapper-hero-container {
+  height: 300px;
+  .left-content {
+    margin: 16px 32px;
+    h1 {
+      margin: 0 0 16px 0;
+    }
+    .mat-body-2 {
+      margin-bottom: 8px;
+    }
+  }
+  .right-content {
+    .image-background {
+      img {
+        height: auto;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wrapper-hero-container {
+    max-height: 275px;
+  }
+}

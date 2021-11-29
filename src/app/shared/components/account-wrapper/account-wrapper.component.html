@@ -1,13 +1,11 @@
 <div
   class="wrapper-hero-container"
   [ngClass]="{
-    'wrapper-hero-container--card': content.type === 'card',
     'wrapper-hero--primary': isPrimary,
     'wrapper-hero--accent': isAccent,
     'wrapper-hero--red': isRed
   }"
-  fxLayout="column"
-  fxLayout.gt-xs="row"
+  fxLayout="row"
 >
   <div
     class="left-content"
@@ -16,8 +14,8 @@
     fxFlex
   >
     <div fxLayout="column">
-      <h1>{{ content.title }}</h1>
-      <div class="divider"></div>
+      <p class="mat-subheading-2">{{content.subtitle}}</p>
+      <h1>{{content.title}}</h1>
       <p class="mat-body-2">
         {{ content.description }}
       </p>
@@ -28,19 +26,10 @@
       fxLayoutAlign="start center"
       fxLayoutAlign.xs="center center"
     >
-      <button mat-flat-button color="primary">
-        {{ content.actionButton_1.label }}
-      </button>
+      <button mat-flat-button color="primary">Түүхээ хуваалцая</button>
     </div>
   </div>
-  <div class="right-content" fxFlex>
-    <div
-      class="image-background"
-      fxFlex
-      fxLayout="row"
-      fxLayoutAlign="center start"
-    >
-      <img [src]="wrapperImageUrl" />
-    </div>
+  <div class="right-content" fxHide.xs fxFlex>
+    <img [src]="content.imageUrl_small" />
   </div>
 </div>
