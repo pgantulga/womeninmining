@@ -1,6 +1,9 @@
 @import "~@angular/material/theming";
 @import "custom-palette.scss";
 @import "typography.scss";
+@import "~quill/dist/quill.bubble";
+@import "~quill/dist/quill.core";
+@import "~quill/dist/quill.snow";
 @include mat-core();
 
 $womeninmining-primary: mat-palette($my-amber);
@@ -195,7 +198,6 @@ button.mat-flat-button.primary {
 
 /************************Quill custom styles***********************************/
 
-/*********************************ql-editor styles********************************/
 
 .ql-container {
   box-sizing: border-box;

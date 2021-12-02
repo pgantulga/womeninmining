@@ -1,3 +1,7 @@
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogData, ActionDialogComponent } from './../../../../shared/components/action-dialog/action-dialog.component';
+import { config } from './../../../../shared/quill-config';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -7,8 +11,14 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./add-article.component.scss']
 })
 export class AddArticleComponent implements OnInit {
+  config: any;
   title = new FormControl('', [Validators.required, Validators.maxLength(100)]);
-  constructor() { }
+  content = new FormControl('', [
+    Validators.minLength(150)
+  ]);
+  constructor(private dialog: MatDialog, private router: Router) {
+    this.config = config;
+  }
 
   ngOnInit(): void {
   }
@@ -20,5 +30,19 @@ export class AddArticleComponent implements OnInit {
   }
   onSubmit() {
 
+  }
+  cancel(url): void {
+    const dialogData = {
+      title: 'Are you sure to cancel?',
+      content: 'Your changes will not be saved.'
+    };
+    this.dialog.open(ActionDialogComponent, { data: dialogData })
+      .afterClosed().subscribe( result => {
+        if (result) {
+          this.title.setValue(null);
+          this.content.setValue(null);
+          return this.router.navigate([url])
+        }
+      })
   }
 }

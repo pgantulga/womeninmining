@@ -1,6 +1,7 @@
 <div class="sheet-medium" fxLayout="column">
   <form (ngSubmit)="onSubmit()">
     <h3>Article add</h3>
+    <p class="mat-body-2">Title</p>
     <mat-form-field appearance="outline" color="primary" [floatLabel]="'never'" style="padding: 0;">
       <mat-label>Title</mat-label>
       <input
@@ -14,6 +15,18 @@
         getErrorMessage()
       }}</mat-error>
     </mat-form-field>
-
+    <p class="mat-body-2">Content</p>
+    <quill-editor
+        [formControl]="content"
+        [modules]="config"
+        [styles]="{ height: '300px' }"
+        required
+        [placeholder]="'Агуулга бичих ...'"
+      ></quill-editor>
+      <mat-hint class="mat-caption">Агуулгын доод урт 300 тэмдэгт</mat-hint>
   </form>
+  <div class="actions" fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="8px">
+    <button mat-button color="primary" (click)="cancel('/admin/articles')">Cancel</button>
+    <button mat-flat-button color="primary" type="submit">Save</button>
+  </div>
 </div>

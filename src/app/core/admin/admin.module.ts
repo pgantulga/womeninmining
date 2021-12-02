@@ -8,6 +8,7 @@ import { AdminArticlesComponent } from './components/admin-articles/admin-articl
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AddArticleComponent } from './components/add-article/add-article.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    QuillModule.forRoot(),
+
   ]
 })
 export class AdminModule { }
