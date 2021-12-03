@@ -1,0 +1,15 @@
+@import "styles";
+
+mat-chip {
+  @include chip-tag();
+  .accent {
+    background-color: mat-color($womeninmining-accent);
+  }
+  .primary {
+    background-color: mat-color($womeninmining-primary);
+  }
+  .red {
+    background-color: mat-color($womeninmining-warn);
+  }
+
+}

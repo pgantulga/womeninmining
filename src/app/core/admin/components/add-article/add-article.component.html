@@ -2,7 +2,12 @@
   <form (ngSubmit)="onSubmit()">
     <h3>Article add</h3>
     <p class="mat-body-2">Title</p>
-    <mat-form-field appearance="outline" color="primary" [floatLabel]="'never'" style="padding: 0;">
+    <mat-form-field
+      appearance="outline"
+      color="primary"
+      [floatLabel]="'never'"
+      style="padding: 0"
+    >
       <mat-label>Title</mat-label>
       <input
         type="text"
@@ -11,22 +16,36 @@
         [formControl]="title"
         required
       />
-      <mat-error *ngIf="title.touched">{{
-        getErrorMessage()
-      }}</mat-error>
+      <mat-error *ngIf="title.touched">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <p class="mat-body-2">Content type</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Content type</mat-label>
+      <mat-select>
+        <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option> -->
+      </mat-select>
     </mat-form-field>
     <p class="mat-body-2">Content</p>
     <quill-editor
-        [formControl]="content"
-        [modules]="config"
-        [styles]="{ height: '300px' }"
-        required
-        [placeholder]="'Агуулга бичих ...'"
-      ></quill-editor>
-      <mat-hint class="mat-caption">Агуулгын доод урт 300 тэмдэгт</mat-hint>
+      [formControl]="content"
+      [modules]="config"
+      [styles]="{ height: '300px' }"
+      required
+      [placeholder]="'Агуулга бичих ...'"
+    ></quill-editor>
+    <mat-hint class="mat-caption">Агуулгын доод урт 300 тэмдэгт</mat-hint>
+    <div
+      class="actions"
+      fxLayout="row"
+      fxLayoutAlign="end end"
+      fxLayoutGap="8px"
+    >
+      <button mat-button color="primary" (click)="cancel('/admin/articles')">
+        Cancel
+      </button>
+      <button mat-flat-button color="primary" type="submit">Save</button>
+    </div>
   </form>
-  <div class="actions" fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="8px">
-    <button mat-button color="primary" (click)="cancel('/admin/articles')">Cancel</button>
-    <button mat-flat-button color="primary" type="submit">Save</button>
-  </div>
 </div>

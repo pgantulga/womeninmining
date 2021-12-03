@@ -2,6 +2,23 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+export interface Type {
+  news: boolean;
+  blog: boolean;
+  story: boolean
+}
+export interface Author {
+  uid: string;
+  displayName: string
+}
+export interface Article {
+  title: string;
+  content: any;
+  createdAt: Date;
+  author: Author;
+  type: Type
+}
+
 @Injectable({
   providedIn: 'root'
 })

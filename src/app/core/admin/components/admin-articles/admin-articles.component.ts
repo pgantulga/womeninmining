@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { ArticleService, Article } from './../../../services/article.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-articles.component.scss']
 })
 export class AdminArticlesComponent implements OnInit {
-
-  constructor() { }
+  articles$: Observable<Article[]>
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
+    this.articles$ = this.articleService.getAllArticles();
   }
 
 }

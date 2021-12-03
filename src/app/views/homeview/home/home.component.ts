@@ -1,5 +1,7 @@
 import { WrapperContent } from './../../../shared/components/wrapper-hero/wrapper-hero.component';
 import { Component, OnInit } from '@angular/core';
+import { GridContent } from 'src/app/shared/components/article-grid-item/article-grid-item.component';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,23 @@ export class HomeComponent implements OnInit {
   heroContent: WrapperContent;
   cardContents: WrapperContent[];
   accountCard: WrapperContent;
+  gridContent: GridContent;
   constructor() {
+    this.gridContent = {
+      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.",
+      image: '../../../../assets/images/image.jpg',
+      author: {
+        uid: 'adlkjfaldfs',
+        displayName: 'Tulgaa'
+      },
+      createdAt: new Date (),
+      type: {
+        news: true,
+        blog: false,
+        story: false
+      }
+    }
     this.heroContent = {
       subtitle: '',
       title: 'Эрдэс баялаг эмэгтэйчүүдийн чуулган',

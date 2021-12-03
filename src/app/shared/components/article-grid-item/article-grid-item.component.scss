@@ -1,0 +1,33 @@
+@import "styles";
+
+.grid-view-item-container {
+  border-radius: 24px;
+  background-color: transparent;
+  max-width: 350px;
+  min-height: 385px;
+  .image-container {
+    position: relative;
+    border-radius: 24px;
+    height: 195px;
+    width: 100%;
+    overflow: hidden;
+    chip-tag {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+    }
+    img {
+      width: 100%;
+    }
+
+  }
+  .content-container {
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 600px) {
+  img {
+    height: 100%;
+    width: auto !important;
+  }
+}
