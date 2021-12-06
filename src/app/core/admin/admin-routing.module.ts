@@ -3,20 +3,30 @@ import { AdminArticlesComponent } from './components/admin-articles/admin-articl
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../services/auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: AdminHomeComponent
+    component: AdminHomeComponent,
+    canActivate: [AuthGuard],
+    data: {roles: ['admin']},
+    children: [
+      {
+        path: 'articles',
+        component: AdminArticlesComponent
+      },
+      {
+        path: 'add-article',
+        component: AddArticleComponent
+      },
+      {
+        path: 'edit-article/:id',
+        component: AddArticleComponent
+      }
+    ]
   },
-  {
-    path: 'articles',
-    component: AdminArticlesComponent
-  },
-  {
-    path: 'add-article',
-    component: AddArticleComponent
-  }
+
 ];
 
 @NgModule({

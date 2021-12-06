@@ -1,11 +1,12 @@
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { AuthGuard } from './core/services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebase)
 
   ],
-  providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

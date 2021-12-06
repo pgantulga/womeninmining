@@ -15,9 +15,10 @@ export class HomeComponent implements OnInit {
   accountCard: WrapperContent;
   gridContent: GridContent;
   constructor() {
+
     this.gridContent = {
       title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.",
       image: '../../../../assets/images/image.jpg',
       author: {
         uid: 'adlkjfaldfs',

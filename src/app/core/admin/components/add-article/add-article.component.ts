@@ -1,13 +1,13 @@
+import { switchMap } from 'rxjs/operators';
 import { ArticleService, Type } from './../../../services/article.service';
 import { AuthService } from './../../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  ActionDialogComponent,
-} from './../../../../shared/components/action-dialog/action-dialog.component';
+import { ActionDialogComponent } from './../../../../shared/components/action-dialog/action-dialog.component';
 import { config } from './../../../../shared/quill-config';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { EMPTY, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-article',
@@ -20,17 +20,47 @@ export class AddArticleComponent implements OnInit {
   title = new FormControl('', [Validators.required, Validators.maxLength(100)]);
   content = new FormControl('', [Validators.minLength(150)]);
   author: any;
-  types: Type[];
-  constructor(private dialog: MatDialog, private router: Router, private authService: AuthService, private articleService: ArticleService) {
+  oldValue: any;
+  types: any;
+  selectedType: any;
+  article$: Observable<any>;
+
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    private authService: AuthService,
+    private articleService: ArticleService,
+    private route: ActivatedRoute
+  ) {
     this.config = config;
     this.editing = false;
-    this.types = []
+    this.types = this.articleService.getArticleTypes();
   }
 
   ngOnInit(): void {
-    this.authService.user$.subscribe(user => {
+    this.authService.user$.subscribe((user) => {
       this.author = user;
-    })
+    });
+    this.article$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        if (params.get('id')) {
+          return this.articleService.getArticle(params.get('id'));
+        }
+        else {
+          return EMPTY;
+        }
+      })
+    )
+    if (this.article$) {
+      this.article$.subscribe(data => {
+        if (data) {
+          this.oldValue = data;
+          this.title.setValue(data.title);
+          this.content.setValue(data.content);
+          this.editing = true;
+        }
+      })
+    }
   }
   getErrorMessage(): string {
     if (this.title.hasError('required')) {
@@ -39,10 +69,9 @@ export class AddArticleComponent implements OnInit {
     return this.title.hasError('length') ? '150 тэмдэгтэд багтаана уу' : '';
   }
   onSubmit() {
-    console.log('onsubmit')
     const dialogData = !this.editing
       ? {
-          title: 'Addin article',
+          title: 'Adding article',
           content: 'Your article will be added to database.',
         }
       : {
@@ -80,11 +109,25 @@ export class AddArticleComponent implements OnInit {
       });
   }
   private addArticle(): any {
-    return this.articleService.createArticle({
+    return this.articleService.createArticle(
+      {
+        title: this.title.value,
+        content: this.content.value,
+        type: this.selectedType,
+      },
+      this.author
+    );
+  }
+  private saveArticle(): Promise<any> {
+    let article = {
+      id: this.oldValue.id,
       title: this.title.value,
       content: this.content.value
-    }, this.author)
-  }
-  private saveArticle(): any {
+    }
+    let updatedBy = {
+      uid: this.author.uid,
+      displayName: this.author.displayName
+    }
+    return this.articleService.updateArticle(article, updatedBy)
   }
 }

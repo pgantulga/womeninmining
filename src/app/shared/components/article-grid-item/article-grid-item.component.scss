@@ -23,6 +23,13 @@
   }
   .content-container {
     padding: 24px;
+    h3:hover {
+      color: mat-color($womeninmining-primary);
+      cursor: pointer;
+    }
+  }
+  .actions {
+    // background-color: red;
   }
 }
 @media screen and (max-width: 600px) {

@@ -1,15 +1,16 @@
 <div class="grid-view-item-container" fxLayout="column">
   <div class="image-container">
     <chip-tag [item]="tag"></chip-tag>
-    <img [src]="content.image" alt="Grid image" />
+    <img [src]="image" alt="Grid image" />
   </div>
   <div class="content-container" fxLayout="column" fxFlex>
-    <h3>
-      {{content.title}}
+    <h3 (click)="gotoArticle(content)">
+      {{ content.title }}
     </h3>
-    <p class="line-clamp-3">
-      {{content.description}}
-    </p>
-    <p class="mat-caption">{{content.createdAt| moment}}</p>
+    <p class="line-clamp-3" [innerHtml]="htmlContent"></p>
+    <p class="mat-caption">{{ content.createdAt | moment }}</p>
+    <div class="actions" fxLayout="row" fxLayoutAlign="end end">
+      <ng-content></ng-content>
+    </div>
   </div>
 </div>

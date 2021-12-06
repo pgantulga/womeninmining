@@ -15,6 +15,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [AdminHomeComponent, AdminArticlesComponent, AddArticleComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -24,9 +25,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     ReactiveFormsModule,
     QuillModule.forRoot(),
     SharedModule
-
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  ]
 
 })
 export class AdminModule { }

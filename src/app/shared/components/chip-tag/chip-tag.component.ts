@@ -18,17 +18,15 @@ export class ChipTagComponent implements OnInit {
   @Input() item: ChipTag;
   color: string;
   constructor() {
-    console.log(this.item);
   }
-
   ngOnInit(): void {
+    console.log(this.item);
     this.color = this.getColor(this.item.style);
   }
   getColor(style): any {
     if(style.primary) {
       return 'primary'
     }
-
     if(style.accent) {
       return 'accent'
     }

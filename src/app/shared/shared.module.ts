@@ -12,6 +12,7 @@ import { ActionDialogComponent } from './components/action-dialog/action-dialog.
 import { ArticleGridItemComponent } from './components/article-grid-item/article-grid-item.component';
 import { ChipTagComponent } from './components/chip-tag/chip-tag.component';
 import { MomentPipe } from './moment.pipe';
+import { ArticleViewComponent } from './components/article-view/article-view.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MomentPipe } from './moment.pipe';
     ArticleListItemComponent,
     ChipTagComponent,
     MomentPipe,
+    ArticleViewComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, MaterialModule],
   exports: [
@@ -36,7 +38,8 @@ import { MomentPipe } from './moment.pipe';
     ChipTagComponent,
     ArticleGridItemComponent,
     ArticleListItemComponent,
-    MomentPipe
+    MomentPipe,
+    ArticleViewComponent
   ],
 })
 export class SharedModule {}

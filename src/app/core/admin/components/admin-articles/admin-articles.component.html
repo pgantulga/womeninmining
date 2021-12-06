@@ -10,10 +10,15 @@
     </button>
   </div>
   <!-- Article lists -->
-  <!-- <div fxLayout="row wrap" fxLayoutGap="20px" *ngIf="articles$ | async as articles">
-    <article-grid-item
-      *ngFor="let item of articles"
-      [content]="item"
-    ></article-grid-item>
-  </div> -->
+  <div
+    fxLayout="row wrap"
+    fxLayoutGap="20px"
+    *ngIf="articles$ | async as articles"
+  >
+    <article-grid-item *ngFor="let item of articles" [content]="item">
+      <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </article-grid-item>
+  </div>
 </div>

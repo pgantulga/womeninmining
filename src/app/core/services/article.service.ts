@@ -5,27 +5,28 @@ import { Observable } from 'rxjs';
 export interface Type {
   news: boolean;
   blog: boolean;
-  story: boolean
+  story: boolean;
 }
 export interface Author {
   uid: string;
-  displayName: string
+  displayName: string;
 }
 export interface Article {
   title: string;
   content: any;
   createdAt: Date;
   author: Author;
-  type: Type
+  type: Type;
+  updatedAt: Date;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArticleService {
   private articleCollection = this.db.collection('articles');
 
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore) {}
 
   getAllArticles(): Observable<any> {
     return this.articleCollection.valueChanges();
@@ -33,35 +34,52 @@ export class ArticleService {
   getArticle(id: string): Observable<any> {
     return this.articleCollection.doc(id).valueChanges();
   }
-  createArticle(article: { title: any; content: any; }, author: { uid: any; displayName: any; }): any {
-    return this.articleCollection.add(
-        {
-          author: {
-            uid: author.uid,
-            displayName: author.displayName
-          },
-          content: article.content,
-          createdAt: new Date(),
-          title: article.title,
-        }
-    ).then(res => {
-      return res.update({
-        id: res.id
+  createArticle(
+    article: { title: any; content: any, type: any },
+    author: { uid: any; displayName: any }
+  ): any {
+    return this.articleCollection
+      .add({
+        author: {
+          uid: author.uid,
+          displayName: author.displayName,
+        },
+        content: article.content,
+        createdAt: new Date(),
+        title: article.title,
+        type: article.type
+      })
+      .then((res) => {
+        return res.update({
+          id: res.id,
+        });
       });
-    });
   }
-  deleteArticle(article: { id: string; }): any {
+  deleteArticle(article: { id: string }): any {
     return this.articleCollection.doc(article.id).delete();
   }
-  updateArticle(article: { id: any; title: any; content: any; }, updatedBy: { uid: any; displayName: any; }): any {
-    return this.articleCollection.doc(article.id).set({
-      content: article.content,
-      title: article.title,
-      updatedAt: new Date(),
-      lastUpdateBy: {
-        uid: updatedBy.uid,
-        displayName: updatedBy.displayName
-      }
-    }, {merge: true});
+  updateArticle(
+    article: { id: any; title: any; content: any },
+    updatedBy: { uid: any; displayName: any }
+  ): any {
+    return this.articleCollection.doc(article.id).set(
+      {
+        content: article.content,
+        title: article.title,
+        updatedAt: new Date(),
+        lastUpdateBy: {
+          uid: updatedBy.uid,
+          displayName: updatedBy.displayName,
+        },
+      },
+      { merge: true }
+    );
+  }
+  getArticleTypes() {
+    return [
+      { value: { news: true } , viewValue: 'news' },
+      { value: { story: true} , viewValue: 'story' },
+      { value: { blog: true} , viewValue: 'blog' },
+    ];
   }
 }

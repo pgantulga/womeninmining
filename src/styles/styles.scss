@@ -163,6 +163,9 @@ a:hover {
     position: relative;
   }
 }
+mat-icon {
+  color: $onSurfaceMedium;
+}
 @mixin md-icon-size($size: 24px) {
   font-size: $size;
   height: $size;
@@ -243,16 +246,17 @@ button.mat-flat-button.primary {
   margin: 0px;
 }
 .ql-editor {
-  padding: 16px 8px 0px 8px;
+  padding: 0;
   p {
     text-align: justify;
-  text-align-last: left;
+    text-align-last: left;
   }
   line-height: inherit;
   color: inherit;
 }
 
 .ql-snow .ql-editor img {
+  width: 100%;
   margin: 8px 0;
 }
 

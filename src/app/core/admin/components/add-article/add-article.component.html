@@ -21,10 +21,10 @@
     <p class="mat-body-2">Content type</p>
     <mat-form-field appearance="fill">
       <mat-label>Content type</mat-label>
-      <mat-select>
-        <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{ food.viewValue }}
-        </mat-option> -->
+      <mat-select [(value)]="selectedType">
+        <mat-option *ngFor="let type of types" [value]="type.value">
+          {{ type.viewValue }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <p class="mat-body-2">Content</p>
@@ -42,7 +42,12 @@
       fxLayoutAlign="end end"
       fxLayoutGap="8px"
     >
-      <button mat-button color="primary" (click)="cancel('/admin/articles')">
+      <button
+        mat-button
+        type="button"
+        color="primary"
+        (click)="cancel('/admin/articles')"
+      >
         Cancel
       </button>
       <button mat-flat-button color="primary" type="submit">Save</button>

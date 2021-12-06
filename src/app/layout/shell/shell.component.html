@@ -35,12 +35,12 @@
     >
       <div fxFlex></div>
       <div class="container">
-        <!-- <div *ngIf="routeMenu" fxLayout="row" >
+        <div *ngIf="routeMenu" fxLayout="row" class="route-menu">
           <div *ngFor="let item of routeMenu; let n = count" fxLayout="row" fxLayoutAlign = "start center">
-            <a routerLink="{{item.link}}" class="mat-caption route-menu">{{item.name}}</a>
-            <mat-icon *ngIf="count > 2">keyboard_arrow_right</mat-icon>
+            <a routerLink="{{item.link}}" class="mat-caption">{{item.name}}</a>
+            <mat-icon *ngIf="n > 1">keyboard_arrow_right</mat-icon>
           </div>
-        </div> -->
+        </div>
         <ng-content></ng-content>
       </div>
       <div fxFlex></div>

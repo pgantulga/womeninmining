@@ -30,7 +30,7 @@ export class ShellComponent implements OnInit {
   ) {
     this.currentRoute = this.routeService.getCurrentRoute(this.router.url);
     this.layout = this.routeService.getLayout(this.currentRoute);
-
+    this.routeMenu = this.routeService.getRouteMenu(this.currentRoute);
   }
 
   ngOnInit(): void {
