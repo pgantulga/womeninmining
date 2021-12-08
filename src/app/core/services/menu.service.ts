@@ -20,4 +20,26 @@ export class MenuService {
       link: '/admin/articles'
     }
   ];
+  public footerMenu: Menu[] = [
+    {
+      name: 'Холбоос 1',
+      link: ''
+    },
+    {
+      name: 'Холбоос 2',
+      link: ''
+    },
+    {
+      name: 'Холбоос 3',
+      link: ''
+    },
+    {
+      name: 'Холбоос 4',
+      link: ''
+    },
+    {
+      name: 'Холбоос 5',
+      link: ''
+    },
+  ]
 }

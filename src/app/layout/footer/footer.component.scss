@@ -1,0 +1,21 @@
+@import 'styles';
+
+.footer-container {
+  background-color: mat-color($womeninmining-accent);
+  min-height: 270px;
+
+  p,a {
+    color: $onDarkSurface;
+  }
+  .logo-container {
+    max-height: 64px;
+    img {
+      height: 100%;
+    }
+  }
+  .link-container {
+    .row-1 {
+
+    }
+  }
+}

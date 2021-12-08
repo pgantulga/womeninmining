@@ -4,7 +4,7 @@
     <img [src]="image" alt="Grid image" />
   </div>
   <div class="content-container" fxLayout="column" fxFlex>
-    <h3 (click)="gotoArticle(content)">
+    <h3 (click)="gotoArticle(content)" class="line-clamp-2">
       {{ content.title }}
     </h3>
     <p class="line-clamp-3" [innerHtml]="htmlContent"></p>

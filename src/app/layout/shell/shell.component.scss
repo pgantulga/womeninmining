@@ -21,9 +21,10 @@ mat-sidenav {
 .mat-sidenav-content-container {
   padding-top: 80px;
 }
+  // Default pages layout-1, story page: layout-2, login page: layout-3, admin page: layout-4
 
 .layout-one {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 398px);
   background-color: red;
 }
 

@@ -13,8 +13,14 @@
     class="mat-elevation-z3"
     [attr.role]="'navigation'"
   >
-    <div fxLayout="column" fxLayoutAlign="center start" class="sidenav-logo-container">
-      <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center start"
+      class="sidenav-logo-container"
+    >
+      <button mat-icon-button class="logo-button" [routerLink]="['/home']">
+        <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
+      </button>
     </div>
     <mat-nav-list fxLayout="column">
       <a
@@ -30,14 +36,21 @@
   <mat-sidenav-content>
     <div
       fxLayout="row"
+      [class.layout-one]="layout.layout1"
       [class.layout-three]="layout.layout3"
       [class.layout-four]="layout.layout4"
     >
       <div fxFlex></div>
       <div class="container">
         <div *ngIf="routeMenu" fxLayout="row" class="route-menu">
-          <div *ngFor="let item of routeMenu; let n = count" fxLayout="row" fxLayoutAlign = "start center">
-            <a routerLink="{{item.link}}" class="mat-caption">{{item.name}}</a>
+          <div
+            *ngFor="let item of routeMenu; let n = count"
+            fxLayout="row"
+            fxLayoutAlign="start center"
+          >
+            <a routerLink="{{ item.link }}" class="mat-caption">{{
+              item.name
+            }}</a>
             <mat-icon *ngIf="n > 1">keyboard_arrow_right</mat-icon>
           </div>
         </div>
@@ -45,5 +58,6 @@
       </div>
       <div fxFlex></div>
     </div>
+    <footer *ngIf="layout.layout1"></footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

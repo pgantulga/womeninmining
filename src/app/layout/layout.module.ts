@@ -6,10 +6,11 @@ import { ToptoolbarComponent } from './toptoolbar/toptoolbar.component';
 import { MaterialModule } from './../material/material.module';
 import { CommonModule } from '@angular/common';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
-  declarations: [ToptoolbarComponent, ShellComponent],
+  declarations: [ToptoolbarComponent, ShellComponent, FooterComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -20,7 +21,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
     ToptoolbarComponent,
-    ShellComponent
+    ShellComponent,
+    FooterComponent
   ]
 })
 export class LayoutModule { }

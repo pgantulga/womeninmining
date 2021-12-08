@@ -1,0 +1,11 @@
+@import 'styles';
+
+.article-list-item-container {
+  border-radius: 24px;
+  .content-container {
+    max-width: 800px;
+  }
+  chip-tag {
+    margin-bottom: 4px;
+  }
+}

@@ -1,24 +1,21 @@
-<div class="sheet-medium">
-  <div fxLayout="row" fxLayoutAlign="space-between center">
-    <h3>Articles</h3>
-    <button
-      mat-flat-button
-      color="primary"
-      [routerLink]="['/admin/add-article']"
-    >
-      Add article
-    </button>
-  </div>
-  <!-- Article lists -->
-  <div
-    fxLayout="row wrap"
-    fxLayoutGap="20px"
-    *ngIf="articles$ | async as articles"
+<div
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  class="admin-subheader"
+>
+  <h3>Articles</h3>
+  <button mat-flat-button color="primary" [routerLink]="['/admin/add-article']">
+    Add article
+  </button>
+</div>
+<!-- Article lists -->
+<div fxLayout="column" fxLayoutGap="20px" *ngIf="articles$ | async as articles">
+  <article-list-item
+    *ngFor="let item of articles; last as last"
+    [content]="item"
   >
-    <article-grid-item *ngFor="let item of articles" [content]="item">
-      <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </article-grid-item>
-  </div>
+    <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </article-list-item>
 </div>

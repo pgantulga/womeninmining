@@ -28,7 +28,8 @@ export class HomeComponent implements OnInit {
       type: {
         news: true,
         blog: false,
-        story: false
+        story: false,
+        static: false
       }
     }
     this.heroContent = {

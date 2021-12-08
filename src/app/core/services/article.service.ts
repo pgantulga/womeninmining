@@ -6,6 +6,7 @@ export interface Type {
   news: boolean;
   blog: boolean;
   story: boolean;
+  static: boolean
 }
 export interface Author {
   uid: string;
@@ -81,5 +82,44 @@ export class ArticleService {
       { value: { story: true} , viewValue: 'story' },
       { value: { blog: true} , viewValue: 'blog' },
     ];
+  }
+  getTag(content) {
+    if (!content.type) {
+      return {
+        label: 'Нийтлэл',
+        link: 'google.com',
+        style: { red: false, primary: true, accent: false },
+      };
+    }
+    if (content.type.static) {
+      return {
+        label: 'Статик',
+        link: 'google.com',
+        style: { red: false, primary: false, accent: true }
+      }
+
+    }
+    if (content.type.blog) {
+      return {
+        label: 'Нийтлэл',
+        link: 'google.com',
+        style: { red: false, primary: true, accent: false },
+      };
+    }
+
+    if (content.type.story) {
+      return {
+        label: 'Түүх',
+        link: 'google.com',
+        style: { red: false, primary: false, accent: true },
+      };
+    }
+    if (content.type.news) {
+      return {
+        label: 'Мэдээ',
+        link: 'google.com',
+        style: { red: true, primary: false, accent: false },
+      };
+    }
   }
 }

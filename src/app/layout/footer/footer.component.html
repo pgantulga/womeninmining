@@ -1,0 +1,14 @@
+<div class="footer-container" fxLayout="row" fxLayout.xs="column">
+  <div class="logo-container" fxFlex>
+    <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
+  </div>
+  <div class="link-container" fxLayout="row" fxFlex>
+    <div class="row-1" fxLayout="column">
+      <p>Чухал холбоосууд</p>
+      <a class="mat-caption" *ngFor="let item of links">{{ item.name }}</a>
+    </div>
+    <div class="row--" fxLayout="column">
+      <p>Холбоо барих</p>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,11 @@
-<p>article-list-item works!</p>
+<div class="article-list-item-container" fxLayout="row">
+  <div class="content-container" fxLayout="column">
+    <chip-tag [item]="tag"></chip-tag>
+    <h3 class="line-clamp-2">{{ content.title }}</h3>
+    <p class="line-clamp-2" [innerHtml]="htmlContent"></p>
+    <p class="mat-caption">{{ content.createdAt | moment }}</p>
+  </div>
+  <div class="actions" fxLayout="row" fxFlex fxLayoutAlign="end start">
+    <ng-content></ng-content>
+  </div>
+</div>
