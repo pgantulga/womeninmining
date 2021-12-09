@@ -34,19 +34,19 @@ export class HomeComponent implements OnInit {
     }
     this.heroContent = {
       subtitle: '',
-      title: 'Эрдэс баялаг эмэгтэйчүүдийн чуулган',
+      title: 'Эрдэс баялаг эмэгтэйчүүдийн холбоо',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
       actionButton_1: {
-        label: 'Танилцуулга',
+        label: 'Видео тоглуулах',
         link: ''
       },
       actionButton_2: {
-        label: 'Танилцуулга',
+        label: 'Танилцуулга татах',
         link: ''
       },
-      imageUrl: '../../../../assets/images/hero_image_conference_big.png',
-      imageUrl_small: '../../../../assets/images/hero_image_conference_small.png',
-      style: 'primary',
+      imageUrl: '../../../../assets/images/hero_image.webp',
+      imageUrl_small: '../../../../assets/images/hero_image.webp',
+      style: 'background',
       type: 'hero'
     };
     this.cardContents = [

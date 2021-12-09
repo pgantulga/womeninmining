@@ -1,14 +1,27 @@
-<div class="footer-container" fxLayout="row" fxLayout.xs="column">
-  <div class="logo-container" fxFlex>
-    <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
-  </div>
-  <div class="link-container" fxLayout="row" fxFlex>
-    <div class="row-1" fxLayout="column">
-      <p>Чухал холбоосууд</p>
-      <a class="mat-caption" *ngFor="let item of links">{{ item.name }}</a>
+<div class="footer-container" fxLayout="row">
+  <div fxFlex></div>
+  <div class="container" fxLayout="row">
+    <div class="logo-container" fxFlex fxHide.md fxHide.xs>
+      <img src="../../../assets/images//logo_footer.webp" alt="Logo" />
     </div>
-    <div class="row--" fxLayout="column">
-      <p>Холбоо барих</p>
+    <div
+      class="link-container"
+      fxLayout="column"
+      fxLayout.gt-md="xs"
+      fxFlex
+      fxLayoutGap="16px"
+      fxLayoutGap.gt-xs="64px"
+      fxLayoutAlign="end start"
+    >
+      <div class="row-1" fxLayout="column">
+        <p class="mat-body-2">Чухал холбоосууд</p>
+        <a class="mat-caption" *ngFor="let item of links">{{ item.label }}</a>
+      </div>
+      <div class="row--" fxLayout="column">
+        <p class="mat-body-2">Холбоо барих</p>
+        <a class="mat-caption" *ngFor="let item of links">{{ item.label }}</a>
+      </div>
     </div>
   </div>
+  <div fxFlex></div>
 </div>

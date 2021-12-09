@@ -3,17 +3,21 @@
 .footer-container {
   background-color: mat-color($womeninmining-accent);
   min-height: 270px;
-
+  padding: 36px 0;
+  border-radius: 32px 32px 0 0  ;
   p,a {
     color: $onDarkSurface;
+    margin-bottom: 8px;
   }
   .logo-container {
-    max-height: 64px;
+    max-height: 128px;
     img {
       height: 100%;
     }
   }
   .link-container {
+    padding: 0 16px;
+    // background-color: red;
     .row-1 {
 
     }

@@ -38,6 +38,7 @@ export class WrapperHeroComponent implements OnInit {
   isPrimary: boolean;
   isAccent: boolean;
   isRed: boolean;
+  isBackground: boolean;
   constructor(
     private breakpointObserver: BreakpointObserver,
 
@@ -54,6 +55,7 @@ export class WrapperHeroComponent implements OnInit {
     this.isPrimary = (style === 'primary');
     this.isAccent = (style === 'accent');
     this.isRed = (style === 'red');
+    this.isBackground = (style === 'background')
   }
 
 }

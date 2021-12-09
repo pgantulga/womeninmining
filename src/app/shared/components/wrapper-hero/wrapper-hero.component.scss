@@ -1,5 +1,40 @@
 @import "styles.scss";
 @import "custom-palette.scss";
+
+.wrapper-hero-container--card {
+  width: 100%;
+  max-width: 490px;
+}
+.wrapper-hero-container {
+  position: relative;
+  border-radius: 32px;
+  width: 100%;
+  height: 500px;
+  margin-bottom: 16px;
+  .left-content {
+    padding: 64px 16px 64px 64px;
+    max-width: 450px;
+    .mat-subheading-2 {
+      margin: 0;
+    }
+    .mat-body-2 {
+      margin-bottom: 8px;
+    }
+    button.second-button {
+      margin-left: 16px;
+    }
+    .actions {
+      width: 100%;
+    }
+  }
+  .right-content {
+    .image-background {
+      img {
+        height: auto;
+      }
+    }
+  }
+}
 .wrapper-hero--primary {
   background-color: mat-color($womeninmining-accent);
   .mat-subheading-2 {
@@ -10,7 +45,6 @@
   }
   p.mat-body-2 {
     color: $onDarkSurface;
-
   }
 }
 .wrapper-hero--accent {
@@ -37,49 +71,48 @@
     color: $onDarkSurface;
   }
 }
-.wrapper-hero-container--card {
-  width: 100%;
-  max-width: 490px;
-
-}
-.wrapper-hero-container {
-  border-radius: 32px;
-  width: 100%;
-  padding: 32px;
-  height: 500px;
-  .left-content {
-    margin: 32px 16px 32px 50px;
-    .mat-subheading-2 {
-      margin: 0;
-    }
-    .mat-body-2 {
-      margin-bottom: 8px;
-    }
-    button.second-button {
-      margin-left: 16px;
-    }
-    .actions {
-      width: 100%;
-    }
+.wrapper-hero--background {
+  overflow: hidden;
+  .background-image {
+    position: absolute;
+    width: auto;
+    z-index: -1;
   }
-  .right-content {
-    .image-background {
-      img {
-        height: auto;
+  .mat-subheading-2 {
+    color: $onDarkSurface;
+  }
+  h1 {
+    color: $onDarkSurface;
+  }
+  p {
+    color: $onDarkSurface;
+  }
+}
+@media only screen and (max-width: 1280px) and (min-width: 960px) {
+  .wrapper-hero-container {
+    .left-content {
+      max-width: 450px;
+      .mat-subheading-2 {
+        margin: 0;
+      }
+      .mat-body-2 {
+        margin-bottom: 8px;
+      }
+      button.second-button {
+        margin-left: 16px;
+      }
+      .actions {
+        width: 100%;
       }
     }
   }
-
 }
 @media only screen and (max-width: 960px) and (min-width: 600px) {
   .wrapper-hero-container {
-    padding: 24px;
-    height: 500px;
     .left-content {
-      margin: 32px 16px 32px 16px;
+      padding: 64px 16px 64px 64px;
       .mat-headline {
         color: $onDarkSurface;
-
       }
       .mat-body-2 {
         margin-bottom: 8px;
@@ -102,11 +135,9 @@
 }
 @media only screen and (max-width: 600px) {
   .wrapper-hero-container {
-    padding: 16px;
-    height: 100%;
-    max-height: 550px;
+    max-height: 350px;
     .left-content {
-      margin: 32px 16px 16px 16px;
+      padding: 32px 16px 32px 32px;
       .mat-body-2 {
         margin-bottom: 8px;
       }
@@ -126,4 +157,13 @@
       }
     }
   }
+  .wrapper-hero--background {
+    overflow: hidden;
+    .background-image {
+      position: absolute;
+      width: auto;
+      z-index: -1;
+    }
+  }
 }
+

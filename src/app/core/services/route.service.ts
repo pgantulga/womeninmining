@@ -32,7 +32,7 @@ export class RouteService {
     console.log(route);
     switch (route) {
       case 'home':
-        return [{ name: 'Нүүр хуудас', link: 'home' }];
+        return null;
       case 'login':
         return [{ name: 'Нэвтрэх', link: 'login' }];
       case 'articles':

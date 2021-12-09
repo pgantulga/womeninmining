@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
   links: Menu[];
   constructor(private menu: MenuService) {
-    this.links = menu.footerMenu;
+    this.links = menu.topMenu;
    }
 
   ngOnInit(): void {

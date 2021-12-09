@@ -4,11 +4,13 @@
     'wrapper-hero-container--card': content.type === 'card',
     'wrapper-hero--primary': isPrimary,
     'wrapper-hero--accent': isAccent,
-    'wrapper-hero--red': isRed
+    'wrapper-hero--red': isRed,
+    'wrapper-hero--background': isBackground
   }"
   fxLayout="column"
   fxLayout.gt-xs="row"
 >
+  <img class="background-image" [src]="wrapperImageUrl" alt="Background image" *ngIf="isBackground">
   <div
     class="left-content"
     fxLayout="column"
@@ -18,7 +20,7 @@
     <div fxLayout="column">
       <h1>{{ content.title }}</h1>
       <div class="divider"></div>
-      <p class="mat-body-2">
+      <p >
         {{ content.description }}
       </p>
     </div>
@@ -33,7 +35,7 @@
       </button>
     </div>
   </div>
-  <div class="right-content" fxFlex>
+  <div class="right-content" fxFlex fxHide="isBackground">
     <div
       class="image-background"
       fxFlex

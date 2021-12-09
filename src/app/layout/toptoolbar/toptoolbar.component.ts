@@ -1,3 +1,4 @@
+import { MenuService } from './../../core/services/menu.service';
 import { ActionDialogComponent } from './../../shared/components/action-dialog/action-dialog.component';
 import { AuthService } from './../../core/services/auth.service';
 import { MenuList } from './../top-menus';
@@ -34,10 +35,11 @@ export class ToptoolbarComponent implements OnInit {
     public scrollDispatcher: ScrollDispatcher,
     public authService: AuthService,
     public dialog: MatDialog,
+    private menu: MenuService
 
 
   ) {
-    this.topMenus = MenuList;
+    this.topMenus = menu.topMenu;
 
   }
   @ViewChild(MatMenuTrigger) menuTrigger: MatMenuTrigger;

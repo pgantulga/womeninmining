@@ -50,5 +50,8 @@ export class ShellComponent implements OnInit {
   getRouteMenu(route): any {
     return this.routeService.getRouteMenu(route)
   }
+  showRouteMenu(route): boolean {
+    return (route !== 'home')
+  }
 
 }
