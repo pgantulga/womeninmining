@@ -1,0 +1,19 @@
+.section-header {
+  margin: 0 48px;
+  h3 {
+    margin: 0;
+    position: relative;
+  }
+  h3::after {
+    position: absolute;
+    margin: 0 24px;
+    content: url("../../../../assets/decors/decor_star.svg");
+    top: -18px;
+    // bottom: -8px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .section-header {
+    margin: 0 32px;
+  }
+}

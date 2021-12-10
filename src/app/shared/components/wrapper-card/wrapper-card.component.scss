@@ -7,7 +7,6 @@
   }
   p.mat-body-2 {
     color: $onDarkSurface;
-
   }
 }
 .wrapper-card--accent {
@@ -32,8 +31,11 @@
 .wrapper-card-container {
   border-radius: 32px;
   width: 100%;
-  padding: 32px;
+  max-width: 350px;
+  // padding: 32px 32px 32px 0;
   height: 650px;
+  overflow: hidden;
+
   .top-content {
     margin: 26px 16px 16px 16px;
     h1 {
@@ -42,7 +44,6 @@
     .mat-body-2 {
       margin-bottom: 8px;
       text-align: center;
-
     }
     .actions {
       margin: 8px 0;
@@ -50,13 +51,12 @@
     }
   }
   .bottom-content {
-    .image-background {
-      img {
-        height: auto;
-      }
+    // width: 100%;
+    // background-color: yellow;
+    img {
+      width: 100%;
     }
   }
-
 }
 @media only screen and (max-width: 600px) {
   .wrapper-card-container {
@@ -68,13 +68,11 @@
       .mat-body-2 {
         margin-bottom: 8px;
       }
-
     }
     .bottom-content {
       img {
         width: 100%;
       }
-
     }
   }
 }

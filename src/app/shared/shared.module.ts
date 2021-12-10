@@ -13,6 +13,7 @@ import { ArticleGridItemComponent } from './components/article-grid-item/article
 import { ChipTagComponent } from './components/chip-tag/chip-tag.component';
 import { MomentPipe } from './moment.pipe';
 import { ArticleViewComponent } from './components/article-view/article-view.component';
+import { SectionHeaderComponent } from './components/section-header/section-header.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ArticleViewComponent } from './components/article-view/article-view.com
     ChipTagComponent,
     MomentPipe,
     ArticleViewComponent,
+    SectionHeaderComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, MaterialModule],
   exports: [
@@ -39,7 +41,8 @@ import { ArticleViewComponent } from './components/article-view/article-view.com
     ArticleGridItemComponent,
     ArticleListItemComponent,
     MomentPipe,
-    ArticleViewComponent
+    ArticleViewComponent,
+    SectionHeaderComponent
   ],
 })
 export class SharedModule {}

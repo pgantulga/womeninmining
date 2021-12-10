@@ -1,7 +1,12 @@
 <!-- <account-wrapper [content]="this.accountCard"></account-wrapper> -->
 <!-- <article-grid-item [content]="gridContent"></article-grid-item> -->
 
-<div fxLayout="column" fxLayoutGap="16px">
+<div fxLayout="column" fxLayoutGap="32px">
   <wrapper-hero [content]="heroContent"></wrapper-hero>
-
+  <section-header [content]="sectionHeader_1"></section-header>
+  <div fxLayout="row wrap" fxLayoutGap="16px">
+    <wrapper-card *ngFor="let item of cardContents" [content]="item"></wrapper-card>
+  </div>
+  <section-header [content]="sectionHeader_2"></section-header>
+  <section-header [content]="sectionHeader_3"></section-header>
 </div>

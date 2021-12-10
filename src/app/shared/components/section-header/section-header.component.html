@@ -1,0 +1,28 @@
+<div
+  *ngIf="content.desc; else rowHeader"
+  fxLayout="column"
+  fxLayoutAlign="center start"
+  class="section-header"
+>
+    <h3>{{ content.title }}</h3>
+  <div class="divider"></div>
+  <p>{{ content.desc }}</p>
+  <button mat-flat-button color="primary">{{ content.button.label }}</button>
+</div>
+<ng-template #rowHeader>
+  <div
+    class="section-header"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+  >
+    <div fxLayout="column">
+      <h3>{{ content.title }}</h3>
+      <div class="divider"></div>
+    </div>
+    <div class="actions" fxLayout="row">
+      <button mat-button color="primary">
+        {{ content.button.label }} <mat-icon color="primary">chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</ng-template>
