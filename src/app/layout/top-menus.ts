@@ -5,7 +5,7 @@ export const MenuList = [
       {
         label: 'Бид хэн бэ',
         label2: 'Бидний зорилго, дэмжигчид',
-        icon: '',
+        link: 'about',
       },
       {
         label: 'Лого бүхий бүтээгдэхүүн',

@@ -135,33 +135,7 @@ a:hover {
   background-color: mat-color($my-amber, 50);
   // z-index: 5;
   // @include mat-elevation(2);
-  .mat-button.toolbar-nav {
-    text-transform: uppercase;
-    border-radius: 0;
-  }
-  .mat-button.toolbar-nav.selected {
-    border-bottom: 2px solid mat-color($my-amber, 500);
-    mat-icon {
-      transform: rotate(180deg);
-    }
-  }
-  ::ng-deep button.mat-menu-item {
-    cursor: pointer;
-    outline: 0;
-    border: none;
-    -webkit-tap-highlight-color: transparent;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    line-height: 24px;
-    height: 48px;
-    padding: 0 16px;
-    text-align: left;
-    text-decoration: none;
-    max-width: 100%;
-    position: relative;
-  }
+
 }
 mat-icon {
   color: $onSurfaceMedium;

@@ -1,7 +1,10 @@
+import { ArticleService } from 'src/app/core/services/article.service';
+import { Observable } from 'rxjs';
 import { SectionHeaderContent } from './../../../shared/components/section-header/section-header.component';
 import { WrapperContent } from './../../../shared/components/wrapper-hero/wrapper-hero.component';
 import { Component, OnInit } from '@angular/core';
 import { GridContent } from 'src/app/shared/components/article-grid-item/article-grid-item.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,14 +19,15 @@ export class HomeComponent implements OnInit {
   sectionHeader_1: SectionHeaderContent;
   sectionHeader_2: SectionHeaderContent;
   sectionHeader_3: SectionHeaderContent;
-  constructor() {
+  articles$: Observable<any>;
+  constructor(private articleService: ArticleService, private route: ActivatedRoute) {
     this.sectionHeader_1 = {
       title: 'Бид хэн бэ',
       desc: 'Эрдэс баялгийн салбарт монгол эмэгтэй хүн өөртөө итгэлтэй байдлаар ажиллах нөхцөлийг бүрдүүлж хэн нэгнээс хамааралгүйгээр өөрийн ур чадвараараа мөрөөдөлдөө хүрэх боломжийг бүрдүүлэх',
       button: {
         label: 'Дэлгэрэнгүй',
         style: 'primary',
-        link: ''
+        link: '/about'
       }
     };
     this.sectionHeader_2 = {
@@ -32,7 +36,7 @@ export class HomeComponent implements OnInit {
       button: {
         label: 'Бүгдийг харах',
         style: 'icon',
-        link: ''
+        link: '/articles'
       }
     };
     this.sectionHeader_3 = {
@@ -40,7 +44,7 @@ export class HomeComponent implements OnInit {
       desc: null,
       button: {
         label: 'Дэлгэрэнгүй',
-        link: '',
+        link: '/articles',
         style: 'icon'
       }
     };
@@ -121,7 +125,7 @@ export class HomeComponent implements OnInit {
       },
       {
         subtitle: '',
-        title: 'Гайхалтай түүхүүд',
+        title: 'Гайхамшигт түүхүүд',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
         actionButton_1: {
@@ -159,5 +163,7 @@ export class HomeComponent implements OnInit {
       type: 'hero',
     };
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.articles$ = this.articleService.getAllArticles();
+  }
 }

@@ -3,3 +3,31 @@
 .cards-container {
   width: 100%;
 }
+
+.h-scrolling-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  .scrolling-item {
+      flex: 0 0 auto;
+  }
+  &::-webkit-scrollbar {
+      display: none;
+    }
+}
+
+
+@media only screen and (max-width: 1260px) {
+  .h-scrolling-flex {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      align-items: flex-start;
+      .scrolling-item {
+          flex: 0 0 auto;
+      }
+      &::-webkit-scrollbar {
+          display: none;
+        }
+  }
+}

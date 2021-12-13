@@ -29,22 +29,6 @@
           >
             <mat-icon color="primary">account_circle</mat-icon>
           </button>
-          <!-- <mat-menu #dropMenu="matMenu" style="z-index: 99999;">
-            <button mat-menu-item [routerLink]="['users', user.uid]">
-              <mat-icon>account_circle</mat-icon>{{ user.displayName }}
-            </button>
-            <mat-divider></mat-divider>
-            <button mat-menu-item [routerLink]="['/auth/profile-settings']">
-              Хэрэглэгчийн тохиргоо
-            </button>
-            <button
-              mat-menu-item
-              [routerLink]="['/admin']"
-            >
-              Админ
-            </button>
-            <button mat-menu-item (click)="signOut()">Системээс гарах</button>
-          </mat-menu> -->
         </div>
         <ng-template #login>
           <button
@@ -63,36 +47,7 @@
   <mat-toolbar-row fxHide.xs="" fxHide.sm="">
     <div fxFlex></div>
     <div class="container" fxLayout="row" fxLayoutAlign="center center">
-      <ng-container *ngFor="let item of topMenus">
-        <button
-          mat-button
-          #button
-          class="toolbar-nav"
-          [class.selected]="activeLink == item"
-          [matMenuTriggerFor]="menu"
-          #menuTrigger="matMenuTrigger"
-          (mouseenter)="expand(item, menuTrigger)"
-          (mouseleave)="buttonLeave(menuTrigger, button)"
-          style="z-index: 1050"
-        >
-          {{ item.label }}
-          <mat-icon>expand_less</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" direction="down" yPosition="below">
-          <span (mouseenter)="menuenter()">
-            <ng-container *ngFor="let subitem of item.children">
-              <button mat-menu-item fxLayout="row" fxLayoutAlign="start center">
-                <mat-icon>diamond</mat-icon>
-                <div fxLayout="column">
-                  <span class="mat-body-2">{{ subitem.label }}</span>
-                  <span class="mat-caption">{{ subitem.label2 }}</span>
-                </div>
-              </button>
-              <mat-divider></mat-divider>
-            </ng-container>
-          </span>
-        </mat-menu>
-      </ng-container>
+      <nav-bar></nav-bar>
     </div>
     <div fxFlex></div>
   </mat-toolbar-row>

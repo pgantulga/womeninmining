@@ -26,11 +26,11 @@ export class ShellComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private router: Router,
     private routeService: RouteService,
-    private menuService: MenuService
+    private menuService: MenuService,
+    private route: ActivatedRoute
   ) {
-    this.currentRoute = this.routeService.getCurrentRoute(this.router.url);
-    this.layout = this.routeService.getLayout(this.currentRoute);
-    this.routeMenu = this.routeService.getRouteMenu(this.currentRoute);
+      this.layout = this.routeService.getLayout();
+
   }
 
   ngOnInit(): void {
@@ -38,6 +38,7 @@ export class ShellComponent implements OnInit {
       filter(event => event instanceof NavigationEnd))
       .subscribe((e: any) => {
         this.currentRoute = this.routeService.getCurrentRoute(e.url);
+        this.routeService.setCurrentRoute(this.currentRoute);
         this.routeMenu = this.routeService.getRouteMenu(this.currentRoute);
         this.layout = this.routeService.getLayout(this.currentRoute);
         this.sideMenu = (this.currentRoute === 'admin') ? this.menuService.adminMenu : [1,2,3,3,4];

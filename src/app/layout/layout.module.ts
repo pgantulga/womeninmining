@@ -5,12 +5,17 @@ import { ShellComponent } from './shell/shell.component';
 import { ToptoolbarComponent } from './toptoolbar/toptoolbar.component';
 import { MaterialModule } from './../material/material.module';
 import { CommonModule } from '@angular/common';
-import {ScrollingModule} from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FooterComponent } from './footer/footer.component';
-
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
-  declarations: [ToptoolbarComponent, ShellComponent, FooterComponent],
+  declarations: [
+    ToptoolbarComponent,
+    ShellComponent,
+    FooterComponent,
+    NavBarComponent,
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -22,7 +27,8 @@ import { FooterComponent } from './footer/footer.component';
   exports: [
     ToptoolbarComponent,
     ShellComponent,
-    FooterComponent
-  ]
+    FooterComponent,
+    NavBarComponent,
+  ],
 })
-export class LayoutModule { }
+export class LayoutModule {}

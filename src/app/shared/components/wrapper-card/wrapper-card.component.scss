@@ -33,11 +33,11 @@
   width: 100%;
   max-width: 350px;
   // padding: 32px 32px 32px 0;
-  height: 650px;
+  height: 550px;
   overflow: hidden;
 
   .top-content {
-    margin: 26px 16px 16px 16px;
+    margin: 32px 16px 16px 16px;
     h1 {
       text-align: center;
     }
@@ -61,8 +61,9 @@
 @media only screen and (max-width: 600px) {
   .wrapper-card-container {
     padding: 16px;
-    height: 100%;
-    max-height: 650px;
+    max-width: 300px;
+    // height: 100%;
+    // max-height: 650px;
     .top-content {
       margin: 32px 16px 16px 16px;
       .mat-body-2 {

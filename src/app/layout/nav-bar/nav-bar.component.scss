@@ -1,0 +1,34 @@
+@import "styles.scss";
+.nav-bar-container {
+  .mat-button.toolbar-nav {
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+  }
+  .mat-button.toolbar-nav.selected {
+    border-bottom: 2px solid mat-color($my-amber, 500);
+    mat-icon {
+      transform: rotate(180deg);
+    }
+  }
+  .mat-button.toolbar-nav.selected-parent {
+    // border-bottom: 2px solid mat-color($my-amber, 200);
+  }
+  ::ng-deep button.mat-menu-item {
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    line-height: 24px;
+    height: 48px;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    max-width: 100%;
+    position: relative;
+  }
+}

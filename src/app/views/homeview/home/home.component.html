@@ -4,9 +4,21 @@
 <div fxLayout="column" fxLayoutGap="32px">
   <wrapper-hero [content]="heroContent"></wrapper-hero>
   <section-header [content]="sectionHeader_1"></section-header>
-  <div fxLayout="row wrap" fxLayoutGap="16px">
-    <wrapper-card *ngFor="let item of cardContents" [content]="item"></wrapper-card>
+  <div class="h-scrolling-flex">
+    <wrapper-card class="scrolling-item"
+      *ngFor="let item of cardContents"
+      [content]="item"
+    ></wrapper-card>
   </div>
   <section-header [content]="sectionHeader_2"></section-header>
+  <div
+    class="h-scrolling-flex"
+    *ngIf="articles$ | async as articles"
+  >
+    <article-grid-item class="scrolling-item"
+      *ngFor="let item of articles"
+      [content]="item"
+    ></article-grid-item>
+  </div>
   <section-header [content]="sectionHeader_3"></section-header>
 </div>

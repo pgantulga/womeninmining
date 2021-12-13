@@ -1,6 +1,6 @@
 import { ArticleListItemComponent } from './components/article-list-item/article-list-item.component';
 import { MaterialModule } from './../material/material.module';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { WrapperHeroComponent } from './components/wrapper-hero/wrapper-hero.component';
@@ -44,5 +44,7 @@ import { SectionHeaderComponent } from './components/section-header/section-head
     ArticleViewComponent,
     SectionHeaderComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class SharedModule {}

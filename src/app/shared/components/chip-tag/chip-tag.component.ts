@@ -20,7 +20,6 @@ export class ChipTagComponent implements OnInit {
   constructor() {
   }
   ngOnInit(): void {
-    console.log(this.item);
     this.color = this.getColor(this.item.style);
   }
   getColor(style): any {

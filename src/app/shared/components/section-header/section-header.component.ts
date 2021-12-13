@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface SectionHeaderContent {
   title: string;
@@ -7,20 +8,20 @@ export interface SectionHeaderContent {
     label: string;
     link: string;
     style: string;
-  }
+  };
 }
 @Component({
   selector: 'section-header',
   templateUrl: './section-header.component.html',
-  styleUrls: ['./section-header.component.scss']
+  styleUrls: ['./section-header.component.scss'],
 })
 export class SectionHeaderComponent implements OnInit {
   @Input() content: SectionHeaderContent;
-  constructor() {
-    console.log(this.content);
-   }
-
-  ngOnInit(): void {
+  constructor(private router: Router) {
   }
 
+  ngOnInit(): void {}
+  goto(link) {
+    this.router.navigateByUrl(link);
+  }
 }
