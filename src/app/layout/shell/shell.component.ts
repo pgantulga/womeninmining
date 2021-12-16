@@ -1,8 +1,8 @@
 import { MenuService } from './../../core/services/menu.service';
 import { RouteService, Layout } from './../../core/services/route.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { combineLatest, Observable } from 'rxjs';
 import { filter, map, shareReplay, switchMap } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
@@ -14,6 +14,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class ShellComponent implements OnInit {
   currentRoute: string;
+  routes$:Observable<any>;
   routeMenu: any[];
   layout: Layout;
   sideMenu: any[];
@@ -37,6 +38,11 @@ export class ShellComponent implements OnInit {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd))
       .subscribe((e: any) => {
+        this.route.firstChild.url.subscribe(a => {
+          console.log(a[0].path);
+        })
+        const array = [];
+        this.routes$ = combineLatest(this.getRoutes(array, this.route));
         this.currentRoute = this.routeService.getCurrentRoute(e.url);
         this.routeService.setCurrentRoute(this.currentRoute);
         this.routeMenu = this.routeService.getRouteMenu(this.currentRoute);
@@ -47,12 +53,18 @@ export class ShellComponent implements OnInit {
       });
 
   }
-
   getRouteMenu(route): any {
     return this.routeService.getRouteMenu(route)
   }
   showRouteMenu(route): boolean {
     return (route !== 'home')
   }
-
+  getRoutes(array, activatedRoute: ActivatedRoute):Observable<any>[] {
+    if (activatedRoute.firstChild) {
+      array.push(activatedRoute.firstChild.data);
+      return this.getRoutes(array, activatedRoute.firstChild)
+    } else {
+      return array;
+    }
+  }
 }

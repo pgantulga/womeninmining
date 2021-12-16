@@ -42,14 +42,14 @@
     >
       <div fxFlex></div>
       <div class="container" >
-        <div *ngIf="routeMenu" fxLayout="row" class="route-menu">
+        <div *ngIf="routes$ | async as routes" fxLayout="row" class="route-menu">
           <div
-            *ngFor="let item of routeMenu; let n = count"
+            *ngFor="let item of routes; let n = count"
             fxLayout="row"
             fxLayoutAlign="start center"
           >
-            <a routerLink="{{ item.link }}" class="mat-caption">{{
-              item.name
+            <a routerLink="{{ item.title }}" class="mat-caption">{{
+              item.title
             }}</a>
             <mat-icon *ngIf="n > 1">keyboard_arrow_right</mat-icon>
           </div>

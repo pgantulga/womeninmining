@@ -25,6 +25,7 @@ export class RouteService {
   setCurrentRoute(route) {
     this.routeSource.next(route);
   }
+  
   getCurrentRoute(url): any {
     this.getRoute(url);
     if (url === 'home' || url === '/') {
