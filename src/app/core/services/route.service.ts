@@ -1,5 +1,6 @@
+import { map, switchMap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 export interface Layout {
   layout1: boolean;
   layout2: boolean;
@@ -19,13 +20,12 @@ export interface Route {
   providedIn: 'root',
 })
 export class RouteService {
-  private routeSource = new BehaviorSubject('default');
-  currentRoute$ = this.routeSource.asObservable();
+  currentRoute$ : Observable<any>;
   constructor() {}
   setCurrentRoute(route) {
-    this.routeSource.next(route);
+    this.currentRoute$= route;
   }
-  
+
   getCurrentRoute(url): any {
     this.getRoute(url);
     if (url === 'home' || url === '/') {
@@ -73,7 +73,7 @@ export class RouteService {
   }
 
   // Default pages layout-1, story page: layout-2, login page: layout-3, admin page: layout-4
-  getLayout(route?): Layout {
+  getLayout(route?): any {
     if (!route) {
       return {
         layout1: true,
@@ -104,7 +104,7 @@ export class RouteService {
         layout3: false,
         layout4: true,
       };
-    } else if (route === 'login' || route === 'not-found') {
+    } else if (route === 'auth' || route === 'not-found') {
       return {
         layout1: false,
         layout2: false,
@@ -119,5 +119,12 @@ export class RouteService {
         layout4: false,
       };
     }
+  }
+  layoutChanger(current$): any {
+    return current$.pipe(
+      map((route: any) =>{
+        return this.getLayout(route.name);
+      })
+    )
   }
 }

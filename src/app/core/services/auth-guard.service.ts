@@ -11,18 +11,24 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) { }
   canActivate(route: ActivatedRouteSnapshot) {
     const roles = route.data.roles;
+    console.log(roles);
     return this.authService.user$.pipe(
       take(1),
       map(user => {
-        for (const role of roles) {
-          if(user.roles[role]) {
-            return true
+        if (user) {
+          for (const role of roles) {
+            if(user.roles[role]) {
+              return true
+            }
           }
         }
+
       }),
       tap(access => {
         if(!access) {
           console.log('Access denied');
+          this.router.navigate(['/']);
+
         }
       })
     )

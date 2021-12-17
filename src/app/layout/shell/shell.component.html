@@ -1,63 +1,60 @@
-<toptoolbar *ngIf="layout.layout1">
-  <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
-    <button mat-icon-button (click)="drawer.open()" fxHide.gt-sm>
-      <mat-icon>menu</mat-icon>
-    </button>
-  </div>
-</toptoolbar>
-<mat-sidenav-container>
-  <mat-sidenav
-    [mode]="currentRoute === 'admin' ? 'side' : 'over'"
-    [opened]="currentRoute === 'admin'"
-    #drawer
-    class="mat-elevation-z3"
-    [attr.role]="'navigation'"
-  >
-    <div
-      fxLayout="column"
-      fxLayoutAlign="center start"
-      class="sidenav-logo-container"
-    >
-      <button mat-icon-button class="logo-button" [routerLink]="['/home']">
-        <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
+<ng-container *ngIf="currentLayout$ | async as layout">
+  <toptoolbar *ngIf="layout.layout1">
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
+      <button mat-icon-button (click)="drawer.open()" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
       </button>
     </div>
-    <mat-nav-list fxLayout="column">
-      <a
-        mat-list-item
-        *ngFor="let item of sideMenu; last as last"
-        routerLink="{{ item.link }}"
-      >
-        {{ item.name }}
-        <mat-divider *ngIf="!last"></mat-divider>
-      </a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div
-      fxLayout="row"
-      [class.layout-one]="layout.layout1"
-      [class.layout-three]="layout.layout3"
-      [class.layout-four]="layout.layout4"
+  </toptoolbar>
+  <mat-sidenav-container *ngIf="currentRoute$ | async as currentRoute">
+    <mat-sidenav
+      [mode]="currentRoute.name === 'admin' ? 'side' : 'over'"
+      [opened]="currentRoute.name === 'admin'"
+      #drawer
+      class="mat-elevation-z3"
+      [attr.role]="'navigation'"
     >
-      <div fxFlex></div>
-      <div class="container" >
-        <div *ngIf="routes$ | async as routes" fxLayout="row" class="route-menu">
-          <div
-            *ngFor="let item of routes; let n = count"
-            fxLayout="row"
-            fxLayoutAlign="start center"
-          >
-            <a routerLink="{{ item.title }}" class="mat-caption">{{
-              item.title
-            }}</a>
-            <mat-icon *ngIf="n > 1">keyboard_arrow_right</mat-icon>
-          </div>
+      <sidenav [current]="currentRoute.name"></sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div
+        fxLayout="row"
+        [class.layout-one]="layout.layout1"
+        [class.layout-three]="layout.layout3"
+        [class.layout-four]="layout.layout4"
+      >
+        <div fxFlex></div>
+        <div class="container">
+          <ng-container *ngIf="showRouteMenu(layout, currentRoute)">
+            <div
+              *ngIf="routes$ | async as routes"
+              fxLayout="row"
+              class="route-menu"
+            >
+              <div
+                *ngFor="
+                  let item of routes;
+                  let count = count;
+                  let n = index;
+                  let last = last
+                "
+                fxLayout="row"
+                fxLayoutAlign="start center"
+              >
+                <a (click)="goto(routes[n + 1])" class="mat-caption">{{
+                  item.title
+                }}</a>
+                <mat-icon *ngIf="item.title && n !== count - 2"
+                  >keyboard_arrow_right</mat-icon
+                >
+              </div>
+            </div>
+          </ng-container>
+          <ng-content></ng-content>
         </div>
-        <ng-content></ng-content>
+        <div fxFlex></div>
       </div>
-      <div fxFlex></div>
-    </div>
-    <footer *ngIf="layout.layout1"></footer>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      <footer *ngIf="layout.layout1"></footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

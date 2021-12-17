@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     ShellComponent,
     FooterComponent,
     NavBarComponent,
+    SidenavComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     ShellComponent,
     FooterComponent,
     NavBarComponent,
+    SidenavComponent
   ],
 })
 export class LayoutModule {}

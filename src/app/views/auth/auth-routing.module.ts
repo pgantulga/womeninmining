@@ -6,11 +6,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login'
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
   {
     path: 'profile-settings',
+    data: {title: 'Хэрэглэгчийн тохиргоо', name: 'profile-settings'},
     component: ProfileSettingsComponent
   }
 ];

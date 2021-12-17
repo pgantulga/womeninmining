@@ -42,5 +42,6 @@ mat-sidenav {
 .route-menu {
  mat-icon {
    @include md-icon-size(18px);
+   margin: 0;
  }
 }

@@ -60,7 +60,7 @@ export class ArticleService {
     return this.articleCollection.doc(article.id).delete();
   }
   updateArticle(
-    article: { id: any; title: any; content: any },
+    article: { id: any; title: any; content: any, type:any },
     updatedBy: { uid: any; displayName: any }
   ): any {
     return this.articleCollection.doc(article.id).set(
@@ -68,6 +68,7 @@ export class ArticleService {
         content: article.content,
         title: article.title,
         updatedAt: new Date(),
+        type: article.type,
         lastUpdateBy: {
           uid: updatedBy.uid,
           displayName: updatedBy.displayName,
@@ -81,6 +82,7 @@ export class ArticleService {
       { value: { news: true } , viewValue: 'news' },
       { value: { story: true} , viewValue: 'story' },
       { value: { blog: true} , viewValue: 'blog' },
+      { value: { static: true} , viewValue: 'static' },
     ];
   }
   getTag(content) {

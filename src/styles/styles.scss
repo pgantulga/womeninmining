@@ -227,6 +227,12 @@ button.mat-flat-button.primary {
   }
   line-height: inherit;
   color: inherit;
+  ul {
+    padding-left: 1em;
+    li::before {
+      content: 's'
+    }
+  }
 }
 
 .ql-snow .ql-editor img {

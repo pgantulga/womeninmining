@@ -1,40 +1,43 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, UrlTree } from '@angular/router';
+import { AuthGuard } from './core/services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
-    data: {title: 'Нүүр хуудас'},
+    data: {title: 'Нүүр хуудас', name: 'home'},
     loadChildren: () =>
       import('./views/homeview/homeview.module').then((m) => m.HomeviewModule),
   },
-  // {
-  //   path: 'about',
-  //   data: {title: 'Тухай'},
-  //   redirectTo: 'home/about',
-  // },
+  {
+    path: 'about',
+    data: {title: 'Тухай', name: 'about'},
+    redirectTo: 'home/about',
+  },
   {
     path: 'admin',
-    data: {title: 'Админ'},
+    data: {title: 'Админ', name:'admin'},
     loadChildren: () =>
       import('./core/admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: 'auth',
-    data: {title: 'Нэвтрэх'},
+    data: {title: 'Нэвтрэх', name:'auth'},
     loadChildren: () =>
       import('./views/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'profile-settings',
-    data: {title: 'Хэрэглэгчийн тохиргоо'},
-    loadChildren: () =>
-      import('./views/auth/auth.module').then((m) => m.AuthModule),
+    redirectTo: 'auth/profile-settings',
+  },
+  {
+    path: 'login',
+    redirectTo: 'auth/login',
   },
   {
     path: 'articles',
-    data: {title: 'Бичвэрүүд'},
+    data: {title: 'Бичвэрүүд', name: 'articles'},
     loadChildren: () =>
       import('./views/article/article.module').then((m) => m.ArticleModule),
   },

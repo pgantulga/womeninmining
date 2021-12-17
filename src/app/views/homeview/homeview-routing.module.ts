@@ -7,13 +7,11 @@ const routes: Routes = [
     {
       path: '',
       component: HomeComponent,
-      data: { title: 'Нүүр' }
-
     },
     {
       path: 'about',
       component: AboutUsComponent,
-      data: { title: 'Бидний тухай' }
+      data: { title: 'Бидний тухай', name: 'about' }
     }
 ];
 

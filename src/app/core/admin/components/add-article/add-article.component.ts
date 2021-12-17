@@ -1,4 +1,4 @@
-import { switchMap } from 'rxjs/operators';
+import { switchMap, filter, first, take } from 'rxjs/operators';
 import { ArticleService, Type } from './../../../services/article.service';
 import { AuthService } from './../../../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -42,24 +42,29 @@ export class AddArticleComponent implements OnInit {
       this.author = user;
     });
     this.article$ = this.route.paramMap.pipe(
-      switchMap(params => {
+      switchMap((params) => {
         if (params.get('id')) {
           return this.articleService.getArticle(params.get('id'));
-        }
-        else {
+        } else {
           return EMPTY;
         }
       })
-    )
+    );
     if (this.article$) {
-      this.article$.subscribe(data => {
+      this.article$.subscribe((data) => {
         if (data) {
+          this.editing = true;
+
           this.oldValue = data;
           this.title.setValue(data.title);
           this.content.setValue(data.content);
-          this.editing = true;
+
+          this.selectedType = this.types.filter((type: any) => {
+            return Object.entries(type.value).toString() ===
+            Object.entries(data.type).toString();
+          })[0].value;
         }
-      })
+      });
     }
   }
   getErrorMessage(): string {
@@ -122,12 +127,13 @@ export class AddArticleComponent implements OnInit {
     let article = {
       id: this.oldValue.id,
       title: this.title.value,
-      content: this.content.value
-    }
+      content: this.content.value,
+      type: this.selectedType,
+    };
     let updatedBy = {
       uid: this.author.uid,
-      displayName: this.author.displayName
-    }
-    return this.articleService.updateArticle(article, updatedBy)
+      displayName: this.author.displayName,
+    };
+    return this.articleService.updateArticle(article, updatedBy);
   }
 }
