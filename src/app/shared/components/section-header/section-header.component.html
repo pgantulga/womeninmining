@@ -19,7 +19,7 @@
       <h3>{{ content.title }}</h3>
       <div class="divider"></div>
     </div>
-    <div class="actions" fxLayout="row">
+    <div class="actions" fxLayout="row" *ngIf="content.button">
       <button mat-button color="primary" (click)="goto(content.button.link)">
         {{ content.button.label }} <mat-icon color="primary">chevron_right</mat-icon>
       </button>

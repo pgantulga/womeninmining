@@ -108,7 +108,7 @@ a:hover {
   background-color: mat-color($womeninmining-primary);
   width: 40px;
   height: 6px;
-  margin: 16px 0;
+  margin: 22px 0;
   border-radius: 8px;
 }
 
@@ -135,7 +135,6 @@ a:hover {
   background-color: mat-color($my-amber, 50);
   // z-index: 5;
   // @include mat-elevation(2);
-
 }
 mat-icon {
   color: $onSurfaceMedium;
@@ -195,10 +194,7 @@ button.mat-flat-button.primary {
   font-size: mat-font-size($womeninmining-typography, caption) !important;
   font-weight: 500 !important;
   // margin: ;
-
 }
-
-
 
 /***************************Shared styles*********************************/
 
@@ -208,9 +204,7 @@ button.mat-flat-button.primary {
   padding: 32px;
 }
 
-
 /************************Quill custom styles***********************************/
-
 
 .ql-container {
   box-sizing: border-box;
@@ -229,9 +223,9 @@ button.mat-flat-button.primary {
   color: inherit;
   ul {
     padding-left: 1em;
-    li::before {
-      content: 's'
-    }
+    // li::before {
+    //   content: 's'
+    // }
   }
 }
 
@@ -252,4 +246,42 @@ quill-editor.answer .ql-editor {
 }
 .ql-video {
   max-width: 100%;
+}
+.decoration {
+  article {
+    h3 {
+      margin: 16px 0;
+    }
+    #timestamp {
+      display: none;
+      content: none;
+    }
+    .ql-editor {
+      ul {
+        margin: 8px 0;
+        li {
+          padding: 0;
+          margin-bottom: 8px;
+          display: flex;
+          align-items: center;
+        }
+        li::before {
+          content: url("../assets/decors/diamond_black_18dp.svg");
+          margin: 0 16px 0 0;
+          display: block;
+          svg {
+            fill: #fbbc05;
+          }
+        }
+      }
+    }
+  }
+  mat-divider {
+    margin: 0 48px;
+  }
+  @media only screen and (max-width: 600px) {
+    mat-divider {
+      margin: 0 32px;
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import { WrapperService } from './../../../core/services/wrapper.service';
 import { ArticleService } from 'src/app/core/services/article.service';
 import { Observable } from 'rxjs';
 import { SectionHeaderContent } from './../../../shared/components/section-header/section-header.component';
@@ -20,15 +21,18 @@ export class HomeComponent implements OnInit {
   sectionHeader_2: SectionHeaderContent;
   sectionHeader_3: SectionHeaderContent;
   articles$: Observable<any>;
-  constructor(private articleService: ArticleService, private route: ActivatedRoute) {
+  constructor(
+    private articleService: ArticleService,
+    private wrapperService: WrapperService
+  ) {
     this.sectionHeader_1 = {
       title: 'Бид хэн бэ',
       desc: 'Эрдэс баялгийн салбарт монгол эмэгтэй хүн өөртөө итгэлтэй байдлаар ажиллах нөхцөлийг бүрдүүлж хэн нэгнээс хамааралгүйгээр өөрийн ур чадвараараа мөрөөдөлдөө хүрэх боломжийг бүрдүүлэх',
       button: {
         label: 'Дэлгэрэнгүй',
         style: 'primary',
-        link: '/about'
-      }
+        link: '/about',
+      },
     };
     this.sectionHeader_2 = {
       title: 'Бичвэрүүд',
@@ -36,8 +40,8 @@ export class HomeComponent implements OnInit {
       button: {
         label: 'Бүгдийг харах',
         style: 'icon',
-        link: '/articles'
-      }
+        link: '/articles',
+      },
     };
     this.sectionHeader_3 = {
       title: 'Онцлох түүхүүд',
@@ -45,104 +49,11 @@ export class HomeComponent implements OnInit {
       button: {
         label: 'Дэлгэрэнгүй',
         link: '/articles',
-        style: 'icon'
-      }
-    };
-    this.gridContent = {
-      title:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
-      image: '../../../../assets/images/image.jpg',
-      author: {
-        uid: 'adlkjfaldfs',
-        displayName: 'Tulgaa',
-      },
-      createdAt: new Date(),
-      type: {
-        news: true,
-        blog: false,
-        story: false,
-        static: false,
+        style: 'icon',
       },
     };
-    this.heroContent = {
-      subtitle: '',
-      title: 'Эрдэс баялаг эмэгтэйчүүдийн холбоо',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
-      actionButton_1: {
-        label: 'Видео тоглуулах',
-        link: '',
-      },
-      actionButton_2: {
-        label: 'Танилцуулга татах',
-        link: '',
-      },
-      imageUrl: '../../../../assets/images/hero_image.webp',
-      imageUrl_small: '../../../../assets/images/hero_image.webp',
-      style: 'background',
-      type: 'hero',
-    };
-    this.cardContents = [
-      {
-        subtitle: '',
-        title: 'Жишиг өөрчилсөн түүх',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
-        actionButton_1: {
-          label: 'Түүхээ хуваалцах',
-          link: '',
-        },
-        actionButton_2: {
-          label: 'Танилцуулга',
-          link: '',
-        },
-        imageUrl: '../../../../assets/images/hero_image_conference_big.png',
-        imageUrl_small:
-          '../../../../assets/images/hero_image_conference_small.png',
-        style: 'primary',
-        type: 'card',
-      },
-      {
-        subtitle: '',
-        title: 'Хүний эрх жендэрийн сургалт',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
-        actionButton_1: {
-          label: 'Дэлгэрэнгүй',
-          link: '',
-        },
-        actionButton_2: {
-          label: 'Танилцуулга',
-          link: '',
-        },
-        imageUrl: '../../../../assets/images/gender_card.webp',
-        imageUrl_small:
-          '../../../../assets/images/gender_card.webp',
-        style: 'red',
-        type: 'card',
-      },
-      {
-        subtitle: '',
-        title: 'Гайхамшигт түүхүүд',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
-        actionButton_1: {
-          label: 'Дэлгэрэнгүй',
-          link: '',
-        },
-        actionButton_2: {
-          label: 'Танилцуулга',
-          link: '',
-        },
-        imageUrl: '../../../../assets/images/story_card.webp',
-        imageUrl_small:
-          '../../../../assets/images/story_card.webp',
-        style: 'accent',
-        type: 'card',
-      }
-    ];
+    this.heroContent = this.wrapperService.getHeroContent();
+    this.cardContents = this.wrapperService.getAllCardContents();
     this.accountCard = {
       subtitle: 'Сайн байна уу,',
       title: 'Туяа',

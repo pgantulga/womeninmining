@@ -9,12 +9,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TitleWrapperComponent implements OnInit {
   @Input() content: any;
   isPrimary: boolean;
-  isAccent = true;
+  isAccent: boolean;
   isRed: boolean;
   wrapperImageUrl: string;
   constructor() { }
 
   ngOnInit(): void {
+    this.selectStyle(this.content.style);
+
+  }
+  selectStyle(style): void {
+    this.isPrimary = (style === 'primary');
+    this.isAccent = (style === 'accent');
+    this.isRed = (style === 'red');
   }
 
 }

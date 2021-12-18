@@ -6,7 +6,7 @@ export interface Type {
   news: boolean;
   blog: boolean;
   story: boolean;
-  static: boolean
+  static: boolean;
 }
 export interface Author {
   uid: string;
@@ -36,7 +36,7 @@ export class ArticleService {
     return this.articleCollection.doc(id).valueChanges();
   }
   createArticle(
-    article: { title: any; content: any, type: any },
+    article: { title: any; content: any; type: any },
     author: { uid: any; displayName: any }
   ): any {
     return this.articleCollection
@@ -48,7 +48,7 @@ export class ArticleService {
         content: article.content,
         createdAt: new Date(),
         title: article.title,
-        type: article.type
+        type: article.type,
       })
       .then((res) => {
         return res.update({
@@ -60,7 +60,7 @@ export class ArticleService {
     return this.articleCollection.doc(article.id).delete();
   }
   updateArticle(
-    article: { id: any; title: any; content: any, type:any },
+    article: { id: any; title: any; content: any; type: any },
     updatedBy: { uid: any; displayName: any }
   ): any {
     return this.articleCollection.doc(article.id).set(
@@ -79,11 +79,25 @@ export class ArticleService {
   }
   getArticleTypes() {
     return [
-      { value: { news: true } , viewValue: 'news' },
-      { value: { story: true} , viewValue: 'story' },
-      { value: { blog: true} , viewValue: 'blog' },
-      { value: { static: true} , viewValue: 'static' },
+      { value: { news: true }, viewValue: 'news' },
+      { value: { story: true }, viewValue: 'story' },
+      { value: { blog: true }, viewValue: 'blog' },
+      { value: { static: true }, viewValue: 'static' },
     ];
+  }
+  getArticleByTypes(type) {
+    return this.db
+      .collection('articles', (ref) =>
+        ref.orderBy('createdAt', 'desc').where('type', '==', type)
+      )
+      .valueChanges();
+  }
+  getStaticArticles():Observable<any> {
+    return this.db
+      .collection('articles', (ref) =>
+        ref.orderBy('createdAt', 'desc').where('type.static', '==', true)
+      )
+      .valueChanges();
   }
   getTag(content) {
     if (!content.type) {
@@ -97,9 +111,8 @@ export class ArticleService {
       return {
         label: 'Статик',
         link: 'google.com',
-        style: { red: false, primary: false, accent: true }
-      }
-
+        style: { red: false, primary: false, accent: true },
+      };
     }
     if (content.type.blog) {
       return {

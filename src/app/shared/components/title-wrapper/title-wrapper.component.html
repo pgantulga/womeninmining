@@ -5,7 +5,8 @@
     'wrapper-hero--accent': isAccent,
     'wrapper-hero--red': isRed
   }"
-  fxLayout="row"
+  fxLayout="column"
+  fxLayout.gt-xs="row"
 >
   <div
     class="left-content"
@@ -16,12 +17,12 @@
     <div fxLayout="column">
       <h1>{{ content.title }}</h1>
       <div class="divider"></div>
-      <p class="mat-body-2">
+      <p>
         {{ content.description }}
       </p>
     </div>
   </div>
-  <div class="right-content" fxHide.sm="" fxHide.xs="">
-    <img [src]="content.imageUrl_small" />
+  <div class="right-content" fxFlex>
+    <img [src]="content.image" />
   </div>
 </div>

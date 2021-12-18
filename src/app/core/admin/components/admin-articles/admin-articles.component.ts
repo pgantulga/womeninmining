@@ -12,7 +12,7 @@ export class AdminArticlesComponent implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    this.articles$ = this.articleService.getAllArticles();
+    this.articles$ = this.articleService.getStaticArticles();
   }
 
 }

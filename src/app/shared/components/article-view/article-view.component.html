@@ -1,7 +1,7 @@
 <article>
   <h3>{{article.title}}</h3>
   <div class="divider"></div>
-  <p class="mat-caption">{{article.createdAt | moment}}</p>
+  <p class="mat-caption" id="timestamp">{{article.createdAt | moment}}</p>
   <div class="ql-container ql-snow" fxLayout="column" style="border-width: 0;">
     <div class="ql-editor" [innerHtml]="htmlContent"></div>
   </div>

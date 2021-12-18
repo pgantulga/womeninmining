@@ -21,7 +21,7 @@ mat-sidenav {
 .mat-sidenav-content-container {
   padding-top: 80px;
 }
-  // Default pages layout-1, story page: layout-2, login page: layout-3, admin page: layout-4
+// Default pages layout-1, story page: layout-2, login page: layout-3, admin page: layout-4
 
 .layout-one {
   min-height: calc(100vh - 398px);
@@ -40,8 +40,9 @@ mat-sidenav {
 }
 
 .route-menu {
- mat-icon {
-   @include md-icon-size(18px);
-   margin: 0;
- }
+  margin: 16px 0 0 0;
+  mat-icon {
+    @include md-icon-size(18px);
+    margin: 0;
+  }
 }
