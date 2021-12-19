@@ -10,12 +10,12 @@
 </div>
 <!-- Article lists -->
 <div fxLayout="column" fxLayoutGap="20px" *ngIf="articles$ | async as articles">
-  <article-list-item
-    *ngFor="let item of articles; last as last"
-    [content]="item"
-  >
-    <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
-      <mat-icon>edit</mat-icon>
-    </button>
-  </article-list-item>
+  <ng-container *ngFor="let item of articles; last as last">
+    <article-list-item [content]="item">
+      <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </article-list-item>
+    <mat-divider *ngIf="!last"></mat-divider>
+  </ng-container>
 </div>

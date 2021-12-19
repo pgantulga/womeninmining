@@ -58,10 +58,12 @@ export class AddArticleComponent implements OnInit {
           this.oldValue = data;
           this.title.setValue(data.title);
           this.content.setValue(data.content);
-
+          const selected = Object.keys(data.type).filter((type: any) => {
+            return data.type[type];
+          });
           this.selectedType = this.types.filter((type: any) => {
-            return Object.entries(type.value).toString() ===
-            Object.entries(data.type).toString();
+            return Object.keys(type.value)[0] ===
+              selected[0];
           })[0].value;
         }
       });
@@ -76,13 +78,13 @@ export class AddArticleComponent implements OnInit {
   onSubmit() {
     const dialogData = !this.editing
       ? {
-          title: 'Adding article',
-          content: 'Your article will be added to database.',
-        }
+        title: 'Adding article',
+        content: 'Your article will be added to database.',
+      }
       : {
-          title: 'Saving article',
-          content: 'Your changes will be saved to datase',
-        };
+        title: 'Saving article',
+        content: 'Your changes will be saved to datase',
+      };
     const dialogRef = this.dialog.open(ActionDialogComponent, {
       data: dialogData,
     });

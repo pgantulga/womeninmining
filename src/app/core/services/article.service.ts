@@ -27,10 +27,10 @@ export interface Article {
 export class ArticleService {
   private articleCollection = this.db.collection('articles');
 
-  constructor(private db: AngularFirestore) {}
+  constructor(private db: AngularFirestore) { }
 
-  getAllArticles(): Observable<any> {
-    return this.articleCollection.valueChanges();
+  getArticles(number): Observable<any> {
+    return this.db.collection('articles', ref => ref.limit(number).orderBy('createdBy', 'desc')).valueChanges();
   }
   getArticle(id: string): Observable<any> {
     return this.articleCollection.doc(id).valueChanges();
@@ -48,7 +48,7 @@ export class ArticleService {
         content: article.content,
         createdAt: new Date(),
         title: article.title,
-        type: article.type,
+        type: this.changeArticleType(article.type),
       })
       .then((res) => {
         return res.update({
@@ -68,7 +68,7 @@ export class ArticleService {
         content: article.content,
         title: article.title,
         updatedAt: new Date(),
-        type: article.type,
+        type: this.changeArticleType(article.type),
         lastUpdateBy: {
           uid: updatedBy.uid,
           displayName: updatedBy.displayName,
@@ -77,7 +77,7 @@ export class ArticleService {
       { merge: true }
     );
   }
-  getArticleTypes() {
+  getArticleTypes(): any {
     return [
       { value: { news: true }, viewValue: 'news' },
       { value: { story: true }, viewValue: 'story' },
@@ -85,21 +85,34 @@ export class ArticleService {
       { value: { static: true }, viewValue: 'static' },
     ];
   }
-  getArticleByTypes(type) {
+  private changeArticleType(type): Type {
+    console.log(type);
+    const articleTypes = {
+      news: false,
+      blog: false,
+      static: false,
+      story: false
+    };
+    const key = Object.keys(type);
+    articleTypes[key[0]] = true;
+    return articleTypes;
+
+  }
+  getArticleByTypes(type): Observable<any> {
     return this.db
       .collection('articles', (ref) =>
-        ref.orderBy('createdAt', 'desc').where('type', '==', type)
+        ref.orderBy('createdAt', 'desc').where(`type.${type}`, '==', true)
       )
       .valueChanges();
   }
-  getStaticArticles():Observable<any> {
-    return this.db
-      .collection('articles', (ref) =>
-        ref.orderBy('createdAt', 'desc').where('type.static', '==', true)
-      )
-      .valueChanges();
-  }
-  getTag(content) {
+  // getArticlesExclude(type, number): Observable<any> {
+  //   return this.db
+  //     .collection('articles', (ref) =>
+  //       ref.orderBy('createdAt', 'desc').where(`type.${type}`, '!=', true )
+  //     ).valueChanges();
+
+  // }
+  getTag(content): any {
     if (!content.type) {
       return {
         label: 'Нийтлэл',
