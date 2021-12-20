@@ -7,10 +7,11 @@ import { HomeviewRoutingModule } from './homeview-routing.module';
 import { HomeComponent } from './home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { BoardComponent } from './board/board.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, AboutUsComponent],
+  declarations: [HomeComponent, AboutUsComponent, BoardComponent],
   imports: [
     CommonModule,
     HomeviewRoutingModule,

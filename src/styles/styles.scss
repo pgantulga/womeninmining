@@ -18,11 +18,12 @@ $womeninmining-theme: mat-light-theme(
     ),
   )
 );
+$onSurfaceLow: rgba(0, 0, 0, 0.2);
 $onSurfaceMedium: rgba(0, 0, 0, 0.6);
 $onSurfaceHigh: rgba(0, 0, 0, 0.87);
 $onDarkSurface: rgba(255, 255, 255);
 
-$whiteSurfaceMedium: #fafafa;
+$whiteSurfaceMedium: #eeeeee;
 $redSurface: #b00020;
 
 @include angular-material-theme($womeninmining-theme);

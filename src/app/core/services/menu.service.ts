@@ -21,12 +21,18 @@ export class MenuService {
           icon: '',
           link: '/home/about'
         },
+        // {
+        //   parent: 1,
+        //   label: 'Лого бүхий бүтээгдэхүүн',
+        //   label2: 'Цамц, малга',
+        //   icon: '',
+        // },
         {
           parent: 1,
-          label: 'Лого бүхий бүтээгдэхүүн',
-          label2: 'Цамц, малга',
-          icon: '',
-        },
+          label: 'Зөвлөл',
+          label2: 'Зөвлөх зөвлөл, гүйцэтгэх зөвлөл',
+          link: '/home/board'
+        }
       ],
     },
     {

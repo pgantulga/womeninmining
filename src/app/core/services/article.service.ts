@@ -29,8 +29,12 @@ export class ArticleService {
 
   constructor(private db: AngularFirestore) { }
 
-  getArticles(number): Observable<any> {
-    return this.db.collection('articles', ref => ref.limit(number).orderBy('createdBy', 'desc')).valueChanges();
+  getArticles(number?): Observable<any> {
+    if (number) {
+      return this.db.collection('articles', ref => ref.limit(number).orderBy('createdAt', 'desc')).valueChanges();
+    } else {
+      return this.articleCollection.valueChanges();
+    }
   }
   getArticle(id: string): Observable<any> {
     return this.articleCollection.doc(id).valueChanges();
@@ -105,13 +109,13 @@ export class ArticleService {
       )
       .valueChanges();
   }
-  // getArticlesExclude(type, number): Observable<any> {
-  //   return this.db
-  //     .collection('articles', (ref) =>
-  //       ref.orderBy('createdAt', 'desc').where(`type.${type}`, '!=', true )
-  //     ).valueChanges();
+  getArticlesExclude(type, number): Observable<any> {
+    return this.db
+      .collection('articles', (ref) =>
+        ref.orderBy('createdAt', 'desc').where(`type.${type}`, "==", false ).limit(number)
+      ).valueChanges();
 
-  // }
+  }
   getTag(content): any {
     if (!content.type) {
       return {

@@ -1,20 +1,19 @@
 @import "../wrapper-hero/wrapper-hero.component.scss";
 
 .wrapper-hero-container {
-  height: 250px;
+  height: 300px;
   margin: 16px 0;
   .left-content {
     padding: 48px 16px 48px 48px;
     h1 {
       margin: 0;
       position: relative;
-
     }
     h1::after {
       position: absolute;
-      margin: 0 24px;
       content: url("../../../../assets/decors/decor_star.svg");
       top: -18px;
+      right: 0;
       // bottom: -8px;
     }
     .mat-body-2 {

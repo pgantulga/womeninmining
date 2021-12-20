@@ -1,11 +1,13 @@
-<p>Article list</p>
-<div
-  fxLayout="row wrap"
-  fxLayoutGap="20px"
-  *ngIf="articles$ | async as articles"
->
+<div fxLayout="column" fxLayoutGap="16px">
+  <title-wrapper [content]="headerContent"></title-wrapper>
+  <div
+    fxLayout="row wrap"
+    fxLayoutGap="20px"
+    *ngIf="articles$ | async as articles"
+  >
     <article-grid-item
       *ngFor="let item of articles"
       [content]="item"
     ></article-grid-item>
+  </div>
 </div>

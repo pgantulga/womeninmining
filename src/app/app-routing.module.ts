@@ -16,6 +16,16 @@ const routes: Routes = [
     redirectTo: 'home/about',
   },
   {
+    path: 'board',
+    data: {title: 'Зөвлөл', name: 'board'},
+    redirectTo: 'home/board',
+  },
+  {
+    path: 'stories',
+    data: {title: 'Түүхүүд', name: 'stories'},
+    loadChildren: () => import('./views/story/story.module').then(m => m.StoryModule)
+  },
+  {
     path: 'admin',
     data: {title: 'Админ', name:'admin'},
     loadChildren: () =>

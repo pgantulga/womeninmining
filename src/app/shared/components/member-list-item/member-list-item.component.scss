@@ -1,0 +1,35 @@
+@import "styles.scss";
+
+.member-list-container {
+  padding: 32px;
+  background-color: $whiteSurfaceMedium;
+  margin-bottom: 16px;
+  width: 260px;
+  border-radius: 32px;
+  p,
+  h3 {
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .avatar-icon {
+    @include md-icon-size(96px);
+    // width: 72px;
+    // height: 72px;
+    color: $onSurfaceLow;
+  }
+  .image-container {
+    background-color: mat-color($womeninmining-accent);
+    border-radius: 96px;
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    img {
+      max-height: 100%;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .member-list-container {
+    width: 100%;
+  }
+}

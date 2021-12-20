@@ -1,0 +1,25 @@
+<div fxLayout="column" fxLayoutGap="16px">
+  <title-wrapper [content]="headerContent"></title-wrapper>
+  <section-header [content]="sectionHeader_1"></section-header>
+  <div
+    fxLayout="row wrap"
+    fxLayoutGap="16px"
+    fxFlexAlign="center center"
+    fxLayout.xs="column"
+    fxFlexAlign.xs="center center"
+    fxLayoutGap.xs="0"
+  >
+    <member-list-item
+      *ngFor="let item of content.boardAdvisor"
+      [member]="item"
+    ></member-list-item>
+  </div>
+  <section-header [content]="sectionHeader_2"></section-header>
+
+  <div fxLayout="row wrap" fxLayoutGap="16px">
+    <member-list-item
+      *ngFor="let item of content.boardExecute"
+      [member]="item"
+    ></member-list-item>
+  </div>
+</div>

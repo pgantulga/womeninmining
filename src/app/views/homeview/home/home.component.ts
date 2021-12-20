@@ -75,6 +75,6 @@ export class HomeComponent implements OnInit {
     };
   }
   ngOnInit(): void {
-    this.articles$ = this.articleService.getAllArticles();
+    this.articles$ = this.articleService.getArticlesExclude('static', 10);
   }
 }

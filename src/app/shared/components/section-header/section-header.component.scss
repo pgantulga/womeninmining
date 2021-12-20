@@ -6,9 +6,10 @@
   }
   h3::after {
     position: absolute;
-    margin: 0 24px;
+    // margin: 0 24px;
     content: url("../../../../assets/decors/decor_star.svg");
     top: -18px;
+    right: -48px;
     // bottom: -8px;
   }
 }

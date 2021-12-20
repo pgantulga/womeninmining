@@ -1,3 +1,4 @@
+import { StoryListComponent } from './../views/story/story-list/story-list.component';
 import { ArticleListItemComponent } from './components/article-list-item/article-list-item.component';
 import { MaterialModule } from './../material/material.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
@@ -14,6 +15,8 @@ import { ChipTagComponent } from './components/chip-tag/chip-tag.component';
 import { MomentPipe } from './moment.pipe';
 import { ArticleViewComponent } from './components/article-view/article-view.component';
 import { SectionHeaderComponent } from './components/section-header/section-header.component';
+import { MemberListItemComponent } from './components/member-list-item/member-list-item.component';
+import { StoryListItemComponent } from './components/story-list-item/story-list-item.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import { SectionHeaderComponent } from './components/section-header/section-head
     MomentPipe,
     ArticleViewComponent,
     SectionHeaderComponent,
+    MemberListItemComponent,
+    StoryListItemComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, MaterialModule],
   exports: [
@@ -42,7 +47,9 @@ import { SectionHeaderComponent } from './components/section-header/section-head
     ArticleListItemComponent,
     MomentPipe,
     ArticleViewComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    MemberListItemComponent,
+    StoryListItemComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

@@ -1,0 +1,8 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="member-list-container" fxLayoutGap="8px">
+  <mat-icon class="avatar-icon" *ngIf="!member.image">person</mat-icon>
+  <div class="image-container" *ngIf="member.image">
+    <img *ngIf="member.image" [src]="member.image" alt="Profile image">
+  </div>
+  <h3>{{member.displayName}}</h3>
+  <p>{{member.represent}}</p>
+</div>

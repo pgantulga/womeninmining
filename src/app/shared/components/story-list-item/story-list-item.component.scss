@@ -1,0 +1,47 @@
+@import "styles";
+
+.story-list-container {
+  .content {
+    background-color: $whiteSurfaceMedium;
+    padding: 56px 56px 32px 56px;
+    border-radius: 32px;
+    h1 {
+      margin: 0;
+      .last-name {
+        text-transform: capitalize;
+      }
+      .first-name {
+        text-transform: uppercase;
+      }
+    }
+  }
+  .image-container {
+    background-color: red;
+    border-radius: 32px;
+    overflow: hidden;
+    height: 350px;
+    width: 350px;
+    img {
+    }
+  }
+}
+@media only screen and (max-width: 960px) and (min-width: 600px) {
+  .story-list-container {
+    padding: 48px 16px 48px 48px;
+    .image-container {
+      height: 300px;
+    width: 300px;
+      img {
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .story-list-container {
+    padding: 32px 16px 32px 32px;
+    .image-container {
+      img {
+      }
+    }
+  }
+}
