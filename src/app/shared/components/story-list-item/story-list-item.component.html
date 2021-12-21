@@ -7,22 +7,19 @@
   <div
     fxLayout="column"
     class="content"
-    fxLayoutAlign="space-between start"
+    fxLayoutAlign.gt-xs="space-between start"
     fxFlex
+    fxFlexOrder.xs="2"
   >
-    <h1>
-      <span class="last-name"></span>Жанчивын <br />
-      <span class="first-name">Оюунгэрэл</span>
-    </h1>
-    <div class="divider"></div>
-    <p class="line-clamp-3">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus, pretium at
-      fames dictumst sed a. Sed quis interdum nunc eget nulla pretium gravida.
-      Scelerisque congue metus, enim scelerisque.
-    </p>
+    <div fxLayout="column">
+      <h1 class="last-name">{{ story.lastName }}</h1>
+      <h1 class="first-name">{{ story.firstName }}</h1>
+      <div class="divider"></div>
+      <p class="line-clamp-2" [innerHtml]="htmlContent"></p>
+    </div>
     <button mat-flat-button color="primary">Дэлгэрэнгүй</button>
   </div>
-  <div fxLayout="column" class="image-container" >
-    <img src="../../../../assets/images/people/oyungerel.webp" alt="" />
+  <div fxLayout="column" class="image-container" fxFlexOrder.xs="1">
+    <img [src]="story.image" alt="Story image" />
   </div>
 </div>

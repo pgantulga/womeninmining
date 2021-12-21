@@ -1,13 +1,20 @@
 @import "styles";
 
+@mixin change($width) {
+  .story-list-container {
+    height: $width;
+  }
+}
 .story-list-container {
+  height: 350px;
+  margin-bottom: 16px;
   .content {
     background-color: $whiteSurfaceMedium;
     padding: 56px 56px 32px 56px;
     border-radius: 32px;
     h1 {
       margin: 0;
-      .last-name {
+      c .last-name {
         text-transform: capitalize;
       }
       .first-name {
@@ -16,31 +23,43 @@
     }
   }
   .image-container {
-    background-color: red;
+    width: 350px;
     border-radius: 32px;
     overflow: hidden;
-    height: 350px;
-    width: 350px;
-    img {
-    }
   }
 }
 @media only screen and (max-width: 960px) and (min-width: 600px) {
   .story-list-container {
-    padding: 48px 16px 48px 48px;
+    height: 300px;
     .image-container {
-      height: 300px;
-    width: 300px;
-      img {
+      width: 300px;
+    }
+    .content {
+      padding: 48px 16px 48px 48px;
+      h1 {
+        font-size: mat-font-size($womeninmining-typography, title);
+        line-height: 36px;
       }
     }
   }
 }
 @media only screen and (max-width: 600px) {
   .story-list-container {
-    padding: 32px 16px 32px 32px;
+    height: 458px;
+    width: 100%;
+    .content {
+      background-color: transparent;
+      padding: 16px 24px;
+      h1 {
+        font-size: mat-font-size($womeninmining-typography, subheading-1);
+        line-height: 28px;
+      }
+    }
     .image-container {
+      height: 300px;
+      width: 100%;
       img {
+        top: -200px;
       }
     }
   }

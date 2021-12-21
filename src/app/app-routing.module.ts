@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'stories',
-    data: {title: 'Түүхүүд', name: 'stories'},
+    data: {title: 'Тэр эмэгтэйн түүх', name: 'stories'},
     loadChildren: () => import('./views/story/story.module').then(m => m.StoryModule)
   },
   {

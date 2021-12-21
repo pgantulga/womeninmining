@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 export interface SectionHeaderContent {
   title: string;
-  desc?: string;
+  description?: string;
   button?: {
     label: string;
     link: string;

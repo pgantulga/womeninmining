@@ -5,7 +5,8 @@
     'wrapper-hero--accent': isAccent,
     'wrapper-hero--red': isRed
   }"
-  fxLayout="row"
+  fxLayout="column"
+  fxLayout.gt-xs="row"
 >
   <div
     class="left-content"
@@ -14,9 +15,10 @@
     fxFlex
   >
     <div fxLayout="column">
-      <p class="mat-subheading-2">{{content.subtitle}}</p>
-      <h1>{{content.title}}</h1>
-      <p class="mat-body-2">
+      <p class="mat-subheading-2">{{ getGreetings() }}</p>
+      <h1>{{ user.displayName }}</h1>
+      <div class="divider"></div>
+      <p>
         {{ content.description }}
       </p>
     </div>
@@ -25,11 +27,26 @@
       class="actions"
       fxLayoutAlign="start center"
       fxLayoutAlign.xs="center center"
+      fxLayoutGap="8px"
     >
-      <button mat-flat-button color="primary">Түүхээ хуваалцая</button>
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="goto(content.actionButton_1.link)"
+      >
+        {{ content.actionButton_1.label }}
+      </button>
+      <button
+        mat-button
+        color="primary"
+        (click)="goto(content.actionButton_2.link)"
+      >
+        {{ content.actionButton_2.label }}
+        <mat-icon color="primary">settings</mat-icon>
+      </button>
     </div>
   </div>
-  <div class="right-content" fxHide.xs fxFlex>
-    <img [src]="content.imageUrl_small" />
+  <div class="right-content" fxFlex fxHide.xs>
+    <img [src]="content.imageUrl" />
   </div>
 </div>

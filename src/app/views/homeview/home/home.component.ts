@@ -1,3 +1,5 @@
+import { StoryService } from './../../../core/services/story.service';
+import { AuthService } from './../../../core/services/auth.service';
 import { WrapperService } from './../../../core/services/wrapper.service';
 import { ArticleService } from 'src/app/core/services/article.service';
 import { Observable } from 'rxjs';
@@ -21,13 +23,16 @@ export class HomeComponent implements OnInit {
   sectionHeader_2: SectionHeaderContent;
   sectionHeader_3: SectionHeaderContent;
   articles$: Observable<any>;
+  stories$: Observable<any>;
   constructor(
     private articleService: ArticleService,
-    private wrapperService: WrapperService
+    private wrapperService: WrapperService,
+    public authService: AuthService,
+    private storyService: StoryService
   ) {
     this.sectionHeader_1 = {
       title: 'Бид хэн бэ',
-      desc: 'Эрдэс баялгийн салбарт монгол эмэгтэй хүн өөртөө итгэлтэй байдлаар ажиллах нөхцөлийг бүрдүүлж хэн нэгнээс хамааралгүйгээр өөрийн ур чадвараараа мөрөөдөлдөө хүрэх боломжийг бүрдүүлэх',
+      description: 'Эрдэс баялгийн салбарт монгол эмэгтэй хүн өөртөө итгэлтэй байдлаар ажиллах нөхцөлийг бүрдүүлж хэн нэгнээс хамааралгүйгээр өөрийн ур чадвараараа мөрөөдөлдөө хүрэх боломжийг бүрдүүлэх',
       button: {
         label: 'Дэлгэрэнгүй',
         style: 'primary',
@@ -36,7 +41,7 @@ export class HomeComponent implements OnInit {
     };
     this.sectionHeader_2 = {
       title: 'Бичвэрүүд',
-      desc: null,
+      description: null,
       button: {
         label: 'Бүгдийг харах',
         style: 'icon',
@@ -45,10 +50,10 @@ export class HomeComponent implements OnInit {
     };
     this.sectionHeader_3 = {
       title: 'Онцлох түүхүүд',
-      desc: null,
+      description: null,
       button: {
         label: 'Дэлгэрэнгүй',
-        link: '/articles',
+        link: '/stories',
         style: 'icon',
       },
     };
@@ -76,5 +81,6 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.articles$ = this.articleService.getArticlesExclude('static', 10);
+    this.stories$ = this.storyService.getStories();
   }
 }

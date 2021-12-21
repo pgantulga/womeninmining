@@ -26,11 +26,27 @@ export class WrapperService {
       type: 'hero',
     };
   }
+  getAccountWrapper() {
+    return {
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
+      actionButton_1: {
+        label: 'Түүхээ хуваалцая',
+        link: '',
+      },
+      actionButton_2: {
+        label: 'Тохиргоо',
+        link: '/auth/profile-settings',
+      },
+      imageUrl: '../../../assets/images/story_nobg.png',
+      style: 'accent',
+    };
+  }
   getAllCardContents(): WrapperContent[] {
     return [
       {
         subtitle: '',
-        title: 'Жишиг өөрчилсөн түүх',
+        title: 'Үндэсний чуулган',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
         actionButton_1: {
@@ -78,8 +94,8 @@ export class WrapperService {
           label: 'Танилцуулга',
           link: '',
         },
-        imageUrl: '../../../../assets/images/story_card.webp',
-        imageUrl_small: '../../../../assets/images/story_card.webp',
+        imageUrl: '../../../assets/images/story_nobg.png',
+        imageUrl_small: '.../../../assets/images/story_nobg.png',
         style: 'accent',
         type: 'card',
       },

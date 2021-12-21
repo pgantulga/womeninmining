@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
 {
   path: '',
+  data: {title: 'Гайхамшигт түүхүүд', name: 'stories'},
   component: StoryListComponent
 },
 {

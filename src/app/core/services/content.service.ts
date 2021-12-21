@@ -6,6 +6,9 @@ import { Member } from 'src/app/shared/components/member-list-item/member-list-i
 })
 export class ContentService {
   constructor() {}
+  public images = {
+    story_nobg: '../../../assets/images/story_nobg.png'
+  }
   public boardAdvisor: Member[] = [
     {
       displayName: 'Ш.Байгалмаа',

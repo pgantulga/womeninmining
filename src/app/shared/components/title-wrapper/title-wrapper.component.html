@@ -20,9 +20,14 @@
       <p>
         {{ content.description }}
       </p>
+      <ng-container *ngIf="content.button">
+        <button mat-flat-button color="primary" (click)="goto(content.button.link)">
+          {{ content.button.label }}
+        </button></ng-container
+      >
     </div>
   </div>
   <div class="right-content" fxFlex>
-    <img [src]="content.image" />
+      <img [src]="content.image" />
   </div>
 </div>

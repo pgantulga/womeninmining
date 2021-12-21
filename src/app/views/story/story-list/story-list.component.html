@@ -1,1 +1,29 @@
-<p>story-list works!</p>
+<div fxLayout="column" fxLayoutGap="32px">
+  <section>
+    <title-wrapper [content]="header"></title-wrapper>
+  </section>
+  <section>
+    <section-header [content]="sectionHeader"></section-header>
+    <div fxLayout="row" class="sorting_tabs" fxLayoutAlign="end center">
+      <mat-button-toggle-group
+        name="stories"
+        aria-label="sort"
+        appearance="legacy"
+      >
+        <mat-button-toggle
+          *ngFor="let item of toggleMenu"
+          [matTooltip]="item.name"
+          matTooltipClass="tooltip"
+        >
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div fxLayout="column" *ngIf="stories$ | async as stories">
+      <story-list-item
+        *ngFor="let item of stories"
+        [story]="item"
+      ></story-list-item>
+    </div>
+  </section>
+</div>

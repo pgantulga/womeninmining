@@ -1,12 +1,8 @@
-import { Router } from '@angular/router';
-import { MenuService } from './../../core/services/menu.service';
-import { ActionDialogComponent } from './../../shared/components/action-dialog/action-dialog.component';
 import { AuthService } from './../../core/services/auth.service';
-import { MenuList } from './../top-menus';
-import { Component, OnInit, ViewChild, Renderer2, NgZone } from '@angular/core';
+import { Component, OnInit, ViewChild, } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { CdkScrollable, ScrollDispatcher } from '@angular/cdk/scrolling';
+import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import { MatDialog } from '@angular/material/dialog';
 
 export interface Menu {

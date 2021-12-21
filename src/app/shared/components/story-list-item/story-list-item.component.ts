@@ -1,3 +1,4 @@
+import { DomSanitizer } from '@angular/platform-browser';
     import { Story } from './../../../core/services/story.service';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -8,10 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StoryListItemComponent implements OnInit {
   @Input() story: Story
+  htmlContent: any;
 
-  constructor() { }
+  constructor( private sanitzier: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.htmlContent = this.sanitzier.bypassSecurityTrustHtml(
+      this.story.content
+    );
   }
 
 }

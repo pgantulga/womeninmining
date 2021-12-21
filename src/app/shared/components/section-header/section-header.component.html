@@ -1,11 +1,13 @@
-<ng-container *ngIf="content.desc; else rowHeader">
+<ng-container *ngIf="content.description; else rowHeader">
   <div fxLayout="column" fxLayoutAlign="center start" class="section-header">
     <h3>{{ content.title }}</h3>
     <div class="divider"></div>
-    <p *ngIf="content.desc">{{ content.desc }}</p>
-    <button mat-flat-button color="primary" (click)="goto(content.button.link)">
-      {{ content.button.label }}
-    </button>
+    <p *ngIf="content.description">{{ content.description }}</p>
+    <ng-container *ngIf="content?.button">
+      <button mat-flat-button color="primary" (click)="goto(content.button.link)">
+        {{ content.button.label }}
+      </button>
+    </ng-container>
   </div>
 </ng-container>
 <ng-template #rowHeader>
@@ -20,8 +22,8 @@
     </div>
     <ng-container *ngIf="content?.button">
       <div class="actions" fxLayout="row" >
-        <button mat-button color="primary" (click)="goto(content.button?.link)">
-          {{ content.button?.label }}
+        <button mat-button color="primary" (click)="goto(content.button.link)">
+          {{ content.button.label }}
           <mat-icon color="primary">chevron_right</mat-icon>
         </button>
       </div>

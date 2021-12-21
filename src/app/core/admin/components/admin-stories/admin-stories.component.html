@@ -1,0 +1,21 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  class="admin-subheader"
+>
+  <h3>Stories</h3>
+  <button mat-flat-button color="primary" (click)="addStory()">
+    Add story
+  </button>
+</div>
+<!-- Article lists -->
+<!-- <div fxLayout="column" fxLayoutGap="20px" *ngIf="stories$ | async as stories">
+  <ng-container *ngFor="let item of stories; last as last">
+    <article-list-item [content]="item">
+      <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </article-list-item>
+    <mat-divider *ngIf="!last"></mat-divider>
+  </ng-container>
+</div> -->

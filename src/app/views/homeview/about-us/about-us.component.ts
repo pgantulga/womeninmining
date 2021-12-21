@@ -1,5 +1,7 @@
+import { SectionHeaderContent } from './../../../shared/components/section-header/section-header.component';
 import { ArticleService } from 'src/app/core/services/article.service';
 import { Component, OnInit } from '@angular/core';
+import { HeaderContent } from 'src/app/shared/components/title-wrapper/title-wrapper.component';
 
 @Component({
   selector: 'app-about-us',
@@ -9,8 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class AboutUsComponent implements OnInit {
   articlesIds: any[];
   articles: any[] = [];
-  headerContent: any;
-  sectionHeader: any;
+  headerContent: HeaderContent;
+  sectionHeader: SectionHeaderContent;
   constructor(private articleService: ArticleService) {
     this.headerContent = {
       title: 'Бид хэн бэ',
@@ -20,7 +22,7 @@ export class AboutUsComponent implements OnInit {
     }
     this.sectionHeader = {
       title: 'Бүтээгдэхүүн',
-      desc: null,
+      description: null,
       // button: {
       //   label: 'Дэлгэрэнгүй',
       //   link: '/articles',

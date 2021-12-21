@@ -4,6 +4,9 @@
 }
 mat-sidenav-container {
   height: 100%;
+  .content {
+    margin: 8px 0;
+  }
 }
 mat-sidenav {
   width: 300px;
@@ -40,7 +43,7 @@ mat-sidenav {
 }
 
 .route-menu {
-  margin: 16px 0 0 0;
+  margin-bottom: 16px;
   mat-icon {
     @include md-icon-size(18px);
     margin: 0;

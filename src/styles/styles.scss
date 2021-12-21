@@ -23,7 +23,7 @@ $onSurfaceMedium: rgba(0, 0, 0, 0.6);
 $onSurfaceHigh: rgba(0, 0, 0, 0.87);
 $onDarkSurface: rgba(255, 255, 255);
 
-$whiteSurfaceMedium: #eeeeee;
+$whiteSurfaceMedium: #f5f5f5;
 $redSurface: #b00020;
 
 @include angular-material-theme($womeninmining-theme);
@@ -39,6 +39,11 @@ html {
 body {
   margin: 0;
   background-color: #fff;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 @media only screen and (min-width: 1920px) {
   .container {
@@ -187,6 +192,11 @@ button.mat-flat-button.primary {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+}
+mat-button-toggle-group {
+  box-shadow: none !important;
+  background-color:white;
+  border-radius: 16px !important;
 }
 
 /*************************** Chip styles *********************************/

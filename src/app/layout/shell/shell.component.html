@@ -24,7 +24,7 @@
         [class.layout-four]="layout.layout4"
       >
         <div fxFlex></div>
-        <div class="container">
+        <div class="container content">
           <ng-container *ngIf="showRouteMenu(layout, currentRoute)">
             <div
               *ngIf="routes$ | async as routes"

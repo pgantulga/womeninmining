@@ -1,18 +1,29 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 
+export interface HeaderContent {
+  title: string;
+  style: string;
+  image: string;
+  description?: string;
+  button?: {
+    label: string;
+    link: string
+  }
+}
+
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'title-wrapper',
   templateUrl: './title-wrapper.component.html',
   styleUrls: ['./title-wrapper.component.scss']
 })
 export class TitleWrapperComponent implements OnInit {
-  @Input() content: any;
+  @Input() content: HeaderContent;
   isPrimary: boolean;
   isAccent: boolean;
   isRed: boolean;
   wrapperImageUrl: string;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.selectStyle(this.content.style);
@@ -22,6 +33,9 @@ export class TitleWrapperComponent implements OnInit {
     this.isPrimary = (style === 'primary');
     this.isAccent = (style === 'accent');
     this.isRed = (style === 'red');
+  }
+  goto(link) {
+    this.router.navigateByUrl(link);
   }
 
 }

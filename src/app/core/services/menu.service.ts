@@ -71,14 +71,15 @@ export class MenuService {
       children: [
         {
           parent: 3,
-          label: 'Түүх бүтсэн түүх',
-          label2: 'Номын нээлт',
+          label: 'Гайхамшигт 50',
+          label2: 'Жишиг өөрчилсөн түүхүүд',
           icon: '',
+          link: '/stories'
         },
         {
           parent: 3,
-          label: 'Гайхамшигт 50',
-          label2: 'Жишиг өөрчилсөн түүх',
+          label: 'Түүх бүтсэн түүх',
+          label2: 'Номын нээлт',
           icon: '',
         },
         {
@@ -164,6 +165,11 @@ export class MenuService {
       name: 'Menu',
       link: '/admin/articles',
     },
+    {
+      name: 'Stories',
+      link: '/admin/stories',
+    },
+
   ];
   public footerMenu: Menu[] = [
     {

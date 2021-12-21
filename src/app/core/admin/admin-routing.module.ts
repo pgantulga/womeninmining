@@ -1,3 +1,4 @@
+import { AdminStoriesComponent } from './components/admin-stories/admin-stories.component';
 import { AddArticleComponent } from './components/add-article/add-article.component';
 import { AdminArticlesComponent } from './components/admin-articles/admin-articles.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
@@ -27,6 +28,11 @@ const routes: Routes = [
         path: 'edit-article/:id',
         data: {name:'admin'},
         component: AddArticleComponent
+      },
+      {
+        path: 'stories',
+        data: {name:'admin'},
+        component: AdminStoriesComponent
       }
     ]
   },
