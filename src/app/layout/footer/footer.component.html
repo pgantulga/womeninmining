@@ -1,23 +1,23 @@
 <div class="footer-container" fxLayout="row">
   <div fxFlex></div>
-  <div class="container" fxLayout="row">
-    <div class="logo-container" fxFlex fxHide.md fxHide.xs>
-      <img src="../../../assets/images//logo_footer.webp" alt="Logo" />
+  <div class="content container" fxLayout="row">
+    <div class="logo-container" fxHide.xs>
+      <img src="../../../assets/images/logo_footer.webp" alt="Logo" />
     </div>
     <div
       class="link-container"
-      fxLayout="column"
-      fxLayout.gt-md="xs"
+      fxLayout="row"
       fxFlex
       fxLayoutGap="16px"
       fxLayoutGap.gt-xs="64px"
       fxLayoutAlign="end start"
+      fxLayoutAlign.xs = "start start"
     >
       <div class="row-1" fxLayout="column">
         <p class="mat-body-2">Чухал холбоосууд</p>
         <a class="mat-caption" *ngFor="let item of links">{{ item.label }}</a>
       </div>
-      <div class="row--" fxLayout="column">
+      <div class="row-2" fxLayout="column">
         <p class="mat-body-2">Холбоо барих</p>
         <!-- <a class="mat-caption" *ngFor="let item of links">{{ item.label }}</a> -->
       </div>

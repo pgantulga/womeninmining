@@ -26,6 +26,7 @@ export class ArticleGridItemComponent implements OnInit {
   tag: any;
   image: string;
   htmlContent: any;
+  description: any;
   constructor(
     private sanitzier: DomSanitizer,
     private router: Router,
@@ -35,6 +36,7 @@ export class ArticleGridItemComponent implements OnInit {
     this.htmlContent = this.sanitzier.bypassSecurityTrustHtml(
       this.content.content
     );
+    this.description  = this.createElementFromHTML(this.content.content);
     this.tag = this.articleService.getTag(this.content);
     this.image = this.content.image
       ? this.content.image
@@ -45,5 +47,10 @@ export class ArticleGridItemComponent implements OnInit {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       return this.router.navigate(['/articles', article.id]);
     });
+  }
+  createElementFromHTML(htmlString) {
+    let div = document.createElement('div');
+    div.innerHTML = htmlString;
+    return div.getElementsByTagName('p')[0].innerHTML;
   }
 }

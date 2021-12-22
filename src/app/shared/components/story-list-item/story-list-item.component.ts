@@ -11,6 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class StoryListItemComponent implements OnInit {
   @Input() story: Story
   htmlContent: any;
+  description: any;
 
   constructor( private sanitzier: DomSanitizer, private router: Router) { }
 
@@ -18,10 +19,16 @@ export class StoryListItemComponent implements OnInit {
     this.htmlContent = this.sanitzier.bypassSecurityTrustHtml(
       this.story.content
     );
+    this.description = this.createElementFromHTML(this.story.content)
   }
   gotoStory(story) {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       return this.router.navigate(['/stories', story.id]);
     });
+  }
+  createElementFromHTML(htmlString) {
+    let div = document.createElement('div');
+    div.innerHTML = htmlString;
+    return div.getElementsByTagName('p')[0].innerHTML;
   }
 }
