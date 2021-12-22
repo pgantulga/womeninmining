@@ -43,6 +43,8 @@ body {
 section {
   display: flex;
   flex-direction: column;
+  display: -webkit-flex;
+  flex-direction: -webkit-column;
   gap: 20px;
 }
 @media only screen and (min-width: 1920px) {
@@ -81,8 +83,8 @@ section {
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .line-clamp-2 {
   display: -webkit-box;
@@ -116,6 +118,14 @@ a:hover {
   height: 6px;
   margin: 22px 0;
   border-radius: 8px;
+}
+
+#last-name {
+  text-transform: capitalize;
+  margin: 0;
+}
+#first-name {
+  text-transform: uppercase;
 }
 
 @media only screen and (max-width: 600px) {
@@ -195,7 +205,7 @@ button.mat-flat-button.primary {
 }
 mat-button-toggle-group {
   box-shadow: none !important;
-  background-color:white;
+  background-color: white;
   border-radius: 16px !important;
 }
 

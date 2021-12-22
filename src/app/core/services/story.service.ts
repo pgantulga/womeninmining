@@ -38,11 +38,17 @@ export class StoryService {
       paintBy: story.paintBy,
       content: story.content,
       author: {
-        displayName: 'Тулгай',
-        uid: 'asdfasdfasdf',
+        displayName: author.displayName,
+        uid: author.uid,
       },
       createdAt: new Date(),
       updateAt: null,
-    });
+    })
+    .then(res => {
+      return res.update({
+        id: res.id,
+        updatedAt: new Date()
+      })
+    })
   }
 }

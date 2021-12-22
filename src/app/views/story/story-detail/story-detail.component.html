@@ -1,1 +1,23 @@
-<p>story-detail works!</p>
+<div class="story-detail-container" fxLayout="column" fxLayoutGap="32px">
+  <div class="story-detail-header" fxLayout="row" fxLayout.xs="column" >
+    <div class="story-detail-header-title-container" fxFlex fxFlexOrder.xs="2" fxLayout="row">
+      <div fxFlex></div>
+      <div class="story-detail-header-title" fxLayout="column" fxLayoutAlign="end start">
+        <button mat-icon-button (click)="goto()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <div fxLayout="column">
+          <h3>Геохимич</h3>
+          <h1 id="last-name">Гармаев</h1>
+          <h1 id="first-name">Цэндсүрэн</h1>
+          <p>Aenean vulputate eleifend tellus. Nullam accumsan lorem in dui. </p>
+          <p class="mat-body-2">Зургийг: НАЙМАНЧУЛУУН</p>
+        </div>
+      </div>
+    </div>
+    <img src="../../../../assets/images/people/tsendsuren.webp" alt="sdf" fxFlex fxFlexOrder.xs="1">
+
+    <!-- <div class="story-detail-header-image" fxFlex> -->
+    <!-- </div> -->
+  </div>
+</div>

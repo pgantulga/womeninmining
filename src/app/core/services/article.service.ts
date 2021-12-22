@@ -57,6 +57,7 @@ export class ArticleService {
       .then((res) => {
         return res.update({
           id: res.id,
+          updatedAt: new Date()
         });
       });
   }

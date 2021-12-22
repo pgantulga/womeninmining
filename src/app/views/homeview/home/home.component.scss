@@ -1,33 +1,35 @@
-@import 'styles';
+@import "styles";
 
 .cards-container {
   width: 100%;
 }
 
+
+
 .h-scrolling-flex {
-  display: flex;
-  flex-wrap: wrap;
+  display: -webkit-flex;
+  flex-wrap: -webkit-wrap;
   gap: 8px;
+
   .scrolling-item {
-      flex: 0 0 auto;
+    flex: 0 0 auto;
   }
   &::-webkit-scrollbar {
-      display: none;
-    }
+    display: none;
+  }
 }
-
 
 @media only screen and (max-width: 1260px) {
   .h-scrolling-flex {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      align-items: flex-start;
-      .scrolling-item {
-          flex: 0 0 auto;
-      }
-      &::-webkit-scrollbar {
-          display: none;
-        }
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    align-items: flex-start;
+    .scrolling-item {
+      flex: 0 0 auto;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

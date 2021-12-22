@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { Story, StoryService } from './../../../services/story.service';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
@@ -9,29 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminStoriesComponent implements OnInit {
   stories$: Observable<Story[]>;
-  constructor(private storyService: StoryService) { }
+  author: any;
+  constructor(private storyService: StoryService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.stories$ = this.storyService.getStories();
+    this.authService.user$.subscribe((user) => {
+      this.author = user;
+    });
   }
 
   addStory() {
     const sotry = {
-      firstName: 'Жанчив',
-      lastName: 'Оюунгэрэл',
-      career: 'Петровис ХХК үүсгэн байгуулагч',
-      image: '../../../assets/images/people/oyungerel.webp',
+      firstName: 'Болормаа',
+      lastName: 'Лунтан',
+      career: 'Сэтгүүлч',
+      image: '../../../assets/images/people/bolormaa.webp',
       image_paint: null,
-      paintBy: 'Цэгмидийн Болд',
+      paintBy: '-',
       content: 'any',
-      author: {
-        displayName: 'Тулгаа',
-        uid: 'asdfasdfasdf',
-      },
       createdAt: null,
       updateAt: null
     }
-    return this.storyService.addStory(sotry);
+    return this.storyService.addStory(sotry, this.author);
   }
 
 }

@@ -17,7 +17,7 @@
       <div class="divider"></div>
       <p class="line-clamp-2" [innerHtml]="htmlContent"></p>
     </div>
-    <button mat-flat-button color="primary">Дэлгэрэнгүй</button>
+    <button mat-flat-button color="primary" (click)="gotoStory(story)">Дэлгэрэнгүй</button>
   </div>
   <div fxLayout="column" class="image-container" fxFlexOrder.xs="1">
     <img [src]="story.image" alt="Story image" />

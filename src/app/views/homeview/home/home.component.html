@@ -1,13 +1,13 @@
 <div fxLayout="column" fxLayoutGap="32px">
-  <section>
+  <section >
     <ng-container *ngIf="authService.user$ | async as user">
       <account-wrapper [user]="user"></account-wrapper>
     </ng-container>
     <wrapper-hero [content]="heroContent"></wrapper-hero>
   </section>
-  <section>
+  <section fxLayout="column" fxLayoutGap="20px">
     <section-header [content]="sectionHeader_1"></section-header>
-    <div class="h-scrolling-flex">
+    <div class="h-scrolling-flex" fxLayout="row" fxLayoutGap="8px">
       <wrapper-card
         class="scrolling-item"
         *ngFor="let item of cardContents"
@@ -15,9 +15,9 @@
       ></wrapper-card>
     </div>
   </section>
-  <section>
+  <section fxLayout="column" fxLayoutGap="20px">
     <section-header [content]="sectionHeader_2"></section-header>
-    <div class="h-scrolling-flex" *ngIf="articles$ | async as articles">
+    <div class="h-scrolling-flex" *ngIf="articles$ | async as articles" fxLayout="row" fxLayoutGap="8px">
       <article-grid-item
         class="scrolling-item"
         *ngFor="let item of articles"
@@ -25,7 +25,7 @@
       ></article-grid-item>
     </div>
   </section>
-  <section>
+  <section fxLayout="column" fxLayoutGap="20px">
     <section-header [content]="sectionHeader_3"></section-header>
     <div fxLayout="column" *ngIf="stories$ | async as stories">
       <story-list-item *ngFor="let item of stories" [story]="item"></story-list-item>

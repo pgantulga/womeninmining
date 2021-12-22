@@ -22,6 +22,9 @@ export class SectionHeaderComponent implements OnInit {
 
   ngOnInit(): void {}
   goto(link) {
-    this.router.navigateByUrl(link);
+    this.router.navigateByUrl('/', { skipLocationChange: true })
+    .then(() => {
+      return this.router.navigate(['/'+ link]);
+    });
   }
 }

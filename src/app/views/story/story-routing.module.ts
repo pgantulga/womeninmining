@@ -11,7 +11,7 @@ const routes: Routes = [
 },
 {
   path: ':id',
-  data: {title:null},
+  data: {title: 'Гайхамшигт түүх', name: 'story-detail'},
   component: StoryDetailComponent
 }
 

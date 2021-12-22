@@ -1,5 +1,5 @@
 <ng-container *ngIf="currentLayout$ | async as layout">
-  <toptoolbar *ngIf="layout.layout1">
+  <toptoolbar *ngIf="!layout.layout3 && !layout.layout4">
     <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
       <button mat-icon-button (click)="drawer.open()" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
@@ -17,14 +17,19 @@
       <sidenav [current]="currentRoute.name"></sidenav>
     </mat-sidenav>
     <mat-sidenav-content>
+      <div name="top-anchor"></div>
       <div
         fxLayout="row"
         [class.layout-one]="layout.layout1"
         [class.layout-three]="layout.layout3"
         [class.layout-four]="layout.layout4"
       >
-        <div fxFlex></div>
-        <div class="container content">
+        <div fxFlex *ngIf="!layout.layout2"></div>
+        <div
+          [class.container]="!layout.layout2"
+          [class.content]="!layout.layout2"
+          [class.layout-two]="layout.layout2"
+        >
           <ng-container *ngIf="showRouteMenu(layout, currentRoute)">
             <div
               *ngIf="routes$ | async as routes"
@@ -52,7 +57,7 @@
           </ng-container>
           <ng-content></ng-content>
         </div>
-        <div fxFlex></div>
+        <div fxFlex *ngIf="!layout.layout2"></div>
       </div>
       <footer *ngIf="layout.layout1"></footer>
     </mat-sidenav-content>

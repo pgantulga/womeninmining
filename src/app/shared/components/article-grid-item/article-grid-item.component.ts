@@ -42,7 +42,6 @@ export class ArticleGridItemComponent implements OnInit {
   }
 
   gotoArticle(article) {
-    console.log(article);
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       return this.router.navigate(['/articles', article.id]);
     });

@@ -7,7 +7,9 @@
     <h3 (click)="gotoArticle(content)" class="line-clamp-2">
       {{ content.title }}
     </h3>
-    <p class="line-clamp-3" [innerHtml]="htmlContent"></p>
+    <div style="overflow: hidden;">
+      <p class="line-clamp-3 mat-body-1" [innerHtml]="htmlContent"></p>
+    </div>
     <p class="mat-caption">{{ content.createdAt | moment }}</p>
     <div class="actions" fxLayout="row" fxLayoutAlign="end end">
       <ng-content></ng-content>

@@ -30,6 +30,9 @@ mat-sidenav {
   min-height: calc(100vh - 398px);
   // background-color: red;
 }
+.layout-two {
+  flex: 1;
+}
 
 .layout-three {
   background-color: mat-color($womeninmining-primary);
