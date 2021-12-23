@@ -1,3 +1,4 @@
+import { RouteService } from './core/services/route.service';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
@@ -21,7 +22,7 @@ import { AuthGuard } from './core/services/auth-guard.service';
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [AuthGuard],
+  providers: [AuthGuard,RouteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

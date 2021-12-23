@@ -1,0 +1,27 @@
+<div class="story-detail-header" fxLayout="row" fxLayout.xs="column">
+  <div
+    class="story-detail-header-title-container"
+    fxFlex
+    fxFlexOrder.xs="2"
+    fxLayout="row"
+  >
+    <div fxFlex></div>
+    <div
+      class="story-detail-header-title"
+      fxLayout="column"
+      fxLayoutAlign="end start"
+    >
+      <button mat-icon-button (click)="goto()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div fxLayout="column">
+        <h3>{{ content.career }}</h3>
+        <h1 id="last-name">{{ content.lastName }}</h1>
+        <h1 id="first-name">{{ content.firstName }}</h1>
+        <p>{{ content.description }}</p>
+        <p class="mat-caption">Зургийг: {{ content.paintBy }}</p>
+      </div>
+    </div>
+  </div>
+  <img [src]="content.image" alt="Story Image" fxFlex fxFlexOrder.xs="1" />
+</div>

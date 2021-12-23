@@ -1,11 +1,13 @@
+import { RouteService } from './core/services/route.service';
 import {
   RouteConfigLoadEnd,
   RouteConfigLoadStart,
   Router,
   RouterEvent,
 } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { element } from 'protractor';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +15,10 @@ import { element } from 'protractor';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  @ViewChild('sidenav') public sidenav: MatSidenav;
   title = 'womeninmining';
   loading: boolean = false;
-  constructor(private router: Router) {
+  constructor(private router: Router, private routeService: RouteService) {
     router.events.subscribe((event: RouterEvent) => {
       if (event instanceof RouteConfigLoadStart) {
         this.loading = true;
@@ -26,6 +29,9 @@ export class AppComponent implements OnInit {
   }
   ngOnInit():void {
 
+  }
+  ngAfterViewInit(): void {
+    this.routeService.setSidenav(this.sidenav);
   }
   onActivate(event) {
     this.gotop();

@@ -1,7 +1,7 @@
 <ng-container *ngIf="currentLayout$ | async as layout">
   <toptoolbar *ngIf="!layout.layout3 && !layout.layout4">
     <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
-      <button mat-icon-button (click)="drawer.open()" fxHide.gt-sm>
+      <button mat-icon-button (click)="openSidenav()" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
     </div>
@@ -10,7 +10,7 @@
     <mat-sidenav
       [mode]="currentRoute.name === 'admin' ? 'side' : 'over'"
       [opened]="currentRoute.name === 'admin'"
-      #drawer
+      #sidenav
       class="mat-elevation-z3"
       [attr.role]="'navigation'"
     >
@@ -59,7 +59,7 @@
         </div>
         <div fxFlex *ngIf="!layout.layout2"></div>
       </div>
-      <footer *ngIf="layout.layout1"></footer>
+      <footer *ngIf="!layout.layout3 && !layout.layout4"></footer>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </ng-container>

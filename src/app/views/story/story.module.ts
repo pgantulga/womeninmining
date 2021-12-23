@@ -7,10 +7,11 @@ import { StoryDetailComponent } from './story-detail/story-detail.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from 'src/app/material/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { StoryDetailHeaderComponent } from './story-detail-header/story-detail-header.component';
 
 
 @NgModule({
-  declarations: [StoryListComponent, StoryDetailComponent],
+  declarations: [StoryListComponent, StoryDetailComponent, StoryDetailHeaderComponent],
   imports: [
     CommonModule,
     StoryRoutingModule,

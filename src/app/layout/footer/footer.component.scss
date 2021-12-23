@@ -5,7 +5,7 @@
   border-radius: 32px 32px 0 0;
   min-height: 270px;
   .content {
-    padding: 36px 48px;
+    margin: 36px 48px;
     p,
     a {
       color: $onDarkSurface;
@@ -24,4 +24,15 @@
       // background-color: red;
     }
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .footer-container {
+    min-height: 220px;
+
+    .content {
+      margin: 24px;
+    }
+  }
+
 }

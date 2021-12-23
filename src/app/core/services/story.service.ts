@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
+  AngularFirestoreDocument,
+  DocumentData,
 } from '@angular/fire/firestore';
 
 export interface Story {
@@ -27,6 +29,9 @@ export class StoryService {
   constructor(private db: AngularFirestore) {}
   getStories(): Observable<any> {
     return this.storyCollection.valueChanges();
+  }
+  getStory(id: string): Observable<any> {
+    return this.storyCollection.doc(id).valueChanges();
   }
   addStory(story: Story, author?) {
     return this.storyCollection.add({

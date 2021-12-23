@@ -33,7 +33,7 @@ export class ShellComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private router: Router,
     private routeService: RouteService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
   }
 
@@ -62,7 +62,9 @@ export class ShellComponent implements OnInit {
     return this.router.navigateByUrl('/'+ route[0].path);
   }
   showRouteMenu(layout, currentRoute):boolean {
-    // return currentRoute.name !== 'home';
     return layout.layout1 && currentRoute.name !== 'home';
+  }
+  openSidenav() {
+    return this.routeService.toggle()
   }
 }

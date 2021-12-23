@@ -1,6 +1,8 @@
 import { map, switchMap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { MatSidenav } from '@angular/material/sidenav';
+
 export interface Layout {
   layout1: boolean;
   layout2: boolean;
@@ -20,10 +22,18 @@ export interface Route {
   providedIn: 'root',
 })
 export class RouteService {
-  currentRoute$ : Observable<any>;
+  currentRoute$: Observable<any>;
+  private sidenav: MatSidenav;
+
   constructor() {}
+  public toggle(): void {
+    this.sidenav.toggle();
+  }
+  public setSidenav(sidenav: MatSidenav) {
+    this.sidenav = sidenav;
+  }
   setCurrentRoute(route) {
-    this.currentRoute$= route;
+    this.currentRoute$ = route;
   }
 
   getCurrentRoute(url): any {
@@ -82,9 +92,7 @@ export class RouteService {
         layout4: false,
       };
     }
-    if (
-      route === 'story-detail'
-    ) {
+    if (route === 'story-detail') {
       return {
         layout1: false,
         layout2: true,
@@ -116,10 +124,10 @@ export class RouteService {
   }
   layoutChanger(current$): any {
     return current$.pipe(
-      map((route: any) =>{
-        console.log(route.name)
+      map((route: any) => {
+        console.log(route.name);
         return this.getLayout(route.name);
       })
-    )
+    );
   }
 }
