@@ -1,7 +1,6 @@
 import { map, switchMap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { MatSidenav } from '@angular/material/sidenav';
 
 export interface Layout {
   layout1: boolean;
@@ -23,15 +22,9 @@ export interface Route {
 })
 export class RouteService {
   currentRoute$: Observable<any>;
-  private sidenav: MatSidenav;
 
   constructor() {}
-  public toggle(): void {
-    this.sidenav.toggle();
-  }
-  public setSidenav(sidenav: MatSidenav) {
-    this.sidenav = sidenav;
-  }
+
   setCurrentRoute(route) {
     this.currentRoute$ = route;
   }

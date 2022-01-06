@@ -1,7 +1,7 @@
 <ng-container *ngIf="currentLayout$ | async as layout">
   <toptoolbar *ngIf="!layout.layout3 && !layout.layout4">
     <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
-      <button mat-icon-button (click)="openSidenav()" fxHide.gt-sm>
+      <button mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
     </div>
@@ -14,7 +14,7 @@
       class="mat-elevation-z3"
       [attr.role]="'navigation'"
     >
-      <sidenav [current]="currentRoute.name"></sidenav>
+      <sidenav [current]="currentRoute.name" ></sidenav>
     </mat-sidenav>
     <mat-sidenav-content>
       <div name="top-anchor"></div>

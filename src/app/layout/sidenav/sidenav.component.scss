@@ -3,4 +3,17 @@
 }
 .mat-list-base .mat-list-item {
   font-size: 16px;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+.mat-list-base .mat-list-item.selected {
+  mat-icon {
+    transform: rotate(180deg);
+  }
+}
+.sub-menu {
+  background-color: red;
+  padding-left: 32px;
+  padding-top: 0;
 }

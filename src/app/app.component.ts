@@ -6,8 +6,6 @@ import {
   RouterEvent,
 } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { element } from 'protractor';
-import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +13,6 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  @ViewChild('sidenav') public sidenav: MatSidenav;
   title = 'womeninmining';
   loading: boolean = false;
   constructor(private router: Router, private routeService: RouteService) {
@@ -30,9 +27,7 @@ export class AppComponent implements OnInit {
   ngOnInit():void {
 
   }
-  ngAfterViewInit(): void {
-    this.routeService.setSidenav(this.sidenav);
-  }
+
   onActivate(event) {
     this.gotop();
    }

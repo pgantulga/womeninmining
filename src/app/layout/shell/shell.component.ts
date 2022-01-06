@@ -1,6 +1,6 @@
 import { MenuService } from './../../core/services/menu.service';
 import { RouteService, Layout } from './../../core/services/route.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -9,6 +9,8 @@ import {
 import { combineLatest, merge, Observable } from 'rxjs';
 import { filter, map, shareReplay, switchMap } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material/sidenav';
+
 
 @Component({
   selector: 'app-shell',
@@ -16,6 +18,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./shell.component.scss'],
 })
 export class ShellComponent implements OnInit {
+  @ViewChild('sidenav') public sidenav: MatSidenav;
   currentRoute$: Observable<any>;
   routes$: Observable<any>;
   merged$: Observable<any>;
@@ -64,7 +67,5 @@ export class ShellComponent implements OnInit {
   showRouteMenu(layout, currentRoute):boolean {
     return layout.layout1 && currentRoute.name !== 'home';
   }
-  openSidenav() {
-    return this.routeService.toggle()
-  }
+
 }
