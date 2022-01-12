@@ -67,5 +67,8 @@ export class ShellComponent implements OnInit {
   showRouteMenu(layout, currentRoute):boolean {
     return layout.layout1 && currentRoute.name !== 'home';
   }
+  close(ev) {
+    this.sidenav.close();
+  }
 
 }

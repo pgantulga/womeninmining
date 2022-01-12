@@ -3,33 +3,36 @@
     fxLayout="column"
     fxLayoutAlign="center start"
     class="sidenav-logo-container"
-  ></div>
+  >
+    <button mat-icon-button class="logo-button" (click)="goto('/home')">
+      <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
+    </button>
+  </div>
   <mat-nav-list fxLayout="column">
-    <ng-container *ngFor="let item of sideMenu">
+    <div *ngFor="let item of sideMenu" fxFlex>
       <button
         mat-list-item
         (click)="toggle(item)"
         [class.selected]="isOpen && isSelected == item.id"
-        fxLayout="row"
-        fxLayoutAlign="space-between center"
-
       >
-        <span>{{ item.label }}</span>
-        <mat-icon>expand_more</mat-icon>
+        <div class="list-item-contents">
+          <span class="mat-body-2">{{ item.label }}</span>
+          <mat-icon>expand_more</mat-icon>
+        </div>
       </button>
       <div *ngIf="isOpen && isSelected == item.id">
         <mat-nav-list fxLayout="column" class="sub-menu">
-          <a
+          <button
             mat-list-item
-            *ngFor="let sub of item.children; last as last"
-            routerLink="{{ sub.link }}"
+            (click)="goto(sub.link)"
+
+            *ngFor="let sub of item.children; last as last"y
           >
             {{ sub.label }}
-            <mat-divider *ngIf="!last"></mat-divider>
-          </a>
+          </button>
         </mat-nav-list>
       </div>
-    </ng-container>
+    </div>
   </mat-nav-list>
   <!-- <mat-tree [treeControl]="treeControl">
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding> parent node </mat-tree-node>

@@ -11,8 +11,14 @@
       transform: rotate(180deg);
     }
   }
-  .mat-button.toolbar-nav.selected-parent {
-    // border-bottom: 2px solid mat-color($my-amber, 200);
+  .logo-button {
+    height: 61px;
+    width: 61px;
+    img {
+      height: 48px;
+      width: auto;
+      left: -6px;
+    }
   }
   ::ng-deep button.mat-menu-item {
     cursor: pointer;

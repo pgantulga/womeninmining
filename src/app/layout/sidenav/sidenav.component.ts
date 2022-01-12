@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { MenuService } from 'src/app/core/services/menu.service';
 import { RouteService } from './../../core/services/route.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter} from '@angular/core';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { MatSidenav } from '@angular/material/sidenav';
 interface FlatNode {
   expandable: boolean;
   label: string;
@@ -20,6 +22,7 @@ interface MenuNode {
 })
 export class SidenavComponent implements OnInit {
   @Input() current: string;
+  @Output() closeSidebar = new EventEmitter();
   private _transformer = (node: MenuNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
@@ -47,7 +50,9 @@ export class SidenavComponent implements OnInit {
 
   constructor(
     public routeService: RouteService,
-    private menuService: MenuService
+    private menuService: MenuService,
+    private router: Router,
+
   ) {
 
 
@@ -65,6 +70,13 @@ export class SidenavComponent implements OnInit {
       this.isOpen = true;
     } else {
       this.isOpen = false;
+      this.isSelected = null;
     }
+  }
+  goto(link) {
+    return this.router.navigateByUrl(link)
+    .then (() => {
+      return this.closeSidebar.emit(link);
+    });
   }
 }
