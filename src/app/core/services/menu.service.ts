@@ -36,29 +36,54 @@ export class MenuService {
       ],
     },
     {
-      label: 'Чуулган',
+      label: 'Шинэ',
       id: 2,
       children: [
         {
           parent: 2,
+          label: 'Мэдээ, мэдээлэл',
+          label2: 'Шинэ мэдээ мэдээлэл',
+          icon: '',
+          link: '/articles/news'
+        },
+        {
+          parent: 2,
+          label: 'Нийтлэл',
+          label2: 'Нийтлэл судалгааны ажлууд',
+          icon: '/articles/news',
+        },
+        {
+          parent: 2,
+          label: 'Онцлох түүхүүд',
+          label2: 'Жишиг өөрчилсөн түүхүүд',
+          link: '/articles/stories'
+        }
+      ],
+    },
+    {
+      label: 'Чуулган',
+      id: 3,
+      children: [
+        {
+          parent: 3,
           label: 'Чуулганы тухай',
           label2: 'Танилцуулга бүртгэл',
           icon: '',
         },
         {
-          parent: 2,
+          parent: 3,
           label: '2021 он',
           label2: 'Цахим чуулган',
           icon: '',
         },
         {
-          parent: 2,
+          parent: 3,
           label: '2019 он',
           label2: 'Төрийн ордон',
           icon: '',
         },
         {
-          parent: 2,
+          parent: 3,
           label: '2018',
           label2: 'Эрдэнэт хот',
           icon: '',
@@ -67,59 +92,59 @@ export class MenuService {
     },
     {
       label: 'Тэр эмэгтэйн түүх',
-      id: 3,
+      id: 4,
       children: [
         {
-          parent: 3,
+          parent: 4,
           label: 'Гайхамшигт 50',
           label2: 'Жишиг өөрчилсөн түүхүүд',
           icon: '',
           link: '/stories'
         },
         {
-          parent: 3,
+          parent: 4,
           label: 'Түүх бүтсэн түүх',
           label2: 'Номын нээлт',
           icon: '',
         },
         {
-          parent: 3,
+          parent: 4,
           label: 'Өөрийн түүхээ үлдээе',
           label2: 'Түүх үргэлжилсээр',
           icon: '',
         },
-        {
-          label: 'Номын худалдаа',
-          label2: 'Жишиг өөрчилсөн түүх ном',
-          icon: '',
-        },
+        // {
+        //   label: 'Номын худалдаа',
+        //   label2: 'Жишиг өөрчилсөн түүх ном',
+        //   icon: '',
+        // },
       ],
     },
     {
       label: 'Хүний эрх жендер',
-      id: 4,
+      id: 5,
       children: [
         {
           label: 'Танилцуулга',
-          parent: 4,
+          parent: 5,
           label2: 'Сургалтын танилцуулга',
           icon: '',
         },
         {
           label: 'Хөтөлбөр',
-          parent: 4,
+          parent: 5,
           label2: 'Сургалтын модулиуд',
           icon: '',
         },
         {
           label: 'Бүртгүүлэх',
-          parent: 4,
+          parent: 5,
           label2: 'Цахим сургалтад бүртгүүлэх',
           icon: '',
         },
         {
           label: 'Үнэлгээ ',
-          parent: 4,
+          parent: 5,
           label2: 'Сургалтад хамрагдсан байгууллагууд',
           icon: '',
         },
@@ -127,29 +152,29 @@ export class MenuService {
     },
     {
       label: 'Хүний хөгжил',
-      id: 5,
+      id: 6,
       children: [
         {
           label: 'Сургалтууд',
-          parent: 5,
+          parent: 6,
           label2: 'Сургалтын танилцуулга',
           icon: '',
         },
         {
           label: 'Компаний сайн туршлага',
-          parent: 5,
+          parent: 6,
           label2: 'Сайн туршлагаын талбар',
           icon: '',
         },
         {
           label: 'Сайн туршлага хуваалцах',
           label2: 'Сайн туршлага хуваалцах',
-          parent: 5,
+          parent: 6,
           icon: '',
         },
         {
           label: 'Сургалт хөгжлийн аялал',
-          parent: 5,
+          parent: 6,
           label2: 'М-карт худалдан авах',
           icon: '',
         },
@@ -170,27 +195,5 @@ export class MenuService {
       link: '/admin/stories',
     },
 
-  ];
-  public footerMenu: Menu[] = [
-    {
-      name: 'Холбоос 1',
-      link: '',
-    },
-    {
-      name: 'Холбоос 2',
-      link: '',
-    },
-    {
-      name: 'Холбоос 3',
-      link: '',
-    },
-    {
-      name: 'Холбоос 4',
-      link: '',
-    },
-    {
-      name: 'Холбоос 5',
-      link: '',
-    },
   ];
 }

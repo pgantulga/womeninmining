@@ -1,3 +1,4 @@
+import { ContentService } from './../../core/services/content.service';
 import { Menu, MenuService } from './../../core/services/menu.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   links: Menu[];
-  constructor(private menu: MenuService) {
+  contacts: any[];
+  constructor(private menu: MenuService, private content: ContentService) {
     this.links = menu.topMenu;
+    this.contacts = content.contacts;
    }
 
   ngOnInit(): void {

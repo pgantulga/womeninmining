@@ -142,4 +142,15 @@ export class ContentService {
       represent: 'ИНБ, хараат бус судлаач',
     },
   ];
+
+  public contacts: any[] = [
+    {
+      icon: 'mail',
+      label: 'women.mrm@gmail.com'
+    },
+    {
+      icon: 'phone',
+      label: '+976 99088018'
+    }
+  ]
 }

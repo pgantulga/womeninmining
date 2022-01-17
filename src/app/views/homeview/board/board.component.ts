@@ -22,7 +22,7 @@ export class BoardComponent implements OnInit {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
     };
     this.sectionHeader_1 = {
-      title: 'Зөвлөх зөвлөлийн бүрэлдэхүүн',
+      title: 'Зөвлөх зөвлөл',
     };
     this.sectionHeader_2 = {
       title: 'Гүйцэтгэх зөвлөл',

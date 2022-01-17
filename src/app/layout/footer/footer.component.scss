@@ -5,11 +5,15 @@
   border-radius: 32px 32px 0 0;
   min-height: 270px;
   .content {
-    margin: 36px 48px;
+    margin: 36px 48px 16px 48px;
+    position: relative;
     p,
     a {
       color: $onDarkSurface;
       margin-bottom: 8px;
+    }
+    .mat-body-2 {
+      margin-bottom: 16px;
     }
     .logo-container {
       max-width: 128px;
@@ -21,18 +25,28 @@
     }
     .link-container {
       padding: 0 24px;
-      // background-color: red;
+      .social-container {
+        margin: 16px 0;
+      }
     }
   }
+  mat-divider {
+    margin: 16px 0;
+  }
+  .copyright {
+    text-align: end;
+  }
 }
+
 
 @media only screen and (max-width: 600px) {
   .footer-container {
     min-height: 220px;
-
     .content {
-      margin: 24px;
+      margin: 24px 24px 8px 24px;
+      .link-container {
+        padding: 0;
+      }
     }
   }
-
 }

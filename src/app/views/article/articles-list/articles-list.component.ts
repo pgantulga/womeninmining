@@ -9,6 +9,7 @@ import { Article, ArticleService } from 'src/app/core/services/article.service';
 })
 export class ArticlesListComponent implements OnInit {
   articles$: Observable<any>;
+  types: any[];
   headerContent: any;
   constructor(private articleService: ArticleService) {
     this.headerContent = {
@@ -18,6 +19,14 @@ export class ArticlesListComponent implements OnInit {
       description:
         'Сүүлийн үеийн мэдээ мэдээлэл, нийтлэл болон гайхамшигт түүхүүд ',
     };
+    this.types = [
+      {
+        name: 'Мэдээ'
+      },
+      {
+        name: 'Түүхүүд'
+      }
+    ]
   }
 
   ngOnInit(): void {
