@@ -27,5 +27,4 @@ export class ArticleListItemComponent implements OnInit {
 
   }
 
-  getTag
 }

@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { MenuService } from 'src/app/core/services/menu.service';
 import { RouteService } from './../../core/services/route.service';
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter} from '@angular/core';
-import {FlatTreeControl} from '@angular/cdk/tree';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { MatSidenav } from '@angular/material/sidenav';
 interface FlatNode {
@@ -65,7 +65,7 @@ export class SidenavComponent implements OnInit {
         : this.menuService.topMenu;
   }
   toggle(item) {
-    if(this.isSelected != item.id) {
+    if (this.isSelected !== item.id) {
       this.isSelected = item.id;
       this.isOpen = true;
     } else {
@@ -73,10 +73,19 @@ export class SidenavComponent implements OnInit {
       this.isSelected = null;
     }
   }
-  goto(link) {
-    return this.router.navigateByUrl(link)
-    .then (() => {
-      return this.closeSidebar.emit(link);
-    });
+  goto(subitem): Promise<any> {
+    if (subitem.queryParam) {
+      return this.router.navigate(
+        [subitem.link],
+        { queryParams: subitem.queryParam }
+      ).then(() => {
+        return this.closeSidebar.emit(subitem.link);
+      });
+    } else {
+      return this.router.navigateByUrl(subitem.link)
+      .then (() => {
+        return this.closeSidebar.emit(subitem.link);
+      });
+    }
   }
 }

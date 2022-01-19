@@ -113,7 +113,7 @@ export class ArticleService {
   getArticlesExclude(type, number): Observable<any> {
     return this.db
       .collection('articles', (ref) =>
-        ref.orderBy('createdAt', 'desc').where(`type.${type}`, "==", false ).limit(number)
+        ref.orderBy('createdAt', 'desc').where(`type.${type}`, '==', false ).limit(number)
       ).valueChanges();
 
   }

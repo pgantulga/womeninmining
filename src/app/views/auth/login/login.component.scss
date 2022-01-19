@@ -10,7 +10,9 @@
   max-height: 675px;
   position: relative;
   overflow: hidden;
-
+  .user-exist {
+    margin-top: 16px;
+  }
   #button_back {
     position: absolute;
     left: 24px;

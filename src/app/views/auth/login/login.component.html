@@ -7,22 +7,43 @@
       <div class="logo">
         <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
       </div>
-      <h3>Нэвтрэх</h3>
-      <p class="mat-body-2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </p>
-      <div fxLayout="column" class="actions">
+      <div
+        *ngIf="authService.user$ | async as user; else login"
+        fxLayout="column"
+        class="user-exist"
+      >
+        <p class="mat-body-1">
+          Та дараах хэрэглэгчээр нэвтэрсэн байна:
+          <span class="mat-body-2">{{ user.email }}</span>
+        </p>
         <button
           mat-button
           color="primary"
-          class="google-login"
-          (click)="googleLogin()"
+          routerLink="/home"
+          class="background-button"
+          type="button"
         >
-          <i class="fab fa-google fa-2x"></i>
-          Sign in with Google
+          Нүүр хуудасруу буцах
         </button>
-        <!-- <button mat-stroked-button color="primary">Facebook login</button> -->
       </div>
+      <ng-template #login>
+        <h3>Нэвтрэх</h3>
+        <p class="mat-body-2">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <div fxLayout="column" class="actions">
+          <button
+            mat-button
+            color="primary"
+            class="google-login"
+            (click)="googleLogin()"
+          >
+            <i class="fab fa-google fa-2x"></i>
+            Sign in with Google
+          </button>
+          <!-- <button mat-stroked-button color="primary">Facebook login</button> -->
+        </div>
+      </ng-template>
       <p class="mat-caption bottom-text">Үйлчлгээний нөхцөл</p>
     </div>
     <div fxLayout="column" fxFlex class="right-content" fxHide.xs="">

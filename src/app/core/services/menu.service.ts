@@ -44,19 +44,30 @@ export class MenuService {
           label: 'Мэдээ, мэдээлэл',
           label2: 'Шинэ мэдээ мэдээлэл',
           icon: '',
-          link: '/articles/news'
+          link: '/articles',
+          queryParam:  {
+            type: 'news'
+          }
         },
         {
           parent: 2,
           label: 'Нийтлэл',
           label2: 'Нийтлэл судалгааны ажлууд',
-          icon: '/articles/news',
+          icon: '',
+          link: '/articles',
+          queryParam:  {
+            type: 'blog'
+          }
         },
         {
           parent: 2,
           label: 'Онцлох түүхүүд',
           label2: 'Жишиг өөрчилсөн түүхүүд',
-          link: '/articles/stories'
+          icon: '',
+          link: '/articles',
+          queryParam:  {
+            type: 'story'
+          }
         }
       ],
     },

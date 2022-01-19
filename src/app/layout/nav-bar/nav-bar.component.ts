@@ -93,12 +93,18 @@ export class NavBarComponent implements OnInit {
       } else {
         this.isMenuOpen = false;
       }
-    }, 80)
+    }, 80);
     // console.log("menuLeave");
   }
-  goto(subitem) {
-    console.log(subitem);
+  goto(subitem): Promise<any> {
     this.selectedParent = subitem.parent;
-    return this.router.navigateByUrl(subitem.link);
+    if (subitem.queryParam) {
+      return this.router.navigate(
+        [subitem.link],
+        { queryParams: subitem.queryParam }
+      );
+    } else {
+      return this.router.navigateByUrl(subitem.link);
+    }
   }
 }

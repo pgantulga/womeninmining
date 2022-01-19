@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
               private location: Location,
-              private authService: AuthService,
+              public authService: AuthService,
               private route: ActivatedRoute
   ) { }
 

@@ -1,17 +1,18 @@
-<title-wrapper [content]="headerContent"></title-wrapper>
-<ng-container *ngFor="let item$ of articles; last as islast">
-  <ng-container *ngIf="item$ | async as item">
-    <div class="decoration">
-      <article-view [article]="item" class="decoration"></article-view>
-      <mat-divider *ngIf="!islast"></mat-divider>
-    </div>
-  </ng-container>
-</ng-container>
-<section-header [content]="sectionHeader"></section-header>
-<div class="h-scrolling-flex">
-  <!-- <wrapper-card class="scrolling-item"
-    *ngFor="let item of cardContents"
-    [content]="item"
-  ></wrapper-card> -->
+<div fxLayout="column" fxLayoutGap="4px">
+  <section>
+    <title-wrapper [content]="headerContent"></title-wrapper>
+  </section>
+  <section>
+    <ng-container *ngFor="let item$ of articles; last as islast">
+      <ng-container *ngIf="item$ | async as item">
+        <div class="decoration">
+          <article-view [article]="item" class="decoration"></article-view>
+          <mat-divider *ngIf="!islast"></mat-divider>
+        </div>
+      </ng-container>
+    </ng-container>
+  </section>
+  <section>
+    <section-header [content]="sectionHeader"></section-header>
+  </section>
 </div>
-
