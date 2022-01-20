@@ -192,17 +192,17 @@ export class MenuService {
       ],
     },
   ];
-  public adminMenu: Menu[] = [
+  public adminMenu: any[] = [
     {
-      name: 'Articles',
+      label: 'Articles',
       link: '/admin/articles',
     },
     {
-      name: 'Menu',
+      label: 'Menu',
       link: '/admin/articles',
     },
     {
-      name: 'Stories',
+      label: 'Stories',
       link: '/admin/stories',
     },
 

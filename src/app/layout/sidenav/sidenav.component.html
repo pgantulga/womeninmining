@@ -8,7 +8,8 @@
       <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
     </button>
   </div>
-  <mat-nav-list fxLayout="column">
+
+  <mat-nav-list fxLayout="column" *ngIf="current !== 'admin'; else admin">
     <div *ngFor="let item of sideMenu" fxFlex>
       <button
         mat-list-item
@@ -33,10 +34,17 @@
       </div>
     </div>
   </mat-nav-list>
-  <!-- <mat-tree [treeControl]="treeControl">
-    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding> parent node </mat-tree-node>
-    <mat-tree-node> -- child node1 </mat-tree-node>
-    <mat-tree-node> -- child node2 </mat-tree-node>
-  </mat-tree> -->
+  <ng-template #admin>
+    <mat-nav-list fxLayout="column">
+      <button
+        mat-list-item
+        (click)="goto(menu)"
+        *ngFor="let menu of sideMenu; last as last"y
+      >
+        {{ menu.label }}
+      </button>
+    </mat-nav-list>
+  </ng-template>
+
   <p id="copyright" class="mat-caption">© Бүх эрх хуулиар хамгаалагдсан. </p>
 </div>

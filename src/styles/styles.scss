@@ -86,7 +86,6 @@ section {
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
 }
 .line-clamp-2 {
   display: -webkit-box;
@@ -251,6 +250,15 @@ mat-button-toggle-group {
   padding: 32px;
 }
 
+.default-snack {
+  background-color: mat-color($womeninmining-primary) !important;
+  color: $onSurfaceHigh !important;
+}
+.warn-snack {
+  background-color: mat-color($womeninmining-warn) !important;
+  color: #ffffff !important;
+}
+
 /************************Quill custom styles***********************************/
 
 .ql-container {
@@ -261,7 +269,7 @@ mat-button-toggle-group {
   margin: 0px;
 }
 .ql-editor {
-  padding: 16px;
+  padding: 16px 0 0 0;
   p {
     text-align: justify;
     text-align-last: left;

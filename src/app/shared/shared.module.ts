@@ -17,6 +17,7 @@ import { ArticleViewComponent } from './components/article-view/article-view.com
 import { SectionHeaderComponent } from './components/section-header/section-header.component';
 import { MemberListItemComponent } from './components/member-list-item/member-list-item.component';
 import { StoryListItemComponent } from './components/story-list-item/story-list-item.component';
+import { SnackComponent } from './components/snack/snack.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { StoryListItemComponent } from './components/story-list-item/story-list-
     SectionHeaderComponent,
     MemberListItemComponent,
     StoryListItemComponent,
+    SnackComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, MaterialModule],
   exports: [

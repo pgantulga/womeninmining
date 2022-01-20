@@ -1,10 +1,45 @@
 <ng-container *ngIf="authService.user$ | async as user">
   <user-avatar *ngIf="user" [user]="user"></user-avatar>
 </ng-container>
-<div class="settings-container" fxLayout="column">
-  <h3>Хэрэглэгчийн тохиргоо</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet fugiat pariatur omnis quaerat quod hic ipsam atque perspiciatis est. Fuga.</p>
-  <div class="actions" fxLayout="row" fxLayoutAlign="center end">
-    <button mat-flat-button color="primary" (click)="signOut()">Системээс гарах</button>
-  </div>
+<div class="settings-container" fxLayout="column" fxLayoutGap="16px">
+  <section>
+    <h3>Хэрэглэгчийн тохиргоо</h3>
+    <form (ngSubmit)="onSubmit()" fxLayout="column">
+      <mat-form-field appearance="outline">
+        <mat-label>Таны харагдах нэр</mat-label>
+        <input
+          matInput
+          placeholder="Харагдах нэр"
+          [formControl]="displayName"
+          required
+        />
+        <mat-hint class="mat-caption" align="end"
+          >Хамгийн багадаа 3 тэмдэгт байна.
+        </mat-hint>
+      </mat-form-field>
+      <div
+        class="form-actions"
+        fxLayout="row"
+        fxLayoutAlign="end center"
+        fxLayoutGap="8px"
+      >
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="signOut()"
+          type="button"
+        >
+          Системээс гарах
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="!(displayName.valid && displayName.touched)"
+        >
+          Сануулах
+        </button>
+      </div>
+    </form>
+  </section>
 </div>

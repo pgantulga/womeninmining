@@ -97,6 +97,10 @@ export class AuthService {
     };
     return ref.set(data, { merge: true });
   }
+  updateUser(data: any, uid) {
+    const ref = this.userCollection.doc(uid);
+    return ref.set(data, {merge: true})
+  }
   async signOut(): Promise<any> {
     await this.af.signOut().then((res) => {
       console.log('Successfully signed out');
