@@ -51,6 +51,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/article/article.module').then((m) => m.ArticleModule),
   },
+  { path: '**', redirectTo: '/error/not-found' },
+  {
+    path: 'error',
+    loadChildren: () => import('./views/error/error.module').then(m => m.ErrorModule)
+  }
 ];
 
 @NgModule({
