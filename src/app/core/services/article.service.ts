@@ -1,4 +1,4 @@
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -25,25 +25,33 @@ export interface Article {
   providedIn: 'root',
 })
 export class ArticleService {
-  private articleCollection = this.db.collection('articles');
+  collection: AngularFirestoreCollection = this.db.collection('articles');
 
-  constructor(private db: AngularFirestore) { }
+  constructor(
+    public db: AngularFirestore,
+  ) {
+  }
 
   getArticles(number?): Observable<any> {
+    const collectionName = this.collection.ref.path;
     if (number) {
-      return this.db.collection('articles', ref => ref.limit(number).orderBy('createdAt', 'desc')).valueChanges();
+      return this.db
+        .collection(collectionName, (ref) =>
+          ref.limit(number).orderBy('createdAt', 'desc')
+        )
+        .valueChanges();
     } else {
-      return this.articleCollection.valueChanges();
+      return this.collection.valueChanges();
     }
   }
   getArticle(id: string): Observable<any> {
-    return this.articleCollection.doc(id).valueChanges();
+    return this.collection.doc(id).valueChanges();
   }
   createArticle(
     article: { title: any; content: any; type: any },
     author: { uid: any; displayName: any }
   ): any {
-    return this.articleCollection
+    return this.collection
       .add({
         author: {
           uid: author.uid,
@@ -57,18 +65,18 @@ export class ArticleService {
       .then((res) => {
         return res.update({
           id: res.id,
-          updatedAt: new Date()
+          updatedAt: new Date(),
         });
       });
   }
   deleteArticle(article: { id: string }): any {
-    return this.articleCollection.doc(article.id).delete();
+    return this.collection.doc(article.id).delete();
   }
   updateArticle(
     article: { id: any; title: any; content: any; type: any },
     updatedBy: { uid: any; displayName: any }
   ): any {
-    return this.articleCollection.doc(article.id).set(
+    return this.collection.doc(article.id).set(
       {
         content: article.content,
         title: article.title,
@@ -96,12 +104,11 @@ export class ArticleService {
       news: false,
       blog: false,
       static: false,
-      story: false
+      story: false,
     };
     const key = Object.keys(type);
     articleTypes[key[0]] = true;
     return articleTypes;
-
   }
   getArticleByTypes(type): Observable<any> {
     return this.db
@@ -113,9 +120,12 @@ export class ArticleService {
   getArticlesExclude(type, number): Observable<any> {
     return this.db
       .collection('articles', (ref) =>
-        ref.orderBy('createdAt', 'desc').where(`type.${type}`, '==', false ).limit(number)
-      ).valueChanges();
-
+        ref
+          .orderBy('createdAt', 'desc')
+          .where(`type.${type}`, '==', false)
+          .limit(number)
+      )
+      .valueChanges();
   }
   getTag(content): any {
     if (!content.type) {

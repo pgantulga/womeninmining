@@ -12,10 +12,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AdminStoriesComponent } from './components/admin-stories/admin-stories.component';
+import { AddStoryComponent } from './components/add-story/add-story.component';
 
 
 @NgModule({
-  declarations: [AdminHomeComponent, AdminArticlesComponent, AddArticleComponent, AdminStoriesComponent],
+  declarations: [AdminHomeComponent, AdminArticlesComponent, AddArticleComponent, AdminStoriesComponent, AddStoryComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,

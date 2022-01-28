@@ -26,7 +26,7 @@ export class StoryDetailComponent implements OnInit {
   ngOnInit(): void {
     this.story$ = this.route.paramMap.pipe(
       switchMap((params) => {
-        return this.storyService.getStory(params.get('id'));
+        return this.storyService.getArticle(params.get('id'))
       })
     );
     this.story$.pipe(first()).subscribe((story) => {

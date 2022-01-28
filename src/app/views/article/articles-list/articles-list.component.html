@@ -20,7 +20,7 @@
   </mat-chip-list>
   <div
     fxLayout="row wrap"
-    fxLayoutGap="20px"
+    fxLayoutGap.gt-xs="20px"
     *ngIf="articles$ | async as articles"
   >
     <article-grid-item

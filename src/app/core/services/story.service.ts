@@ -1,11 +1,9 @@
 import { Observable } from 'rxjs';
-import { Author } from './article.service';
+import { Author, ArticleService } from './article.service';
 import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
-  AngularFirestoreDocument,
-  DocumentData,
 } from '@angular/fire/firestore';
 
 export interface Story {
@@ -24,17 +22,13 @@ export interface Story {
 @Injectable({
   providedIn: 'root',
 })
-export class StoryService {
-  storyCollection: AngularFirestoreCollection = this.db.collection('stories');
-  constructor(private db: AngularFirestore) {}
-  getStories(): Observable<any> {
-    return this.storyCollection.valueChanges();
-  }
-  getStory(id: string): Observable<any> {
-    return this.storyCollection.doc(id).valueChanges();
+export class StoryService extends ArticleService {
+  collection: AngularFirestoreCollection = this.db.collection('stories');
+  constructor(public db: AngularFirestore) {
+    super(db);
   }
   addStory(story: Story, author?) {
-    return this.storyCollection.add({
+    const data = {
       firstName: story.firstName,
       lastName: story.lastName,
       career: story.career,
@@ -48,12 +42,12 @@ export class StoryService {
       },
       createdAt: new Date(),
       updateAt: null,
-    })
-    .then(res => {
+    };
+    return this.collection.add(data).then((res) => {
       return res.update({
         id: res.id,
-        updatedAt: new Date()
-      })
-    })
+        updatedAt: new Date(),
+      });
+    });
   }
 }

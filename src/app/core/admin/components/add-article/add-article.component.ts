@@ -32,6 +32,7 @@ export class AddArticleComponent implements OnInit {
     private articleService: ArticleService,
     private route: ActivatedRoute
   ) {
+    //super()
     this.config = config;
     this.editing = false;
     this.types = this.articleService.getArticleTypes();
@@ -83,7 +84,7 @@ export class AddArticleComponent implements OnInit {
       }
       : {
         title: 'Saving article',
-        content: 'Your changes will be saved to datase',
+        content: 'Your changes will be saved to database',
       };
     const dialogRef = this.dialog.open(ActionDialogComponent, {
       data: dialogData,
@@ -115,7 +116,7 @@ export class AddArticleComponent implements OnInit {
         }
       });
   }
-  private addArticle(): any {
+  addArticle(): any {
     return this.articleService.createArticle(
       {
         title: this.title.value,
@@ -125,7 +126,7 @@ export class AddArticleComponent implements OnInit {
       this.author
     );
   }
-  private saveArticle(): Promise<any> {
+  saveArticle(): Promise<any> {
     let article = {
       id: this.oldValue.id,
       title: this.title.value,

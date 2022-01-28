@@ -49,6 +49,6 @@ export class StoryListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.stories$ = this.storyService.getStories();
+    this.stories$ = this.storyService.getArticles();
   }
 }

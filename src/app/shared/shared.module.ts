@@ -18,6 +18,7 @@ import { SectionHeaderComponent } from './components/section-header/section-head
 import { MemberListItemComponent } from './components/member-list-item/member-list-item.component';
 import { StoryListItemComponent } from './components/story-list-item/story-list-item.component';
 import { SnackComponent } from './components/snack/snack.component';
+import { BaseAddArticleComponent } from './components/base-add-article/base-add-article.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SnackComponent } from './components/snack/snack.component';
     MemberListItemComponent,
     StoryListItemComponent,
     SnackComponent,
+    BaseAddArticleComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, MaterialModule],
   exports: [

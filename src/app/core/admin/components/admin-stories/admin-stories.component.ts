@@ -14,25 +14,25 @@ export class AdminStoriesComponent implements OnInit {
   constructor(private storyService: StoryService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.stories$ = this.storyService.getStories();
-    this.authService.user$.subscribe((user) => {
-      this.author = user;
-    });
+    // this.stories$ = this.storyService.getStories();
+    // this.authService.user$.subscribe((user) => {
+    //   this.author = user;
+    // });
   }
 
-  addStory() {
-    const sotry = {
-      firstName: 'Болормаа',
-      lastName: 'Лунтан',
-      career: 'Сэтгүүлч',
-      image: '../../../assets/images/people/bolormaa.webp',
-      image_paint: null,
-      paintBy: '-',
-      content: 'any',
-      createdAt: null,
-      updateAt: null
-    }
-    return this.storyService.addStory(sotry, this.author);
-  }
+  // addStory() {
+  //   const sotry = {
+  //     firstName: 'Болормаа',
+  //     lastName: 'Лунтан',
+  //     career: 'Сэтгүүлч',
+  //     image: '../../../assets/images/people/bolormaa.webp',
+  //     image_paint: null,
+  //     paintBy: '-',
+  //     content: 'any',
+  //     createdAt: null,
+  //     updateAt: null
+  //   }
+  //   return this.storyService.addStory(sotry, this.author);
+  // }
 
 }

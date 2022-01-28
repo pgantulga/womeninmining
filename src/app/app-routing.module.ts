@@ -56,7 +56,7 @@ const routes: Routes = [
     path: 'error',
     loadChildren: () => import('./views/error/error.module').then(m => m.ErrorModule)
   }
-];
+];  
 
 @NgModule({
   imports: [
