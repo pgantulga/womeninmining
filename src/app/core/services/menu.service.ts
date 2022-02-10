@@ -80,24 +80,28 @@ export class MenuService {
           label: 'Чуулганы тухай',
           label2: 'Танилцуулга бүртгэл',
           icon: '',
+          link: '/conference'
         },
         {
           parent: 3,
           label: '2021 он',
           label2: 'Цахим чуулган',
           icon: '',
+          link: '/conference'
         },
         {
           parent: 3,
           label: '2019 он',
           label2: 'Төрийн ордон',
           icon: '',
+          link: '/conference'
         },
         {
           parent: 3,
           label: '2018',
           label2: 'Эрдэнэт хот',
           icon: '',
+          link: '/conference'
         },
       ],
     },
@@ -117,18 +121,22 @@ export class MenuService {
           label: 'Түүх бүтсэн түүх',
           label2: 'Номын нээлт',
           icon: '',
+          link: '/opening'
+
         },
         {
           parent: 4,
           label: 'Өөрийн түүхээ үлдээе',
           label2: 'Түүх үргэлжилсээр',
           icon: '',
+          link: '/herstory',
         },
-        // {
-        //   label: 'Номын худалдаа',
-        //   label2: 'Жишиг өөрчилсөн түүх ном',
-        //   icon: '',
-        // },
+        {
+          label: 'Номын худалдаа',
+          label2: 'Жишиг өөрчилсөн түүх ном',
+          icon: '',
+          link: '/null'
+        },
       ],
     },
     {
@@ -140,24 +148,32 @@ export class MenuService {
           parent: 5,
           label2: 'Сургалтын танилцуулга',
           icon: '',
+          link: '/null',
+
         },
         {
           label: 'Хөтөлбөр',
           parent: 5,
           label2: 'Сургалтын модулиуд',
           icon: '',
+          link: '/null',
+
         },
         {
           label: 'Бүртгүүлэх',
           parent: 5,
           label2: 'Цахим сургалтад бүртгүүлэх',
           icon: '',
+          link: '/null',
+
         },
         {
           label: 'Үнэлгээ ',
           parent: 5,
           label2: 'Сургалтад хамрагдсан байгууллагууд',
           icon: '',
+          link: '/null',
+
         },
       ],
     },
@@ -170,24 +186,32 @@ export class MenuService {
           parent: 6,
           label2: 'Сургалтын танилцуулга',
           icon: '',
+          link: '/null',
+
         },
         {
           label: 'Компаний сайн туршлага',
           parent: 6,
-          label2: 'Сайн туршлагаын талбар',
+          label2: 'Сайн туршлагын талбар',
           icon: '',
+          link: '/null',
+
         },
         {
           label: 'Сайн туршлага хуваалцах',
           label2: 'Сайн туршлага хуваалцах',
           parent: 6,
           icon: '',
+          link: '/null',
+
         },
         {
           label: 'Сургалт хөгжлийн аялал',
           parent: 6,
           label2: 'М-карт худалдан авах',
           icon: '',
+          link: '/null',
+
         },
       ],
     },
