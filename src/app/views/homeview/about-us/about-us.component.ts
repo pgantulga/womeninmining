@@ -32,7 +32,7 @@ export class AboutUsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.articlesIds = ['8u5rwFIWddZ2mV5OgxYG', 'O8w00tDOpl2kBSfVxOoB', '6NcogfFcNNyAz4IPNbcV'];
+    this.articlesIds = ['8u5rwFIWddZ2mV5OgxYG', 'O8w00tDOpl2kBSfVxOoB','F7T3NgLxxMONupyOwZ7b', '6NcogfFcNNyAz4IPNbcV'];
     this.getArticlesByArray(this.articlesIds);
   }
 

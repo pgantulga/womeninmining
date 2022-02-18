@@ -47,9 +47,18 @@ mat-sidenav {
 }
 
 .route-menu {
-  margin-bottom: 16px;
+  margin: 16px 48px;
   mat-icon {
     @include md-icon-size(18px);
     margin: 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .route-menu {
+    margin: 16px 16px;
+    mat-icon {
+      @include md-icon-size(18px);
+      margin: 0;
+    }
   }
 }

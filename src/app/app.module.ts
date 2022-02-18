@@ -14,7 +14,7 @@ import { AuthGuard } from './core/services/auth-guard.service';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,

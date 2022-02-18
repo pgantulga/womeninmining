@@ -263,13 +263,13 @@ mat-button-toggle-group {
 
 .ql-container {
   box-sizing: border-box;
-  font-family: inherit;
+  font-family: inherit; 
   font-size: inherit;
   height: 100%;
   margin: 0px;
 }
 .ql-editor {
-  padding: 16px 0 0 0;
+  padding: 0 0 0 0;
   p {
     text-align: justify;
     text-align-last: left;
@@ -356,7 +356,7 @@ quill-editor.answer .ql-editor {
   }
 }
 
-@media only screen and (max-width: 1260px) {
+@media only screen and (max-width: 1245px) {
   .h-scrolling-flex {
     display: flex;
     flex-wrap: nowrap;
