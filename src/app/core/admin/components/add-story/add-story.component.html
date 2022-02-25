@@ -1,1 +1,71 @@
-<p>add-story works!</p>
+<form (ngSubmit)="onSubmit()">
+  <h3>Add story</h3>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="8px">
+    <!-- use custom form field component -->
+    <mat-form-field appearance="outline" color="primary" [floatLabel]="'never'">
+      <mat-label>First name</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="First name"
+        [formControl]="firstName"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="primary" [floatLabel]="'never'">
+      <mat-label>Last name</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Last name"
+        [formControl]="lastName"
+        required
+      />
+    </mat-form-field>
+  </div>
+  <mat-form-field appearance="outline" color="primary" [floatLabel]="'never'">
+    <mat-label>Career</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Career"
+      [formControl]="career"
+      required
+    />
+  </mat-form-field>
+  <upload-file
+    [path]="storagePath"
+    (fileEmitter)="getImageFile($event)"
+  ></upload-file>
+  <mat-form-field appearance="outline" color="primary" [floatLabel]="'never'">
+    <mat-label>Painter name</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Painter name"
+      [formControl]="painter"
+      required
+    />
+  </mat-form-field>
+  <quill-editor
+    [formControl]="content"
+    [modules]="config"
+    [styles]="{ height: '300px' }"
+    required
+    [placeholder]="'Агуулга бичих ...'"
+  ></quill-editor>
+  <div class="actions" fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="8px">
+    <button mat-button type="button" color="primary">Cancel</button>
+    <button mat-flat-button color="primary" type="submit">Save</button>
+  </div>
+</form>
+<!-- export interface Story {
+  firstName: string;
+  lastName: string;
+  career: string;
+  image: string;
+  image_paint?: string;
+  paintBy?: string;
+  content: any;
+  author?: Author;
+} -->

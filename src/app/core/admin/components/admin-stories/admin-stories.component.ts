@@ -20,19 +20,18 @@ export class AdminStoriesComponent implements OnInit {
     // });
   }
 
-  // addStory() {
-  //   const sotry = {
-  //     firstName: 'Болормаа',
-  //     lastName: 'Лунтан',
-  //     career: 'Сэтгүүлч',
-  //     image: '../../../assets/images/people/bolormaa.webp',
-  //     image_paint: null,
-  //     paintBy: '-',
-  //     content: 'any',
-  //     createdAt: null,
-  //     updateAt: null
-  //   }
-  //   return this.storyService.addStory(sotry, this.author);
-  // }
-
+  addStory() {
+    const story = {
+      firstName: 'Болормаа',
+      lastName: 'Лунтан',
+      career: 'Сэтгүүлч',
+      image: '../../../assets/images/people/bolormaa.webp',
+      image_paint: null,
+      paintBy: '-',
+      content: 'any',
+      createdAt: null,
+      updateAt: null
+    };
+    return this.storyService.addStory(story, this.author);
+  }
 }

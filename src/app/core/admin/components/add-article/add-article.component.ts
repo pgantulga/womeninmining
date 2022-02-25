@@ -55,7 +55,6 @@ export class AddArticleComponent implements OnInit {
       this.article$.subscribe((data) => {
         if (data) {
           this.editing = true;
-
           this.oldValue = data;
           this.title.setValue(data.title);
           this.content.setValue(data.content);
@@ -76,7 +75,7 @@ export class AddArticleComponent implements OnInit {
     }
     return this.title.hasError('length') ? '150 тэмдэгтэд багтаана уу' : '';
   }
-  onSubmit() {
+  onSubmit(): any {
     const dialogData = !this.editing
       ? {
         title: 'Adding article',

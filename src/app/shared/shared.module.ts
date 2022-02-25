@@ -19,6 +19,9 @@ import { MemberListItemComponent } from './components/member-list-item/member-li
 import { StoryListItemComponent } from './components/story-list-item/story-list-item.component';
 import { SnackComponent } from './components/snack/snack.component';
 import { BaseAddArticleComponent } from './components/base-add-article/base-add-article.component';
+import { CustomFormFieldComponent } from './components/custom-form-field/custom-form-field.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +41,11 @@ import { BaseAddArticleComponent } from './components/base-add-article/base-add-
     StoryListItemComponent,
     SnackComponent,
     BaseAddArticleComponent,
+    CustomFormFieldComponent,
+    UploadFileComponent,
   ],
-  imports: [CommonModule, FlexLayoutModule, MaterialModule],
+  imports: [CommonModule, FlexLayoutModule, MaterialModule, FormsModule,
+    ReactiveFormsModule],
   exports: [
     WrapperHeroComponent,
     WrapperCardComponent,
@@ -53,9 +59,12 @@ import { BaseAddArticleComponent } from './components/base-add-article/base-add-
     ArticleViewComponent,
     SectionHeaderComponent,
     MemberListItemComponent,
-    StoryListItemComponent
+    StoryListItemComponent,
+    CustomFormFieldComponent,
+    UploadFileComponent,
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })
-export class SharedModule {}
+export class SharedModule { }

@@ -51,24 +51,19 @@ export class ArticleService {
     article: { title: any; content: any; type: any },
     author: { uid: any; displayName: any }
   ): any {
-    return this.collection
-      .add({
-        author: {
-          uid: author.uid,
-          displayName: author.displayName,
-        },
-        content: article.content,
-        createdAt: new Date(),
-        title: article.title,
-        type: this.changeArticleType(article.type),
-      })
-      .then((res) => {
-        return res.update({
-          id: res.id,
-          updatedAt: new Date(),
-        });
-      });
+    const data = {
+      author: {
+        uid: author.uid,
+        displayName: author.displayName,
+      },
+      content: article.content,
+      createdAt: new Date(),
+      title: article.title,
+      type: this.changeArticleType(article.type),
+    };
+    return this.add(data);
   }
+
   deleteArticle(article: { id: string }): any {
     return this.collection.doc(article.id).delete();
   }
@@ -76,17 +71,33 @@ export class ArticleService {
     article: { id: any; title: any; content: any; type: any },
     updatedBy: { uid: any; displayName: any }
   ): any {
-    return this.collection.doc(article.id).set(
-      {
-        content: article.content,
-        title: article.title,
-        updatedAt: new Date(),
-        type: this.changeArticleType(article.type),
-        lastUpdateBy: {
-          uid: updatedBy.uid,
-          displayName: updatedBy.displayName,
-        },
+    const data = {
+      content: article.content,
+      title: article.title,
+      updatedAt: new Date(),
+      type: this.changeArticleType(article.type),
+      lastUpdateBy: {
+        uid: updatedBy.uid,
+        displayName: updatedBy.displayName,
       },
+    };
+    return this.save(article.id, data);
+  }
+  add(data): any {
+    return this.collection
+      .add(data)
+      .then(res => {
+        res.update({
+          id: res.id,
+          updatedAt: new Date()
+        });
+        return res.id;
+      });
+  }
+  save(id, data): Promise<any> {
+    console.log(data);
+    return this.collection.doc(id).set(
+      data,
       { merge: true }
     );
   }

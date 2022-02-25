@@ -4,20 +4,17 @@
   width: 100%;
 }
 
+@media screen and (max-width: 600px) {
+  .h-scrolling-flex {
+    .grid-view-item-container{
+      max-width: 300px !important;
+    }
+  }
+
+}
 
 
-// .h-scrolling-flex {
-//   display: -webkit-flex;
-//   flex-wrap: -webkit-wrap;
-//   gap: 8px;
 
-//   .scrolling-item {
-//     flex: 0 0 auto;
-//   }
-//   &::-webkit-scrollbar {
-//     display: none;
-//   }
-// }
 
 // @media only screen and (max-width: 1260px) {
 //   .h-scrolling-flex {

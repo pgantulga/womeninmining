@@ -7,9 +7,10 @@ import { StoryService } from './../../../services/story.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl, Validators } from '@angular/forms';
 import { config } from './../../../../shared/quill-config';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ActionDialogComponent } from 'src/app/shared/components/action-dialog/action-dialog.component';
+import { UploadFileComponent } from 'src/app/shared/components/upload-file/upload-file.component';
 
 @Component({
   selector: 'app-add-story',
@@ -17,6 +18,8 @@ import { ActionDialogComponent } from 'src/app/shared/components/action-dialog/a
   styleUrls: ['./add-story.component.scss'],
 })
 export class AddStoryComponent implements OnInit {
+  @ViewChild(UploadFileComponent) uploadComponent: UploadFileComponent;
+
   config: any;
   editing: boolean;
   oldValue: any;
@@ -24,9 +27,11 @@ export class AddStoryComponent implements OnInit {
   lastName = new FormControl('', [Validators.required]);
   career = new FormControl('', [Validators.required]);
   image: any;
-  paintBy = new FormControl('', [Validators.required]);
+  painter = new FormControl('', [Validators.required]);
   content = new FormControl('', [Validators.minLength(150)]);
   story$: Observable<any>;
+  storagePath: string;
+  author: any;
 
   constructor(
     private dialog: MatDialog,
@@ -38,9 +43,13 @@ export class AddStoryComponent implements OnInit {
   ) {
     this.config = config;
     this.editing = false;
+    this.storagePath = `images/stories/`;
   }
 
   ngOnInit(): void {
+    this.authService.user$.subscribe((user) => {
+      this.author = user;
+    });
     this.story$ = this.route.paramMap.pipe(
       switchMap((params) => {
         if (params.get('id')) {
@@ -59,34 +68,54 @@ export class AddStoryComponent implements OnInit {
           this.lastName.setValue(data.lastName);
           this.career.setValue(data.career);
           this.image = data.image;
-          this.paintBy.setValue(data.paintBy);
+          this.painter.setValue(data.painter);
           this.content.setValue(data.content);
         }
       });
     }
   }
-  // onSubmit() {
-  //   const dialogData = !this.editing
-  //     ? {
-  //         title: 'Adding story',
-  //         content: 'Your story will be added to database.',
-  //       }
-  //     : {
-  //         title: 'Saving story',
-  //         content: 'Your changes will be saved to database',
-  //       };
-  //   const dialogRef = this.dialog.open(ActionDialogComponent, {
-  //     data: dialogData,
-  //   });
-  //   return dialogRef.afterClosed().subscribe((result) => {
-  //     if (result) {
-  //       const dialogPromise = !this.editing
-  //         ? this.addArticle()
-  //         : this.saveArticle();
-  //       dialogPromise.then(() => {
-  //         return this.router.navigate(['admin/articles']);
-  //       });
-  //     }
-  //   });
-  // }
+  getImageFile(ev): any {
+    this.image = ev;
+  }
+  onSubmit(): any {
+    const dialogData = !this.editing
+      ? {
+        title: 'Adding story',
+        content: 'Your story will be added to database.',
+      }
+      : {
+        title: 'Saving story',
+        content: 'Your changes will be saved to database',
+      };
+    const dialogRef = this.dialog.open(ActionDialogComponent, {
+      data: dialogData,
+    });
+    return dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        const dialogPromise = !this.editing
+          ? this.addStory()
+          : this.saveStory();
+        dialogPromise.then(() => {
+          console.log('done');
+          return this.router.navigate(['admin/stories']);
+        });
+      }
+    });
+  }
+  private addStory(): any {
+    return this.storyService.addStory(
+      {
+        firstName: this.firstName.value,
+        lastName: this.lastName.value,
+        career: this.career.value,
+        image: this.image,
+        painter: this.painter.value,
+        content: this.content.value
+      },
+      this.author
+    );
+  }
+  private saveStory(): any {
+
+  }
 }

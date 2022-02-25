@@ -1,0 +1,24 @@
+<div
+  fxLayout="column"
+  class="file-upload-container"
+  fxLayoutAlign="center center"
+>
+  <mat-icon class="upload-icon">file_upload</mat-icon>
+  <input type="file" (change)="onFileSelected($event.target.files)" id="file" />
+  <button
+    type="button"
+    mat-flat-button
+    (click)="upload()"
+    [class.active]="fileToUpload"
+    [disabled]="!fileToUpload"
+  >
+    Upload
+  </button>
+  <div *ngIf="snapshot | async as snap">
+    {{ snap.bytesTransferred }} of {{ snap.totalBytes }}
+  </div>
+  <div *ngIf="percentage | async as pct">
+    <progress [value]="pct" max="100"></progress>
+    {{ pct | number }} %
+  </div>
+</div>

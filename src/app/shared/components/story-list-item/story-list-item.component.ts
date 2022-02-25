@@ -19,7 +19,7 @@ export class StoryListItemComponent implements OnInit {
     this.htmlContent = this.sanitzier.bypassSecurityTrustHtml(
       this.story.content
     );
-    this.description = this.createElementFromHTML(this.story.content)
+    this.description = this.createElementFromHTML(this.story.content);
   }
   gotoStory(story) {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

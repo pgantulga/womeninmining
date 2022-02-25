@@ -10,10 +10,9 @@ export interface Story {
   firstName: string;
   lastName: string;
   career: string;
-  image: string;
-  image_paint?: string;
-  paintBy?: string;
-  content: any;
+  image?: string;
+  painter?: string;
+  content?: any;
   author?: Author;
   createdAt?: Date;
   updateAt?: Date;
@@ -27,27 +26,21 @@ export class StoryService extends ArticleService {
   constructor(public db: AngularFirestore) {
     super(db);
   }
-  addStory(story: Story, author?) {
+  addStory(story: Story, author?): any {
     const data = {
-      firstName: story.firstName,
-      lastName: story.lastName,
-      career: story.career,
-      image: story.image,
-      image_paint: story.image_paint,
-      paintBy: story.paintBy,
-      content: story.content,
       author: {
         displayName: author.displayName,
         uid: author.uid,
       },
+      content: story.content,
       createdAt: new Date(),
+      firstName: story.firstName,
+      lastName: story.lastName,
+      career: story.career,
+      image: story.image,
+      painter: story.painter || null,
       updateAt: null,
     };
-    return this.collection.add(data).then((res) => {
-      return res.update({
-        id: res.id,
-        updatedAt: new Date(),
-      });
-    });
+    return super.add(data);
   }
 }
