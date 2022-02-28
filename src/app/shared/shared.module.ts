@@ -18,7 +18,6 @@ import { SectionHeaderComponent } from './components/section-header/section-head
 import { MemberListItemComponent } from './components/member-list-item/member-list-item.component';
 import { StoryListItemComponent } from './components/story-list-item/story-list-item.component';
 import { SnackComponent } from './components/snack/snack.component';
-import { BaseAddArticleComponent } from './components/base-add-article/base-add-article.component';
 import { CustomFormFieldComponent } from './components/custom-form-field/custom-form-field.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
@@ -40,7 +39,6 @@ import { UploadFileComponent } from './components/upload-file/upload-file.compon
     MemberListItemComponent,
     StoryListItemComponent,
     SnackComponent,
-    BaseAddArticleComponent,
     CustomFormFieldComponent,
     UploadFileComponent,
   ],

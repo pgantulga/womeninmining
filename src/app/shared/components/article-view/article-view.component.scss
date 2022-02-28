@@ -1,15 +1,1 @@
  @import 'styles';
-
-article {
-  margin: 16px 48px;
-  .article-actions {
-  }
-  #timestamp {
-    margin: 0;
-  }
-}
-@media only screen and (max-width: 600px) {
-  article {
-    margin: 16px 16px;
-  }
-}

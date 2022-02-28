@@ -62,16 +62,15 @@ section {
   .container {
     width: 945px;
     box-sizing: border-box;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
+    padding: 0 8px;
   }
 }
 @media only screen and (max-width: 960px) {
   .container {
     width: 100%;
     box-sizing: border-box;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
+    padding: 0 8px;
+
   }
 }
 .line-clamp-5 {
@@ -260,7 +259,9 @@ mat-button-toggle-group {
 }
 
 /************************Quill custom styles***********************************/
-
+#editor {
+  padding: 8px;
+}
 .ql-container {
   box-sizing: border-box;
   font-family: inherit;
@@ -302,6 +303,18 @@ quill-editor.answer .ql-editor {
 .ql-video {
   max-width: 100%;
 }
+article {
+  margin: 16px 48px;
+  #timestamp {
+    margin-bottom: 16px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  article {
+    margin: 16px 16px;
+  }
+}
+
 .decoration {
   article {
     h3 {

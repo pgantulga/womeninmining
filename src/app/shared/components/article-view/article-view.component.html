@@ -1,22 +1,27 @@
 <article>
-  <h3>{{ article.title }}</h3>
-  <div class="divider"></div>
-  <p class="mat-caption" id="timestamp">{{ article.createdAt | moment }}</p>
-  <div
-    class="article-actions"
-    fxLayout="row"
-    fxLayoutGap="8px"
-    fxLayoutAlign="end center"
-    *ngIf="auth.user$ | async as user"
-  >
-    <button
-      mat-icon-button
-      (click)="goto('/admin/edit-article' , article.id)"
-      *ngIf="permission.canEdit(user)"
+  <div class="article-header" fxLayout="row">
+    <div class="article-meta" fxFlex>
+      <h3>{{ article.title }}</h3>
+      <div class="divider"></div>
+      <p class="mat-caption" id="timestamp">{{ article.createdAt | moment }}</p>
+    </div>
+    <div
+      class="article-actions"
+      fxLayout="row"
+      fxLayoutGap="8px"
+      fxLayoutAlign="end center"
+      *ngIf="auth.user$ | async as user"
     >
-      <mat-icon>edit</mat-icon>
-    </button>
+      <button
+        mat-icon-button
+        (click)="goto('/admin/edit-article' , article.id)"
+        *ngIf="permission.canEdit(user)"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
   </div>
+
   <div class="ql-container ql-snow" fxLayout="column" style="border-width: 0">
     <div class="ql-editor" [innerHtml]="htmlContent"></div>
   </div>

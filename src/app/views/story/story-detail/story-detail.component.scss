@@ -3,16 +3,16 @@
 .story-detail-container {
   width: 100%;
   .ql-container {
-    margin: 0 0 0 48px;
+    // margin: 0 0 0 48px;
     .story-meta {
-      padding-left: 16px;
+      // padding-left: 16px;
     }
     .ql-editor {
-      padding: 16px;
+      padding-top: 16px;
     }
     .ql-editor::first-letter {
       color: mat-color($womeninmining-primary);
-      font-size: 60px;
+      font-size: 48px;
       font-weight: 500;
     }
   }
