@@ -1,3 +1,5 @@
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Member } from 'src/app/shared/components/member-list-item/member-list-item.component';
 
@@ -5,10 +7,10 @@ import { Member } from 'src/app/shared/components/member-list-item/member-list-i
   providedIn: 'root',
 })
 export class ContentService {
-  constructor() {}
+  constructor(public db: AngularFirestore) {}
   public images = {
-    story_nobg: '../../../assets/images/story_nobg.png'
-  }
+    story_nobg: '../../../assets/images/story_nobg.png',
+  };
   public boardAdvisor: Member[] = [
     {
       displayName: 'Ш.Байгалмаа',
@@ -79,7 +81,7 @@ export class ContentService {
     {
       displayName: 'Октябрийн ТУЯА',
       represent: 'ЭБЭХ ТББ-ын УЗ-ийн дарга',
-      image: '../../../assets/images/people/tuya.jpg'
+      image: '../../../assets/images/people/tuya.jpg',
     },
     {
       displayName: 'Мижиддорж ЭНХЖАРГАЛ',
@@ -142,15 +144,17 @@ export class ContentService {
       represent: 'ИНБ, хараат бус судлаач',
     },
   ];
-
   public contacts: any[] = [
     {
       icon: 'mail',
-      label: 'women.mrm@gmail.com'
+      label: 'women.mrm@gmail.com',
     },
     {
       icon: 'phone',
-      label: '+976 99088018'
-    }
-  ]
+      label: '+976 99088018',
+    },
+  ];
+  getConferenceDetail(year: string): Observable<any> {
+    return this.db.collection('conferences').doc(year).valueChanges();
+  }
 }

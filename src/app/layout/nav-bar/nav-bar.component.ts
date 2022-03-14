@@ -98,6 +98,11 @@ export class NavBarComponent implements OnInit {
   }
   goto(subitem): Promise<any> {
     this.selectedParent = subitem.parent;
+    if (subitem.params) {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        return this.router.navigate([subitem.link, subitem.params.id]);
+      });
+    }
     if (subitem.queryParam) {
       return this.router.navigate(
         [subitem.link],

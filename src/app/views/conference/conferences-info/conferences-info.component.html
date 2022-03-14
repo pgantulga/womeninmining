@@ -1,0 +1,18 @@
+<div fxLayout="column" fxLayoutGap="4px">
+  <section>
+    <title-wrapper [content]="headerContent"></title-wrapper>
+  </section>
+  <section>
+    <ng-container *ngFor="let item of articles; last as islast">
+      <ng-container *ngIf="item.data$ | async as data">
+        <div class="decoration">
+          <article-view [article]="data" class="decoration"></article-view>
+          <article>
+            <button mat-flat-button color="primary" (click)="goto(item.year)">Дэлгэрэнгүй</button>
+          </article>
+          <mat-divider *ngIf="!islast"></mat-divider>
+        </div>
+      </ng-container>
+    </ng-container>
+  </section>
+</div>

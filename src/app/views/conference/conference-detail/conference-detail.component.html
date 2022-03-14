@@ -1,7 +1,4 @@
-<div fxLayout="column" fxLayoutGap="4px">
-  <section>
-    <title-wrapper [content]="headerContent"></title-wrapper>
-  </section>
+<div *ngIf="conferenceDetail$ | async as data" fxLayout="column" fxLayoutGap="16px">
   <section>
     <ng-container *ngFor="let item$ of articles; last as islast">
       <ng-container *ngIf="item$ | async as item">
@@ -10,9 +7,9 @@
           <mat-divider *ngIf="!islast"></mat-divider>
         </div>
       </ng-container>
-    </ng-container> 
+    </ng-container>
   </section>
-  <!-- <section>
-    <section-header [content]="sectionHeader"></section-header>
-  </section> -->
+  <section>
+    <gd-view [folderId]="data.folderId"></gd-view>
+  </section>
 </div>

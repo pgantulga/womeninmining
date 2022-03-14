@@ -49,6 +49,10 @@ export class RouteService {
     if (url.includes('articles')) {
       return 'articles';
     }
+    if (url.includes('conferences')) {
+      return 'conferences';
+    }
+
   }
   getRoute(url): any {
     const urlArray = url.split('/');

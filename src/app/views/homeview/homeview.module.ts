@@ -9,9 +9,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BoardComponent } from './board/board.component';
 
-
 @NgModule({
-  declarations: [HomeComponent, AboutUsComponent, BoardComponent],
+  declarations: [HomeComponent, AboutUsComponent, BoardComponent,],
   imports: [
     CommonModule,
     HomeviewRoutingModule,

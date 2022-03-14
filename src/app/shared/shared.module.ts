@@ -21,6 +21,8 @@ import { SnackComponent } from './components/snack/snack.component';
 import { CustomFormFieldComponent } from './components/custom-form-field/custom-form-field.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
+import { GdViewComponent } from './components/gd-view/gd-view.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { UploadFileComponent } from './components/upload-file/upload-file.compon
     SnackComponent,
     CustomFormFieldComponent,
     UploadFileComponent,
+    GdViewComponent,
+    SafePipe,
   ],
   imports: [CommonModule, FlexLayoutModule, MaterialModule, FormsModule,
     ReactiveFormsModule],
@@ -60,6 +64,8 @@ import { UploadFileComponent } from './components/upload-file/upload-file.compon
     StoryListItemComponent,
     CustomFormFieldComponent,
     UploadFileComponent,
+    GdViewComponent,
+    SafePipe
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

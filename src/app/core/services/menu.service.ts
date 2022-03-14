@@ -80,21 +80,27 @@ export class MenuService {
           label: 'Чуулганы тухай',
           label2: 'Танилцуулга бүртгэл',
           icon: '',
-          link: '/conference'
+          link: '/conferences',
         },
         {
           parent: 3,
           label: '2021 он',
           label2: 'Цахим чуулган',
           icon: '',
-          link: '/conference'
+          link: '/conferences',
+          params: {
+            id: 2021
+          }
         },
         {
           parent: 3,
           label: '2019 он',
           label2: 'Төрийн ордон',
           icon: '',
-          link: '/conference'
+          link: '/conferences',
+          params: {
+            id: 2019
+          }
         },
         {
           parent: 3,

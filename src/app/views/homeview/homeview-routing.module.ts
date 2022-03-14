@@ -18,7 +18,7 @@ const routes: Routes = [
       path: 'board',
       component: BoardComponent,
       data: { title: 'Зөвлөл', name: 'board'}
-    }
+    },
 ];
 
 @NgModule({
