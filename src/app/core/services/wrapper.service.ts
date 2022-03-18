@@ -11,16 +11,16 @@ export class WrapperService {
       subtitle: '',
       title: 'Эрдэс баялаг эмэгтэйчүүдийн холбоо',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
+        'Эрдэс баялгийн салбарт монгол эмэгтэй хүн өөртөө итгэлтэй, бусдаас хамааралгүйгээр өөрийн ур чадвараараа мөрөөдөлдөө хүрэх боломжийг бүрдүүлэхийн төлөө',
       actionButton_1: {
         label: 'Видео тоглуулах',
         link: '',
       },
       actionButton_2: {
-        label: 'Танилцуулга татах',
-        link: '',
+        label: 'Бидний тухай',
+        link: '/home/about',
       },
-      imageUrl: '../../../../assets/images/hero_image.webp',
+      imageUrl: '../../../../assets/images/hero_wide.webp',
       imageUrl_small: '../../../../assets/images/hero_image.webp',
       style: 'background',
       type: 'hero',

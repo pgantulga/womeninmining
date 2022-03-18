@@ -1,6 +1,8 @@
 <div fxLayout="column" fxLayoutGap="4px">
   <section>
-    <title-wrapper [content]="headerContent"></title-wrapper>
+    <wrapper-hero [content]="heroContent"></wrapper-hero>
+
+    <!-- <title-wrapper [content]="headerContent"></title-wrapper> -->
   </section>
   <section>
     <ng-container *ngFor="let item$ of articles; last as islast">
@@ -10,7 +12,7 @@
           <mat-divider *ngIf="!islast"></mat-divider>
         </div>
       </ng-container>
-    </ng-container> 
+    </ng-container>
   </section>
   <!-- <section>
     <section-header [content]="sectionHeader"></section-header>

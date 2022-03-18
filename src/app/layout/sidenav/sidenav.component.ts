@@ -81,6 +81,11 @@ export class SidenavComponent implements OnInit {
     }
   }
   goto(subitem): Promise<any> {
+    if (subitem.params) {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        return this.router.navigate([subitem.link, subitem.params.id]);
+      });
+    }
     if (subitem.queryParam) {
       return this.router
         .navigate([subitem.link], { queryParams: subitem.queryParam })

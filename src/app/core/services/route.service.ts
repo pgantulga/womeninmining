@@ -122,7 +122,6 @@ export class RouteService {
   layoutChanger(current$): any {
     return current$.pipe(
       map((route: any) => {
-        console.log(route.name);
         return this.getLayout(route.name);
       })
     );

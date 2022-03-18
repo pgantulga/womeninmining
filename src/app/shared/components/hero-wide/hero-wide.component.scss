@@ -1,0 +1,67 @@
+@import 'styles';
+
+.hero-wide-container {
+  background-color: mat-color($womeninmining-accent);;
+  height: 500px;
+  width: 100%;
+  margin-bottom: 32px;
+  
+  .hero-detail-content {
+    padding-right: 56px;
+    padding-left: 24px;
+    position: relative;
+    h1 {
+      color: $onDarkSurface;
+      position: relative;
+
+    }
+    h1::before {
+      position: absolute;
+      // margin: 0 24px;
+      content: url("../../../../assets/decors/decor_star.svg");
+      top: -32px;
+      left: -48px;
+      // bottom: -8px;
+    }
+    p.mat-body-1 {
+      color: $onDarkSurface;
+      margin-bottom: 32px;
+    }
+  }
+  .hero-detail-content::before{
+    position: absolute;
+    content: url("../../../../assets/decors/dots.svg");
+    left: -280px;
+    bottom: -130px;
+
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .hero-wide-container {
+    width: 100vw;
+    height: auto;
+
+    .hero-detail-content {
+      padding: 36px 56px 24px 36px;
+
+      h1::before {
+        // margin: 0 24px;
+        content: url("../../../../assets/decors/decor_star.svg");
+        top: -24px;
+        left: auto;
+        right: -24px;
+        // bottom: -8px;
+      }
+    }
+    .container {
+      padding: 0;
+    }
+  }
+  #hero {
+    width: 100%;
+    overflow: hidden;
+    align-self: end;
+  }
+}

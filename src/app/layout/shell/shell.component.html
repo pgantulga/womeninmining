@@ -17,8 +17,10 @@
     >
       <sidenav [current]="currentRoute.name" (closeSidebar)="sidenav.close()" ></sidenav>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content style="overflow: hidden;">
       <div name="top-anchor"></div>
+      <hero-wide [content]="heroContent" *ngIf="currentRoute.name === 'home'"></hero-wide>
+
       <div
         fxLayout="row"
         [class.layout-one]="layout.layout1"
@@ -56,6 +58,8 @@
               </div>
             </div>
           </ng-container>
+
+
           <ng-content></ng-content>
         </div>
         <div fxFlex *ngIf="!layout.layout2"></div>

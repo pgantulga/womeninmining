@@ -1,3 +1,4 @@
+import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -24,6 +25,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     FlexLayoutModule,
     RouterModule,
     ScrollingModule,
+    SharedModule
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [

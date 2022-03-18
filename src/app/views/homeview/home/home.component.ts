@@ -15,7 +15,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  heroContent: WrapperContent;
   cardContents: WrapperContent[];
   accountCard: WrapperContent;
   gridContent: GridContent;
@@ -32,12 +31,13 @@ export class HomeComponent implements OnInit {
   ) {
     this.sectionHeader_1 = {
       title: 'Бид хэн бэ',
-      description: 'Эрдэс баялгийн салбарт монгол эмэгтэй хүн өөртөө итгэлтэй байдлаар ажиллах нөхцөлийг бүрдүүлж хэн нэгнээс хамааралгүйгээр өөрийн ур чадвараараа мөрөөдөлдөө хүрэх боломжийг бүрдүүлэх',
-      button: {
-        label: 'Дэлгэрэнгүй',
-        style: 'primary',
-        link: '/about',
-      },
+      description: 'Хөгжлийн 100 жилд хайгуулаас нөхөн сэргээлт хүртэлх олборлох салбар, геологи, газрын тос, хүнд үйлдвэрт 15 хувьд нь эмэгтэйчүүд ажиллаж байна.',
+      // button: {
+      //   label: 'Дэлгэрэнгүй',
+      //   style: 'primary',
+      //   link: '/about',
+      // },
+
     };
     this.sectionHeader_2 = {
       title: 'Бичвэрүүд',
@@ -57,7 +57,6 @@ export class HomeComponent implements OnInit {
         style: 'icon',
       },
     };
-    this.heroContent = this.wrapperService.getHeroContent();
     this.cardContents = this.wrapperService.getAllCardContents();
     this.accountCard = {
       subtitle: 'Сайн байна уу,',

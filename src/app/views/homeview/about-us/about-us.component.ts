@@ -2,24 +2,33 @@ import { SectionHeaderContent } from './../../../shared/components/section-heade
 import { ArticleService } from 'src/app/core/services/article.service';
 import { Component, OnInit } from '@angular/core';
 import { HeaderContent } from 'src/app/shared/components/title-wrapper/title-wrapper.component';
+import { WrapperService } from 'src/app/core/services/wrapper.service';
+import { WrapperContent } from 'src/app/shared/components/wrapper-hero/wrapper-hero.component';
 
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss']
+  styleUrls: ['./about-us.component.scss'],
 })
 export class AboutUsComponent implements OnInit {
+  heroContent: WrapperContent;
+
   articlesIds: any[];
   articles: any[] = [];
   headerContent: HeaderContent;
   sectionHeader: SectionHeaderContent;
-  constructor(private articleService: ArticleService) {
+  constructor(
+    private articleService: ArticleService,
+    private wrapperService: WrapperService
+  ) {
+    this.heroContent = this.wrapperService.getHeroContent();
     this.headerContent = {
       title: 'Бид хэн бэ',
       style: 'accent',
       image: '/assets/images/story_nobg.png',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.'
-    }
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
+    };
     this.sectionHeader = {
       title: 'Бүтээгдэхүүн',
       description: null,
@@ -28,18 +37,23 @@ export class AboutUsComponent implements OnInit {
       //   link: '/articles',
       //   style: 'icon'
       // }
-    }
+    };
   }
 
   ngOnInit(): void {
-    this.articlesIds = ['8u5rwFIWddZ2mV5OgxYG', 'O8w00tDOpl2kBSfVxOoB','F7T3NgLxxMONupyOwZ7b', '6NcogfFcNNyAz4IPNbcV'];
+    this.articlesIds = [
+      '8u5rwFIWddZ2mV5OgxYG',
+      'O8w00tDOpl2kBSfVxOoB',
+      'F7T3NgLxxMONupyOwZ7b',
+      '6NcogfFcNNyAz4IPNbcV',
+    ];
     this.getArticlesByArray(this.articlesIds);
   }
 
   getArticlesByArray(array: Array<string>) {
-    array.forEach(item => {
+    array.forEach((item) => {
       this.articles.push(this.articleService.getArticle(item));
-    })
+    });
   }
   //8u5rwFIWddZ2mV5OgxYG - about us
 }

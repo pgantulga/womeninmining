@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
 import { GdViewComponent } from './components/gd-view/gd-view.component';
 import { SafePipe } from './safe.pipe';
+import { HeroWideComponent } from './components/hero-wide/hero-wide.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { SafePipe } from './safe.pipe';
     UploadFileComponent,
     GdViewComponent,
     SafePipe,
+    HeroWideComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, MaterialModule, FormsModule,
     ReactiveFormsModule],
@@ -65,7 +67,8 @@ import { SafePipe } from './safe.pipe';
     CustomFormFieldComponent,
     UploadFileComponent,
     GdViewComponent,
-    SafePipe
+    SafePipe,
+    HeroWideComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

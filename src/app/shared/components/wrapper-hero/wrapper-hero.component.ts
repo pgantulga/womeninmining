@@ -47,7 +47,7 @@ export class WrapperHeroComponent implements OnInit {
   ngOnInit(): void {
     this.selectStyle(this.content.style);
     this.isHandset$.subscribe((b: boolean) => {
-      this.wrapperImageUrl = (b || this.content.type === 'card') ? this.content.imageUrl_small : this.content.imageUrl;
+      this.wrapperImageUrl = (b || this.content.type === 'card') ? this.content.imageUrl_small : this.content.imageUrl_small;
     });
   }
 

@@ -33,6 +33,16 @@
       required
     />
   </mat-form-field>
+  <mat-form-field appearance="outline" color="primary" [floatLabel]="'never'">
+    <mat-label>Description</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Description"
+      [formControl]="description"
+      required
+    />
+  </mat-form-field>
   <upload-file
     [path]="storagePath"
     (fileEmitter)="getImageFile($event)"

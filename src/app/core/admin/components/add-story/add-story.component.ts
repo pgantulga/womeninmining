@@ -26,6 +26,7 @@ export class AddStoryComponent implements OnInit {
   firstName = new FormControl('', [Validators.required]);
   lastName = new FormControl('', [Validators.required]);
   career = new FormControl('', [Validators.required]);
+  description = new FormControl('', [Validators.maxLength(200), Validators.minLength(10)])
   image: any;
   painter = new FormControl('', [Validators.required]);
   content = new FormControl('', [Validators.minLength(150)]);
@@ -67,6 +68,7 @@ export class AddStoryComponent implements OnInit {
           this.firstName.setValue(data.firstName);
           this.lastName.setValue(data.lastName);
           this.career.setValue(data.career);
+          this.description.setValue(data.desctiption)
           this.image = data.image;
           this.painter.setValue(data.painter);
           this.content.setValue(data.content);
@@ -108,6 +110,7 @@ export class AddStoryComponent implements OnInit {
         firstName: this.firstName.value,
         lastName: this.lastName.value,
         career: this.career.value,
+        description: this.description.value,
         image: this.image,
         painter: this.painter.value,
         content: this.content.value

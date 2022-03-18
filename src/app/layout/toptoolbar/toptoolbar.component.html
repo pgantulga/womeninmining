@@ -13,14 +13,14 @@
     >
       <ng-content></ng-content>
       <div fxFlex fxLayoutAlign="center center">
-        <button mat-icon-button class="logo-button" [routerLink]="['/home']">
+        <button mat-icon-button class="logo-button" [routerLink]="['/home']" [disableRipple]="true">
           <img src="../../../assets/toolbarLogo.jpg" alt="Logo" />
         </button>
       </div>
       <div fxLayout="row" fxFlex fxLayoutAlign="end center">
-        <button mat-icon-button fxHide.gt-sm>
+        <!-- <button mat-icon-button fxHide.gt-sm>
           <mat-icon>search</mat-icon>
-        </button>
+        </button> -->
         <div *ngIf="authService.user$ | async as user; else login">
           <button
             mat-icon-button
@@ -32,9 +32,8 @@
         </div>
         <ng-template #login>
           <button
-            mat-flat-button
+            mat-stroked-button
             color="primary"
-            fxHide.xs
             [routerLink]="['/auth/login']"
           >
             Нэвтрэх

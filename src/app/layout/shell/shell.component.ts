@@ -1,3 +1,4 @@
+import { WrapperService } from './../../core/services/wrapper.service';
 import { MenuService } from './../../core/services/menu.service';
 import { RouteService, Layout } from './../../core/services/route.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -10,6 +11,7 @@ import { combineLatest, merge, Observable } from 'rxjs';
 import { filter, map, shareReplay, switchMap } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
+import { WrapperContent } from 'src/app/shared/components/wrapper-hero/wrapper-hero.component';
 
 
 @Component({
@@ -19,6 +21,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class ShellComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
+  heroContent: WrapperContent;
+
   currentRoute$: Observable<any>;
   routes$: Observable<any>;
   merged$: Observable<any>;
@@ -37,10 +41,13 @@ export class ShellComponent implements OnInit {
     private router: Router,
     private routeService: RouteService,
     private route: ActivatedRoute,
+    private wrapperService: WrapperService
   ) {
+
   }
 
   ngOnInit(): void {
+    this.heroContent = this.wrapperService.getHeroContent();
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((e: any) => {

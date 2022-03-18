@@ -1,8 +1,8 @@
 <ng-container *ngIf="content.description; else rowHeader">
-  <div fxLayout="column" fxLayoutAlign="center start" class="section-header">
+  <div fxLayout="column" fxLayoutAlign="center center" class="section-header column">
     <h3>{{ content.title }}</h3>
     <div class="divider"></div>
-    <p *ngIf="content.description">{{ content.description }}</p>
+    <p class="description" *ngIf="content.description" >{{ content.description }}</p>
     <ng-container *ngIf="content?.button">
       <button mat-flat-button color="primary" (click)="goto(content.button.link)">
         {{ content.button.label }}
@@ -12,7 +12,7 @@
 </ng-container>
 <ng-template #rowHeader>
   <div
-    class="section-header"
+    class="section-header row"
     fxLayout="row"
     fxLayoutAlign="space-between center"
   >

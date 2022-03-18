@@ -1,0 +1,23 @@
+<div class="hero-wide-container" fxLayout="row" >
+  <div fxFlex></div>
+  <div
+    class="container"
+    fxLayout="row"
+    fxLayout.xs="column"
+  >
+    <div fxLayout="column"  class="hero-detail-content" fxLayoutAlign="center start">
+      <h1>{{ content.title }}</h1>
+      <div class="divider"></div>
+      <p class="mat-body-1">
+        {{ content.description }}
+      </p>
+      <div fxLayout="row" class="actions" fxLayoutAlign="center center">
+        <button mat-flat-button color="primary" (click)="goto(content.actionButton_2.link)">
+          {{ content.actionButton_2.label }}
+        </button>
+      </div>
+    </div>
+    <img [src]="content.imageUrl" alt="hero Image"/>
+  </div>
+  <div fxFlex></div>
+</div>

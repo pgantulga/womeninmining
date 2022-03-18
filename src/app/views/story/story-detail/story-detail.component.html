@@ -3,21 +3,22 @@
     <story-detail-header [content]="story"></story-detail-header>
     <div fxLayout="row">
       <div fxFlex></div>
-      <article class="container">
-        <div
-          class="ql-container ql-snow"
-          fxLayout="column"
-          style="border-width: 0"
-          fxLayoutGap="16px"
-        >
-          <div class="story-meta">
-            <div class="divider"></div>
-            <p>Бичсэн: {{story.author.displayName}}</p>
-            <p class="mat-caption" id="timestamp">{{story.createdAt | moment}}</p>
+      <div class="container">
+        <article >
+          <div
+            class="ql-container ql-snow"
+            fxLayout="column"
+            style="border-width: 0"
+            fxLayoutGap="16px"
+          >
+            <!-- <div class="story-meta">
+              <div class="divider"></div>
+              <p class="mat-caption" id="timestamp">{{story.createdAt | moment}}</p>
+            </div> -->
+            <div class="ql-editor" [innerHtml]="getHtml(story.content)"></div>
           </div>
-          <div class="ql-editor" [innerHtml]="getHtml(story.content)"></div>
-        </div>
-      </article>
+        </article>
+      </div>
       <div fxFlex></div>
     </div>
   </div>

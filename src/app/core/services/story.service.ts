@@ -16,6 +16,7 @@ export interface Story {
   author?: Author;
   createdAt?: Date;
   updateAt?: Date;
+  description?: string;
 }
 
 @Injectable({
@@ -37,6 +38,7 @@ export class StoryService extends ArticleService {
       firstName: story.firstName,
       lastName: story.lastName,
       career: story.career,
+      description: story.description,
       image: story.image,
       painter: story.painter || null,
       updateAt: null,

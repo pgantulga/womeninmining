@@ -1,61 +1,104 @@
 @import "styles";
 
-.story-detail-header {
-  .mat-caption {
-    font-weight: bold;
-  }
+
+.story-header-container {
+  background-color: $whiteSurfaceMedium;
   height: fit-content;
-  .story-detail-header-title-container {
-    background-color: $whiteSurfaceMedium;
-    .story-detail-header-title {
-      width: 510px;
-      position: relative;
-      margin: 0 0 48px 0;
-      padding: 16px 16px 0 16px;
-      .mat-icon-button {
-        position: absolute;
-        top: 24px;
-      }
-      .first-name {
-        margin-bottom: 36px;
-      }
-    }
+  width: 100%;
+  position: relative;
+  .mat-icon-button {
+    position: absolute;
+    left: 0;
+    // left: -48px;
+    top: 0;
   }
-  img {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 1110px) and (min-width: 600px) {
-  h1 {
-    font-size: mat-font-size($womeninmining-typography, title);
-    line-height: 40px;
-  }
-  .story-detail-header {
-    .story-detail-header-title-container {
-      .story-detail-header-title {
-        width: 100%;
-        max-width: 420px;
-        margin: 0 0 16px 48px;
-      }
-    }
-    img {
-      width: 50%;
-      height: 50%;
+  .story-header-content {
+    margin: 16px 48px;
+    min-height: 320px;
+
+    .first-name {
+      margin-bottom: 36px;
     }
   }
 }
 @media only screen and (max-width: 600px) {
-  .story-detail-header {
-    .story-detail-header-title-container {
-      .story-detail-header-title {
-        min-width: 180px;
-        width: 100%;
-        margin: 0 0 16px 0;
-        height: 100vw;
-      }
+  .container {
+    padding: 0;
+  }
+  .story-header-container {
+    width: 100vw;
+    height: auto;
+    .mat-icon-button {
+      position: absolute;
+      left: 8px;
+      top: 8px;
     }
-    img {
-      width: 100vw;
+    .story-header-content {
+      margin: 16px 16px;
+
     }
   }
 }
+
+
+
+// ----
+// .story-detail-header {
+//   .mat-caption {
+//     font-weight: bold;
+//   }
+//   height: fit-content;
+//   .story-detail-header-title-container {
+//     background-color: $whiteSurfaceMedium;
+//     .story-detail-header-title {
+//       width: 510px;
+//       position: relative;
+//       margin: 0 0 48px 0;
+//       padding: 16px 16px 0 16px;
+//       .mat-icon-button {
+//         position: absolute;
+//         top: 24px;
+//       }
+//       .first-name {
+//         margin-bottom: 36px;
+//       }
+//     }
+//   }
+//   img {
+//     width: 100%;
+//   }
+// }
+// @media only screen and (max-width: 1110px) and (min-width: 600px) {
+//   h1 {
+//     font-size: mat-font-size($womeninmining-typography, title);
+//     line-height: 40px;
+//   }
+//   .story-detail-header {
+//     .story-detail-header-title-container {
+//       .story-detail-header-title {
+//         width: 100%;
+//         max-width: 420px;
+//         margin: 0 0 16px 48px;
+//       }
+//     }
+//     img {
+//       width: 50%;
+//       height: 50%;
+//     }
+//   }
+// }
+// @media only screen and (max-width: 600px) {
+//   .story-detail-header {
+//     .story-detail-header-title-container {
+//       .story-detail-header-title {
+//         min-width: 180px;
+//         width: 100%;
+//         margin: 0 0 16px 0;
+//         height: 100vw;
+//       }
+//     }
+//     img {
+//       width: 100vw;
+//     }
+//   }
+// }
