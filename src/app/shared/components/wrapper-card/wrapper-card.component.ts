@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { WrapperContent } from './../wrapper-hero/wrapper-hero.component';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -13,7 +14,7 @@ export class WrapperCardComponent implements OnInit {
   isPrimary: boolean;
   isAccent: boolean;
   isRed: boolean;
-  constructor(
+  constructor( private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +26,9 @@ export class WrapperCardComponent implements OnInit {
     this.isPrimary = (style === 'primary');
     this.isAccent = (style === 'accent');
     this.isRed = (style === 'red');
+  }
+  goto(link) {
+    return this.router.navigateByUrl(link);
   }
 
 }

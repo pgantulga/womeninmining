@@ -29,9 +29,7 @@
 <div class="story-header-container" fxLayout="row">
   <div fxFlex></div>
   <div class="container" fxLayout="row" fxLayout.xs="column">
-    <button mat-icon-button (click)="goto()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
+
     <div
       class="story-header-content"
       fxLayout.xs="column"
@@ -40,7 +38,9 @@
       fxFlexOrder.xs="2"
 
     >
-
+    <button mat-icon-button (click)="goto()" >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
       <div fxLayout="column">
         <h3>{{ content.career }}</h3>
         <h1 id="last-name">{{ content.lastName }}</h1>

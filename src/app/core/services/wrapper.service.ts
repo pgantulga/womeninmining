@@ -48,10 +48,10 @@ export class WrapperService {
         subtitle: '',
         title: 'Үндэсний чуулган',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
+          'Эрдэс баялгийн салбарын эмэгтэйчүүдийн үндэсний чуулганыг жил бүр уламжлал болгон зохион байгуулдаг.',
         actionButton_1: {
-          label: 'Түүхээ хуваалцах',
-          link: '',
+          label: 'Дэлгэрэнгүй',
+          link: '/conferences',
         },
         actionButton_2: {
           label: 'Танилцуулга',
@@ -70,7 +70,7 @@ export class WrapperService {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
         actionButton_1: {
           label: 'Дэлгэрэнгүй',
-          link: '',
+          link: '/gender',
         },
         actionButton_2: {
           label: 'Танилцуулга',
@@ -85,10 +85,10 @@ export class WrapperService {
         subtitle: '',
         title: 'Гайхамшигт түүхүүд',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
+          'Эрдэс баялгийн салбарын эмэгтэйчийн төлөөлөл болсон 50 эмэгтэйн Гайхамшигт 50- Жишиг өөрчилсөн түүх',
         actionButton_1: {
           label: 'Дэлгэрэнгүй',
-          link: '',
+          link: '/stories',
         },
         actionButton_2: {
           label: 'Танилцуулга',

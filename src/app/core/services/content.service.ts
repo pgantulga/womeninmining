@@ -14,67 +14,63 @@ export class ContentService {
   public boardAdvisor: Member[] = [
     {
       displayName: 'Ш.Байгалмаа',
-      represent: 'Оюу Толгой ХХК',
+      represent: 'Олборлох салбар',
     },
     {
-      displayName: 'З.Сугармаа',
-      represent: 'Энержи Ресурс ХХК',
+      displayName: 'Н.Дорждарь',
+      represent: 'Байгалийн баялгийн засаглал',
+    },
+    {
+      displayName: 'Д.Цэцэн',
+      represent: 'Менежментийн зөвлөх',
     },
     {
       displayName: 'Г.Сурахбаяр',
-      represent: 'Зөвлөх',
-    },
-    {
-      displayName: 'Б.Сүнжидмаа',
-      represent: 'Геологи, АМГТГ',
-    },
-    {
-      displayName: 'С.Хандмаа',
-      represent: 'Олборлох, МАК ХХК',
+      represent: 'Эрх зүйч',
     },
     {
       displayName: 'Б.Мэндбаяр',
-      represent: 'Олборлох, АМЕП',
+      represent: 'Эрсдэлийн удирдлага',
     },
     {
       displayName: 'Ч.Анун',
-      represent: 'Бодлогын, УУХҮЯ ',
-    },
-    {
-      displayName: 'И.Ганцэцэг',
-      represent: 'Олборлох, Монросцветмет',
-    },
-    {
-      displayName: 'Оюунтөгс',
-      represent: 'Газрын тос, ШУТИС',
+      represent: 'УУХҮЯ',
     },
     {
       displayName: 'Т.Чимэгсанаа',
-      represent: 'Хүнд үйлдвэр, УУХҮЯ',
-    },
-    {
-      displayName: 'Б.Отгонбаяр',
-      represent: 'Олборлох, УБЭҮ',
-    },
-    {
-      displayName: 'Б.Хэрлэнчимэг',
-      represent: 'Олборлох, Багануур ХК',
+      represent: 'Хүнд үйлдвэр',
     },
     {
       displayName: 'Ш.Солонго',
-      represent: 'Жендэрийн зөвлөх',
+      represent: 'Жендэрийн мэргэшсэн зөвлөх',
     },
     {
-      displayName: 'Д.Энхжаргал',
-      represent: 'Зөвлөх',
+      displayName: 'Б.Батцэнгэл',
+      represent: 'Боловсрол',
+    },
+    {
+      displayName: 'Ц.Мөнхтуяа',
+      represent: 'Системийн удирдлага',
     },
     {
       displayName: 'Б.Дэлгэрмаа',
-      represent: 'Хараат бус судлаач',
+      represent: 'Дата удирдлага',
+    },
+    {
+      displayName: 'Д.Тэгшбаяр',
+      represent: 'Засаглалын зөвлөх',
+    },
+    {
+      displayName: 'Б.Уянга',
+      represent: 'Геологийн салбар',
     },
     {
       displayName: 'Н.Баярсайхан',
       represent: 'ИНБ, хараат бус судлаач',
+    },
+    {
+      displayName: 'Пүрэв',
+      represent: 'Газрын тосны салбар',
     },
   ];
   public boardExecute: Member[] = [
@@ -83,66 +79,66 @@ export class ContentService {
       represent: 'ЭБЭХ ТББ-ын УЗ-ийн дарга',
       image: '../../../assets/images/people/tuya.jpg',
     },
-    {
-      displayName: 'Мижиддорж ЭНХЖАРГАЛ',
-      represent: 'АМГТГазрын дарга',
-    },
+    // {
+    //   displayName: 'Мижиддорж ЭНХЖАРГАЛ',
+    //   represent: 'АМГТГазрын дарга',
+    // },
     {
       displayName: 'Чулуунбат ЭНХТУЯА',
-      represent: 'Геологийн Эмэгтэйчүүдийн Холбооны гүйцэтгэх захирал',
+      represent: 'Геологийн Эмэгтэйчүүдийн Холбоо НҮТББ',
     },
-    {
-      displayName: 'Отгонбаатар УНДРАХГЭРЭЛ',
-      represent: 'Эрдэнэс ТТ ХХК-ийн хуулийн мэргэжилтэн',
-    },
-    {
-      displayName: 'Батын ТУЯА',
-      represent: 'Эрдэнэс Монгол ХХК-ийн санхүүгийн мэргэжилтэн',
-    },
-    {
-      displayName: 'Б.БАЯЛАГМАА',
-      represent: 'Эрдэнэт УБҮ ТӨҮГ',
-    },
-    {
-      displayName: 'П.ЦЭЦЭГМАА',
-      represent: 'Энержи ресурс ХХК',
-    },
-    {
-      displayName: 'А.САРАНЦЭЦЭГ',
-      represent: 'ТИЙСС ХХК',
-    },
+    // {
+    //   displayName: 'Отгонбаатар УНДРАХГЭРЭЛ',
+    //   represent: 'Эрдэнэс ТТ ХХК-ийн хуулийн мэргэжилтэн',
+    // },
+    // {
+    //   displayName: 'Батын ТУЯА',
+    //   represent: 'Эрдэнэс Монгол ХХК-ийн санхүүгийн мэргэжилтэн',
+    // },
+    // {
+    //   displayName: 'Б.БАЯЛАГМАА',
+    //   represent: 'Эрдэнэт УБҮ ТӨҮГ',
+    // },
+    // {
+    //   displayName: 'П.ЦЭЦЭГМАА',
+    //   represent: 'Энержи ресурс ХХК',
+    // },
+    // {
+    //   displayName: 'А.САРАНЦЭЦЭГ',
+    //   represent: 'ТИЙСС ХХК',
+    // },
     {
       displayName: 'Ч.ХАНДСҮРЭН',
-      represent: 'АМГТГ',
+      represent: 'Олон нийттэй харилцах',
     },
     {
       displayName: 'Д.ГАНЧИМЭГ',
-      represent: 'Багануур ХК',
+      represent: 'Хөдөлмөрийн харилцааны эрх зүйч',
     },
-    {
-      displayName: 'ТҮМЭНГЭРЭЛ',
-      represent: 'Хараат бус гишүүн',
-    },
-    {
-      displayName: 'Б.Хэрлэнчимэг',
-      represent: 'Олборлох, Багануур ХК',
-    },
-    {
-      displayName: 'Ш.Солонго',
-      represent: 'Жендэрийн зөвлөх',
-    },
-    {
-      displayName: 'Д.Энхжаргал',
-      represent: 'Зөвлөх',
-    },
-    {
-      displayName: 'Б.Дэлгэрмаа',
-      represent: 'Хараат бус судлаач',
-    },
-    {
-      displayName: 'Н.Баярсайхан',
-      represent: 'ИНБ, хараат бус судлаач',
-    },
+    // {
+    //   displayName: 'ТҮМЭНГЭРЭЛ',
+    //   represent: 'Хараат бус гишүүн',
+    // },
+    // {
+    //   displayName: 'Б.Хэрлэнчимэг',
+    //   represent: 'Олборлох, Багануур ХК',
+    // },
+    // {
+    //   displayName: 'Ш.Солонго',
+    //   represent: 'Жендэрийн зөвлөх',
+    // },
+    // {
+    //   displayName: 'Д.Энхжаргал',
+    //   represent: 'Зөвлөх',
+    // },
+    // {
+    //   displayName: 'Б.Дэлгэрмаа',
+    //   represent: 'Хараат бус судлаач',
+    // },
+    // {
+    //   displayName: 'Н.Баярсайхан',
+    //   represent: 'ИНБ, хараат бус судлаач',
+    // },
   ];
   public contacts: any[] = [
     {

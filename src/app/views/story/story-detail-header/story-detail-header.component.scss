@@ -5,17 +5,17 @@
   background-color: $whiteSurfaceMedium;
   height: fit-content;
   width: 100%;
-  position: relative;
-  .mat-icon-button {
-    position: absolute;
-    left: 0;
-    // left: -48px;
-    top: 0;
-  }
+
   .story-header-content {
     margin: 16px 48px;
     min-height: 320px;
-
+    position: relative;
+    .mat-icon-button {
+      position: absolute;
+      left: 0;
+      // left: -48px;
+      top: 0;
+    }
     .first-name {
       margin-bottom: 36px;
     }
@@ -28,14 +28,14 @@
   .story-header-container {
     width: 100vw;
     height: auto;
-    .mat-icon-button {
-      position: absolute;
-      left: 8px;
-      top: 8px;
-    }
+
     .story-header-content {
       margin: 16px 16px;
-
+      .mat-icon-button {
+        position: absolute;
+        left: -8px;
+        top: -8px;
+      }
     }
   }
 }
