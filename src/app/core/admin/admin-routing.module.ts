@@ -38,6 +38,11 @@ const routes: Routes = [
         path: 'stories',
         data: {name:'admin'},
         component: AdminStoriesComponent
+      },
+      {
+        path: 'edit-story/:id',
+        data: {name: 'admin'},
+        component: AddStoryComponent
       }
     ]
   },

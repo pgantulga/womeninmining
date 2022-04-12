@@ -6,18 +6,18 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-admin-stories',
   templateUrl: './admin-stories.component.html',
-  styleUrls: ['./admin-stories.component.scss']
+  styleUrls: ['./admin-stories.component.scss'],
 })
 export class AdminStoriesComponent implements OnInit {
   stories$: Observable<Story[]>;
   author: any;
-  constructor(private storyService: StoryService, private authService: AuthService) { }
+  constructor(
+    private storyService: StoryService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-    // this.stories$ = this.storyService.getStories();
-    // this.authService.user$.subscribe((user) => {
-    //   this.author = user;
-    // });
+    this.stories$ = this.storyService.getArticles();
   }
 
   addStory() {
@@ -30,7 +30,7 @@ export class AdminStoriesComponent implements OnInit {
       paintBy: '-',
       content: 'any',
       createdAt: null,
-      updateAt: null
+      updateAt: null,
     };
     return this.storyService.addStory(story, this.author);
   }

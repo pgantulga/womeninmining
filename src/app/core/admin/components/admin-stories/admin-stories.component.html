@@ -8,14 +8,7 @@
     Add story
   </button>
 </div>
-<!-- Article lists -->
-<!-- <div fxLayout="column" fxLayoutGap="20px" *ngIf="stories$ | async as stories">
-  <ng-container *ngFor="let item of stories; last as last">
-    <article-list-item [content]="item">
-      <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </article-list-item>
-    <mat-divider *ngIf="!last"></mat-divider>
-  </ng-container>
-</div> -->
+
+<div fxLayout="column" *ngIf="stories$ | async as stories">
+  <story-list-item *ngFor="let item of stories" [story] = "item"></story-list-item>
+</div>

@@ -7,6 +7,7 @@ import {
 } from '@angular/fire/firestore';
 
 export interface Story {
+  id?: any,
   firstName: string;
   lastName: string;
   career: string;
@@ -44,5 +45,25 @@ export class StoryService extends ArticleService {
       updateAt: null,
     };
     return super.add(data);
+  }
+  updateStory(story: Story, updatedBy: { uid: any; displayName: any }): any {
+    const test = {...story};
+    const data = {
+      lastUpdatedBy: {
+        displayName: updatedBy.displayName,
+        uid: updatedBy.uid,
+      },
+      // content: story.content,
+      // createdAt: new Date(),
+      // firstName: story.firstName,
+      // lastName: story.lastName,
+      // career: story.career,
+      // description: story.description,
+      // image: story.image,
+      // painter: story.painter || null,
+      updateAt: new Date(),
+      ...story
+    };
+    return super.save(story.id, data);
   }
 }

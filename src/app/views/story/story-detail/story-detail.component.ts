@@ -1,3 +1,5 @@
+import { AuthService } from './../../../core/services/auth.service';
+import { PermissionService } from 'src/app/core/services/permission.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { first, switchMap } from 'rxjs/operators';
 import { StoryService } from './../../../core/services/story.service';
@@ -20,7 +22,9 @@ export class StoryDetailComponent implements OnInit {
     private router: Router,
     private storyService: StoryService,
     private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    public permission: PermissionService,
+    public auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +35,6 @@ export class StoryDetailComponent implements OnInit {
     );
     this.story$.pipe(first()).subscribe((story) => {
       this.description = this.createElementFromHTML(story.content);
-      console.log(this.description);
     });
   }
 
