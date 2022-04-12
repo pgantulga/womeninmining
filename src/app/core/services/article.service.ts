@@ -32,8 +32,11 @@ export class ArticleService {
   ) {
   }
 
-  getArticles(number?): Observable<any> {
+  getArticles(number?, sort?): Observable<any> {
     const collectionName = this.collection.ref.path;
+    if (sort) {
+      return this.db.collection(collectionName, ref=> ref.orderBy(sort.sort,'desc')).valueChanges();
+    }
     if (number) {
       return this.db
         .collection(collectionName, (ref) =>
@@ -43,7 +46,9 @@ export class ArticleService {
     } else {
       return this.collection.valueChanges();
     }
+
   }
+
   getArticle(id: string): Observable<any> {
     return this.collection.doc(id).valueChanges();
   }

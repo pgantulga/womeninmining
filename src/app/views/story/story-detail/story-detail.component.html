@@ -19,13 +19,14 @@
               class="article-actions"
               fxLayout="row"
               fxLayoutAlign="end center"
-              *ngIf="auth.user | async as user"
+              *ngIf="auth.user$ | async as user"
             >
               <button
                 mat-icon-button
                 color="primary"
-                *ngIf="permission.canEdit(user)"
                 (click)="goto('/admin/edit-story', story.id)"
+                *ngIf="permission.canEdit(user)"
+
               >
                 <mat-icon>edit</mat-icon>
               </button>

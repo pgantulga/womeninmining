@@ -9,15 +9,18 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { StoryDetailHeaderComponent } from './story-detail-header/story-detail-header.component';
 
-
 @NgModule({
-  declarations: [StoryListComponent, StoryDetailComponent, StoryDetailHeaderComponent],
+  declarations: [
+    StoryListComponent,
+    StoryDetailComponent,
+    StoryDetailHeaderComponent,
+  ],
   imports: [
     CommonModule,
     StoryRoutingModule,
     MaterialModule,
     FlexLayoutModule,
-    SharedModule
-  ]
+    SharedModule,
+  ],
 })
-export class StoryModule { }
+export class StoryModule {}

@@ -66,4 +66,13 @@ export class StoryService extends ArticleService {
     };
     return super.save(story.id, data);
   }
+  highlight(id) {
+    return this.collection.doc(id).set({highlighted: true}, {merge: true})
+  }
+  unHighlight(id) {
+    return this.collection.doc(id).set({highlighted: false}, {merge: true})
+  }
+  getHighlightedStories() {
+    return this.db.collection('stories', ref => ref.where('highlighted', '==', true)).valueChanges();
+  }
 }

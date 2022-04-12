@@ -70,7 +70,7 @@ export class AddStoryComponent implements OnInit {
           this.firstName.setValue(data.firstName);
           this.lastName.setValue(data.lastName);
           this.career.setValue(data.career);
-          this.description.setValue(data.desctiption);
+          this.description.setValue(data.description);
           this.image = data.image;
           this.painter.setValue(data.painter);
           this.content.setValue(data.content);

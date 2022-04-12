@@ -8,12 +8,12 @@ import { HeaderContent } from 'src/app/shared/components/title-wrapper/title-wra
 const toggleMenu = [
   {
     name: 'Үсгийн дарааллаар',
-    sort: 'updatedAt',
+    sort: 'firstName',
     icon: 'text_rotate_vertical'
   },
   {
     name: 'Жагсаалтаар',
-    sort: 'answersCount',
+    sort: 'createdAt',
     icon: 'view_stream'
   },
 ];
@@ -28,6 +28,7 @@ export class StoryListComponent implements OnInit {
   sectionHeader: SectionHeaderContent;
   stories$: Observable<Story[]>;
   toggleMenu: any[];
+  selectedSort: any;
   constructor(private content: ContentService, private storyService: StoryService) {
     this.header = {
       title: 'Жишиг өөрчилсөн түүх',
@@ -46,9 +47,16 @@ export class StoryListComponent implements OnInit {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie iaculis fusce egestas nec nunc pretium. Auctor mauris eget dui massa. Nunc pulvinar in venenatis risus aliquet erat. Tortor mi commodo quis vel in risus. Nec aliquam in ac dignissim pellentesque purus vivamus nisl nibh.',
     };
     this.toggleMenu = toggleMenu;
+    this.selectedSort =toggleMenu[1];
   }
 
   ngOnInit(): void {
-    this.stories$ = this.storyService.getArticles();
+    this.stories$ = this.storyService.getArticles(10, this.selectedSort);
+  }
+  changeSort(sort) {
+    console.log(sort)
+    this.selectedSort = sort;
+    this.stories$ = this.storyService.getArticles(10, this.selectedSort);
+
   }
 }

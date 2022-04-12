@@ -34,4 +34,8 @@ export class AdminStoriesComponent implements OnInit {
     };
     return this.storyService.addStory(story, this.author);
   }
+  highlightStory(story){
+    return story.highlighted ? this.storyService.unHighlight(story.id) : this.storyService.highlight(story.id)
+
+  }
 }

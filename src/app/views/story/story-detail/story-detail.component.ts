@@ -38,8 +38,8 @@ export class StoryDetailComponent implements OnInit {
     });
   }
 
-  goto() {
-    return this.router.navigateByUrl('/stories');
+  goto(link, id) {
+    return this.router.navigate([link, id]);
   }
 
   getHtml(content) {
