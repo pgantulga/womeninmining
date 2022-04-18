@@ -19,6 +19,9 @@ export interface Story {
   updateAt?: Date;
   description?: string;
 }
+export const ALPHABET_MN = [
+  'А','Б','В','Г','Д','Е','Ё','Ж','З','И','К','Л','М','Н','О','Ө','П','Р','С','Т','У','Ү','Ф','Х','Ц','Ч','Ш','Щ','Э','Ю','Я'
+]
 
 @Injectable({
   providedIn: 'root',

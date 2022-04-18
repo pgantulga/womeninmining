@@ -14,17 +14,25 @@
           *ngFor="let item of toggleMenu"
           [matTooltip]="item.name"
           matTooltipClass="tooltip"
-          (click) ="changeSort(item)"
+          (click)="changeSort(item)"
         >
           <mat-icon>{{ item.icon }}</mat-icon>
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
+
     <div fxLayout="column" *ngIf="stories$ | async as stories">
-      <story-list-item
-        *ngFor="let item of stories"
-        [story]="item"
-      ></story-list-item>
+      <div *ngIf="selectedSort.sort === 'firstName'; else createdAt">
+        <div *ngFor="let item of alphabet">
+          <letter-divider [letter]="item"></letter-divider>
+        </div>
+      </div>
+      <ng-template #createdAt>
+        <story-list-item
+          *ngFor="let item of stories"
+          [story]="item"
+        ></story-list-item>
+      </ng-template>
     </div>
   </section>
 </div>

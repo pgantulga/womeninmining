@@ -1,0 +1,28 @@
+@import 'styles';
+.divider-container {
+  padding-left: 48px;
+  overflow: hidden;
+  h1 {
+    color: mat-color($womeninmining-primary);
+    margin: 0;
+  }
+  .letter-divider span{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+  .letter-divider span::after {
+    position: absolute;
+    border-top: 0.5px solid $onSurfaceLow;
+    margin-left: 15px;
+    content: '';
+    top: 50%;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+ .divider-container {
+  padding-left: 24px;
+ }
+
+}

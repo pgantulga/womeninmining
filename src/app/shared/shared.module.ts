@@ -24,6 +24,7 @@ import { UploadFileComponent } from './components/upload-file/upload-file.compon
 import { GdViewComponent } from './components/gd-view/gd-view.component';
 import { SafePipe } from './safe.pipe';
 import { HeroWideComponent } from './components/hero-wide/hero-wide.component';
+import { LetterDividerComponent } from './components/letter-divider/letter-divider.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { HeroWideComponent } from './components/hero-wide/hero-wide.component';
     GdViewComponent,
     SafePipe,
     HeroWideComponent,
+    LetterDividerComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, MaterialModule, FormsModule,
     ReactiveFormsModule],
@@ -69,7 +71,7 @@ import { HeroWideComponent } from './components/hero-wide/hero-wide.component';
     GdViewComponent,
     SafePipe,
     HeroWideComponent,
-
+    LetterDividerComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

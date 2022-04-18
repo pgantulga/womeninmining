@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { StoryService, Story } from './../../../core/services/story.service';
+import { StoryService, Story, ALPHABET_MN } from './../../../core/services/story.service';
 import { SectionHeaderContent } from './../../../shared/components/section-header/section-header.component';
 import { ContentService } from './../../../core/services/content.service';
 import { Component, OnInit } from '@angular/core';
@@ -29,6 +29,7 @@ export class StoryListComponent implements OnInit {
   stories$: Observable<Story[]>;
   toggleMenu: any[];
   selectedSort: any;
+  alphabet = ALPHABET_MN
   constructor(private content: ContentService, private storyService: StoryService) {
     this.header = {
       title: 'Жишиг өөрчилсөн түүх',
@@ -52,11 +53,11 @@ export class StoryListComponent implements OnInit {
 
   ngOnInit(): void {
     this.stories$ = this.storyService.getArticles(10, this.selectedSort);
+
   }
   changeSort(sort) {
-    console.log(sort)
+    console.log('selected sort', sort.sort)
     this.selectedSort = sort;
     this.stories$ = this.storyService.getArticles(10, this.selectedSort);
-
   }
 }
