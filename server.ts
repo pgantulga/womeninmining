@@ -5,21 +5,18 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
 
-import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
-// const domino = require('domino');
-// const fs = require('fs');
-// const path = require('path');
-// const templateA = fs.readFileSync(path.join('/dist/functions/browser', 'index.html')).toString();
-// const win = domino.createWindow(templateA);
-// win.Object = Object;
-// win.Math = Math;
-// global['window'] = win;
-// global['document'] = win.document;
-// global['branch'] = null;
-// global['object'] = win.object;
+const MockBrowser = require('mock-browser').mocks.MockBrowser;
+const mock = new MockBrowser();
+
+// tslint:disable-next-line: no-string-literal
+global['window'] = mock.getWindow();
+
+import 'zone.js/dist/zone-node';
+import { AppServerModule } from './src/main.server';
+
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -44,12 +41,23 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Universal engine
+//   server.get('/admin',IsAuthenticated,function(req,res,next){
+//     res.render('admin');
+// });
   server.get('*', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
   return server;
 }
+
+// function IsAuthenticated(req,res,next){
+//   if(req.isAuthenticated()){
+//       next();
+//   }else{
+//       next(new Error(401));
+//   }
+// }
 
 function run(): void {
   const port = process.env.PORT || 4000;

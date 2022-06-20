@@ -5,7 +5,7 @@
   height: 500px;
   width: 100%;
   margin-bottom: 32px;
-  
+
   .hero-detail-content {
     padding-right: 56px;
     padding-left: 24px;
@@ -42,7 +42,6 @@
   .hero-wide-container {
     width: 100vw;
     height: auto;
-
     .hero-detail-content {
       padding: 36px 56px 24px 36px;
 
@@ -57,7 +56,12 @@
     }
     .container {
       padding: 0;
+      img {
+        width: auto;
+        max-height: 160px;
+      }
     }
+
   }
   #hero {
     width: 100%;

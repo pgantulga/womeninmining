@@ -1,6 +1,6 @@
 import { SharedModule } from './../../shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -14,10 +14,15 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AdminStoriesComponent } from './components/admin-stories/admin-stories.component';
 import { AddStoryComponent } from './components/add-story/add-story.component';
 
-
 @NgModule({
-  declarations: [AdminHomeComponent, AdminArticlesComponent, AddArticleComponent, AdminStoriesComponent, AddStoryComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  declarations: [
+    AdminHomeComponent,
+    AdminArticlesComponent,
+    AddArticleComponent,
+    AdminStoriesComponent,
+    AddStoryComponent,
+  ],
+  schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -25,9 +30,8 @@ import { AddStoryComponent } from './components/add-story/add-story.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    QuillModule.forRoot(),
-    SharedModule
-  ]
-
+    // QuillModule.forRoot(),
+    // SharedModule
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}

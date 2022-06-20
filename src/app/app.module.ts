@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './core/services/auth-guard.service';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,10 @@ import { AuthGuard } from './core/services/auth-guard.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    AngularFireModule.initializeApp(environment.firebase)
-
+    AngularFireModule.initializeApp(environment.firebase),
+    QuillModule.forRoot({
+      suppressGlobalRegisterWarning: true
+  })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [AuthGuard,RouteService],
