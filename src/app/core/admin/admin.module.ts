@@ -30,8 +30,8 @@ import { AddStoryComponent } from './components/add-story/add-story.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    // QuillModule.forRoot(),
-    // SharedModule
+    QuillModule.forRoot(),
+    SharedModule
   ],
 })
 export class AdminModule {}

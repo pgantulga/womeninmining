@@ -70,6 +70,18 @@
     color: $onDarkSurface;
   }
 }
+.wrapper-hero--dark {
+  background-color: #070909;
+  .mat-subheading-2 {
+    color: $onDarkSurface;
+  }
+  h1 {
+    color: $onDarkSurface;
+  }
+  p,p.mat-body-2 {
+    color: $onDarkSurface;
+  }
+}
 .wrapper-hero--background {
   overflow: hidden;
   .background-image {

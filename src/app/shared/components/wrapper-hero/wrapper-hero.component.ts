@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -39,8 +40,10 @@ export class WrapperHeroComponent implements OnInit {
   isAccent: boolean;
   isRed: boolean;
   isBackground: boolean;
+  isDark: boolean;
   constructor(
     private breakpointObserver: BreakpointObserver,
+    private router: Router
 
   ) { }
 
@@ -55,7 +58,9 @@ export class WrapperHeroComponent implements OnInit {
     this.isPrimary = (style === 'primary');
     this.isAccent = (style === 'accent');
     this.isRed = (style === 'red');
-    this.isBackground = (style === 'background')
+    this.isDark = (style === 'dark');
+    this.isBackground = (style === 'background');
   }
+
 
 }

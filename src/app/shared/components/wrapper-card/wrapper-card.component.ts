@@ -14,6 +14,7 @@ export class WrapperCardComponent implements OnInit {
   isPrimary: boolean;
   isAccent: boolean;
   isRed: boolean;
+  isOrange: boolean;
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class WrapperCardComponent implements OnInit {
     this.isPrimary = style === 'primary';
     this.isAccent = style === 'accent';
     this.isRed = style === 'red';
+    this.isOrange = style === 'orange';
   }
   goto(link) {
     return this.router.navigateByUrl(link);

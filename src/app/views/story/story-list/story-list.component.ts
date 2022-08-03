@@ -1,3 +1,4 @@
+import { WrapperService } from 'src/app/core/services/wrapper.service';
 import { Observable } from 'rxjs';
 import { StoryService, Story, ALPHABET_MN } from './../../../core/services/story.service';
 import { SectionHeaderContent } from './../../../shared/components/section-header/section-header.component';
@@ -29,23 +30,13 @@ export class StoryListComponent implements OnInit {
   stories$: Observable<Story[]>;
   toggleMenu: any[];
   selectedSort: any;
-  alphabet = ALPHABET_MN
-  constructor(private content: ContentService, private storyService: StoryService) {
-    this.header = {
-      title: 'Жишиг өөрчилсөн түүх',
-      style: 'accent',
-      image: content.images.story_nobg,
-      button: {
-        label: 'Өөрийн түүхээ хуваалцах',
-        link: '',
-      },
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
-    };
+  alphabet = ALPHABET_MN;
+  constructor(private content: ContentService, private storyService: StoryService, private wrapperService: WrapperService) {
+    this.header = wrapperService.getTitleWrapper();
     this.sectionHeader = {
       title: 'Гайхамшигт түүхүүд',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie iaculis fusce egestas nec nunc pretium. Auctor mauris eget dui massa. Nunc pulvinar in venenatis risus aliquet erat. Tortor mi commodo quis vel in risus. Nec aliquam in ac dignissim pellentesque purus vivamus nisl nibh.',
+        'Жишиг өөрчилсөөр ирсэн зуун зуун уурхайчин эмэгтэйчүүдээс үлгэр дууриайл, урам зориг авч ирээдүй хойчийн олон олон охид геологи, геофизикч, инженер, оператор, аврагчас өгсүлээд уурхайн эзэн болох болтугай.',
     };
     this.toggleMenu = toggleMenu;
     this.selectedSort =toggleMenu[1];

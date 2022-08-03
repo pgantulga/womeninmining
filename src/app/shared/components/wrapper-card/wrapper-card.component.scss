@@ -27,6 +27,15 @@
     color: $onDarkSurface;
   }
 }
+.wrapper-card--orange {
+  background-color: $orangeSurface;
+  h1 {
+    color: $onDarkSurface;
+  }
+  p.mat-body-2 {
+    color: $onDarkSurface;
+  }
+}
 
 .wrapper-card-container {
   border-radius: 32px;

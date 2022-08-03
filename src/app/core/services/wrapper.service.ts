@@ -1,3 +1,5 @@
+import { HeaderContent } from './../../shared/components/title-wrapper/title-wrapper.component';
+import { ContentService } from './content.service';
 import { WrapperContent } from './../../shared/components/wrapper-hero/wrapper-hero.component';
 import { Injectable } from '@angular/core';
 
@@ -5,7 +7,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class WrapperService {
-  constructor() {}
+  constructor(private content: ContentService) {}
   getHeroContent(): WrapperContent {
     return {
       subtitle: '',
@@ -13,8 +15,8 @@ export class WrapperService {
       description:
         'Эрдэс баялгийн салбарт монгол эмэгтэй хүн өөртөө итгэлтэй, бусдаас хамааралгүйгээр өөрийн ур чадвараараа мөрөөдөлдөө хүрэх боломжийг бүрдүүлэхийн төлөө',
       actionButton_1: {
-        label: 'Видео тоглуулах',
-        link: '',
+        label: 'Видео үзэх',
+        link: 'https://www.youtube.com/channel/UCgDj-mEz7z8H90TE4ix0ehQ/featured',
       },
       actionButton_2: {
         label: 'Бидний тухай',
@@ -26,10 +28,24 @@ export class WrapperService {
       type: 'hero',
     };
   }
+
+  getTitleWrapper(): HeaderContent {
+    return {
+      title: 'Жишиг өөрчилсөн түүх',
+      style: 'dark',
+      image: this.content.images.story_tree,
+      button: {
+        label: 'Өөрийн түүхээ хуваалцах',
+        link: '',
+      },
+      description:
+        'Та бидэнд өөрийн түүхээ хуваалцаж эрдэс баялгийн салбарт ажиллаж буй олон олон эмэгтэйчүүдэд урам зориг түгээх боломжтой.',
+    }
+  }
   getAccountWrapper() {
     return {
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
+        'Та бидэнд өөрийн түүхээ хуваалцаж эрдэс баялгийн салбарт ажиллаж буй олон олон эмэгтэйчүүдэд урам зориг түгээх боломжтой. ',
       actionButton_1: {
         label: 'Түүхээ хуваалцая',
         link: '',
@@ -67,7 +83,7 @@ export class WrapperService {
         subtitle: '',
         title: 'Хүний эрх жендэрийн сургалт',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. neque felis, in posuere ut quis pharetra.',
+          'Эрдэс баялгийн салбарын хүний эрх, жендэрийн сургалтын цахим модулиуд',
         actionButton_1: {
           label: 'Дэлгэрэнгүй',
           link: '/gender',
@@ -76,9 +92,9 @@ export class WrapperService {
           label: 'Танилцуулга',
           link: '',
         },
-        imageUrl: '../../../../assets/images/gender_card.webp',
-        imageUrl_small: '../../../../assets/images/gender_card.webp',
-        style: 'red',
+        imageUrl: '../../../../assets/images/assets/gender_card.png',
+        imageUrl_small: '../../../../assets/images/assets/gender_card.png',
+        style: 'orange',
         type: 'card',
       },
       {

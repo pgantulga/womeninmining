@@ -30,9 +30,9 @@
       fxLayoutAlign="start center"
       fxLayoutAlign.xs="center center"
     >
-      <button mat-flat-button color="primary">
+      <a mat-flat-button color="primary" [href]="content.actionButton_1.link" target="_blank">
         {{ content.actionButton_1.label }}
-      </button>
+      </a>
     </div>
   </div>
   <div class="right-content" fxFlex fxHide="isBackground">

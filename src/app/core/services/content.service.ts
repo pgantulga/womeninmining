@@ -10,6 +10,7 @@ export class ContentService {
   constructor(public db: AngularFirestore) {}
   public images = {
     story_nobg: '../../../assets/images/story_nobg.png',
+    story_tree: '../../../assets/images/story_tree_nobg.png'
   };
   public boardAdvisor: Member[] = [
     {
