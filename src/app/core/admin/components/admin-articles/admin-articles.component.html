@@ -16,6 +16,10 @@
       <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
         <mat-icon>edit</mat-icon>
       </button>
+      <button mat-icon-button (click)="deleteArticle(item)">
+        <mat-icon>delete</mat-icon>
+      </button>
+
     </article-list-item>
     <mat-divider *ngIf="!last"></mat-divider>
   </ng-container>
