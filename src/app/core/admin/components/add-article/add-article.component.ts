@@ -1,4 +1,4 @@
-import { switchMap, filter, first, take } from 'rxjs/operators';
+import { switchMap, filter, first, take, finalize } from 'rxjs/operators';
 import { ArticleService, Type } from './../../../services/article.service';
 import { AuthService } from './../../../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -8,6 +8,7 @@ import { config } from './../../../../shared/quill-config';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { EMPTY, Observable } from 'rxjs';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-add-article',
@@ -23,19 +24,27 @@ export class AddArticleComponent implements OnInit {
   oldValue: any;
   types: any;
   selectedType: any;
+  task: AngularFireUploadTask;
+  snapshot: Observable<any>
   article$: Observable<any>;
+  image: Promise<any>;
+  storagePath: string;
+
 
   constructor(
     private dialog: MatDialog,
     private router: Router,
     private authService: AuthService,
     private articleService: ArticleService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+
   ) {
     //super()
     this.config = config;
     this.editing = false;
     this.types = this.articleService.getArticleTypes();
+    this.storagePath = `images/articles/`;
+
   }
 
   ngOnInit(): void {
@@ -65,9 +74,13 @@ export class AddArticleComponent implements OnInit {
             return Object.keys(type.value)[0] ===
               selected[0];
           })[0].value;
+          this.image = data.image;
         }
       });
     }
+  }
+  getImageFile(ev): any {
+    this.image = ev;
   }
   getErrorMessage(): string {
     if (this.title.hasError('required')) {
@@ -121,6 +134,7 @@ export class AddArticleComponent implements OnInit {
         title: this.title.value,
         content: this.content.value,
         type: this.selectedType,
+        image: this.image || null
       },
       this.author
     );
@@ -131,6 +145,7 @@ export class AddArticleComponent implements OnInit {
       title: this.title.value,
       content: this.content.value,
       type: this.selectedType,
+      image: this.image || null
     };
     let updatedBy = {
       uid: this.author.uid,
@@ -138,4 +153,16 @@ export class AddArticleComponent implements OnInit {
     };
     return this.articleService.updateArticle(article, updatedBy);
   }
+  // onFileSelected(files) {
+  //   this.fileToUpload = files.item(0);
+  // }
+  // upload() {
+  //   const path = `images/articles/${this.fileToUpload.name}`;
+  //   const ref = this.storage.ref(path);
+  //   this.task = this.storage.upload(path, this.fileToUpload);
+  //   this.snapshot = this.task.snapshotChanges().pipe(
+  //       finalize( async () => {
+  //         this.image = await ref.getDownloadURL().toPromise();
+  //       })
+  //   );  }
 }

@@ -48,6 +48,10 @@ export class RouteService {
     }
     if (url.includes('articles')) {
       return 'articles';
+
+    }
+    if (url.includes('course')) {
+      return 'courses'
     }
     if (url.includes('conferences')) {
       return 'conferences';

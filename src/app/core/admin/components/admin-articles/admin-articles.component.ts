@@ -3,6 +3,7 @@ import { ArticleService, Article } from './../../../services/article.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActionDialogComponent } from 'src/app/shared/components/action-dialog/action-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-articles',
@@ -11,13 +12,20 @@ import { ActionDialogComponent } from 'src/app/shared/components/action-dialog/a
 })
 export class AdminArticlesComponent implements OnInit {
   articles$: Observable<Article[]>;
+  selected: any;
+  type: string;
+  types: any[];
+
   constructor(
     private articleService: ArticleService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.articles$ = this.articleService.getArticles();
+    this.types = this.articleService.getArticleTypes();
+    this.selected = null;
+    this.select();
   }
   deleteArticle(article) {
     const dialogData = {
@@ -33,24 +41,17 @@ export class AdminArticlesComponent implements OnInit {
       }
     });
   }
+  select(item?): any {
+    this.articles$ = null;
+    if (!item) {
+      this.selected = null;
+      this.articles$ = this.articleService.getArticles();
+    } else {
+      this.selected = item;
+      this.articles$ = this.articleService.getArticleByTypes(this.selected.viewValue);
+
+    }
+  }
 }
 
-// const dialogData = !this.editing
-//   ? {
-//       title: 'Adding story',
-//       content: 'Your story will be added to database.',
-//     }
-//   : {
-//       title: 'Saving story',
-//       content: 'Your changes will be saved to database',
-//     };
 
-// return dialogRef.afterClosed().subscribe((result) => {
-//   if (result) {
-//     const dialogPromise = !this.editing ? this.addStory() : this.saveStory();
-//     dialogPromise.then(() => {
-//       console.log('done');
-//       return this.router.navigate(['admin/stories']);
-//     });
-//   }
-// });

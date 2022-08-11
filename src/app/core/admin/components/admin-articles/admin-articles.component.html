@@ -1,26 +1,50 @@
-<div
-  fxLayout="row"
-  fxLayoutAlign="space-between center"
-  class="admin-subheader"
->
-  <h3>Articles</h3>
-  <button mat-flat-button color="primary" [routerLink]="['/admin/add-article']">
-    Add article
-  </button>
+<div fxLayout="column" fxLayoutGap="16px">
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+    class="admin-subheader"
+  >
+    <h3>Articles</h3>
+    <button
+      mat-flat-button
+      color="primary"
+      [routerLink]="['/admin/add-article']"
+    >
+      Add article
+    </button>
+  </div>
+  <mat-chip-list class="category-selector" fxLayout="row">
+    <div class="h-scrolling-flex">
+      <mat-chip
+        [selected]="selected === null"
+        (click)="select()"
+        class="scrolling-item"
+        >Бүгд</mat-chip
+      >
+      <mat-chip
+        class="scrolling-item"
+        *ngFor="let item of types"
+        [selected]="item === selected"
+        (click)="select(item)"
+      >
+        {{ item.viewValue }}
+      </mat-chip>
+    </div>
+  </mat-chip-list>
+  <div fxLayout="column" fxLayoutGap="20px" *ngIf="articles$ | async as articles">
+    <ng-container *ngFor="let item of articles; last as last">
+      <article-list-item [content]="item">
+        <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteArticle(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </article-list-item>
+      <mat-divider *ngIf="!last"></mat-divider>
+    </ng-container>
+  </div>
 </div>
 <!-- Article lists -->
 
-<div fxLayout="column" fxLayoutGap="20px" *ngIf="articles$ | async as articles">
-  <ng-container *ngFor="let item of articles; last as last">
-    <article-list-item [content]="item">
-      <button mat-icon-button [routerLink]="['/admin/edit-article', item.id]">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button (click)="deleteArticle(item)">
-        <mat-icon>delete</mat-icon>
-      </button>
 
-    </article-list-item>
-    <mat-divider *ngIf="!last"></mat-divider>
-  </ng-container>
-</div>

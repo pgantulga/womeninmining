@@ -86,7 +86,7 @@ export class WrapperService {
           'Эрдэс баялгийн салбарын хүний эрх, жендэрийн сургалтын цахим модулиуд',
         actionButton_1: {
           label: 'Дэлгэрэнгүй',
-          link: '/gender',
+          link: '/courses',
         },
         actionButton_2: {
           label: 'Танилцуулга',

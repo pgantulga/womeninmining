@@ -26,6 +26,13 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <div>
+    <p>Thumbnail image</p>
+    <upload-file
+    [path]="storagePath"
+    (fileEmitter)="getImageFile($event)"
+  ></upload-file>
+  </div>
   <p class="mat-body-2">Content</p>
   <quill-editor
     [formControl]="content"

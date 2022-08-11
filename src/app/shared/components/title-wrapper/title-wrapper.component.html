@@ -4,7 +4,8 @@
     'wrapper-hero--primary': isPrimary,
     'wrapper-hero--accent': isAccent,
     'wrapper-hero--red': isRed,
-    'wrapper-hero--dark': isDark
+    'wrapper-hero--dark': isDark,
+    'wrapper-hero--orange': isOrange
   }"
   fxLayout="column"
   fxLayout.gt-xs="row"
@@ -22,9 +23,13 @@
         {{ content.description }}
       </p>
       <ng-container *ngIf="content.button">
-        <button mat-flat-button color="primary" (click)="goto(content.button.link)">
+        <a mat-flat-button color="primary" [href]="content.button.link" target="_blank">
           {{ content.button.label }}
-        </button></ng-container
+        </a>
+        <!-- <button mat-flat-button color="primary" (click)="goto(content.button.link)">
+          {{ content.button.label }}
+        </button> -->
+        </ng-container
       >
     </div>
   </div>

@@ -23,6 +23,7 @@ export class TitleWrapperComponent implements OnInit {
   isAccent: boolean;
   isRed: boolean;
   isDark: boolean;
+  isOrange: boolean;
   wrapperImageUrl: string;
   constructor(private router: Router) { }
 
@@ -35,6 +36,7 @@ export class TitleWrapperComponent implements OnInit {
     this.isAccent = (style === 'accent');
     this.isRed = (style === 'red');
     this.isDark = (style === 'dark');
+    this.isOrange = (style === 'orange');
   }
   goto(link) {
     this.router.navigateByUrl(link);

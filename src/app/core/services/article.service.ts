@@ -53,7 +53,7 @@ export class ArticleService {
     return this.collection.doc(id).valueChanges();
   }
   createArticle(
-    article: { title: any; content: any; type: any },
+    article: { title: any; content: any; type: any; image: any },
     author: { uid: any; displayName: any }
   ): any {
     const data = {
@@ -65,6 +65,7 @@ export class ArticleService {
       createdAt: new Date(),
       title: article.title,
       type: this.changeArticleType(article.type),
+      image: article.image
     };
     return this.add(data);
   }
@@ -73,7 +74,7 @@ export class ArticleService {
     return this.collection.doc(article.id).delete();
   }
   updateArticle(
-    article: { id: any; title: any; content: any; type: any },
+    article: { id: any; title: any; content: any; type: any; image: any },
     updatedBy: { uid: any; displayName: any }
   ): any {
     const data = {
@@ -81,6 +82,7 @@ export class ArticleService {
       title: article.title,
       updatedAt: new Date(),
       type: this.changeArticleType(article.type),
+      image: article.image,
       lastUpdateBy: {
         uid: updatedBy.uid,
         displayName: updatedBy.displayName,
@@ -127,6 +129,7 @@ export class ArticleService {
     return articleTypes;
   }
   getArticleByTypes(type): Observable<any> {
+    if (!type) return this.getArticles();
     return this.db
       .collection('articles', (ref) =>
         ref.orderBy('createdAt', 'desc').where(`type.${type}`, '==', true)

@@ -82,6 +82,18 @@
     color: $onDarkSurface;
   }
 }
+.wrapper-hero--orange {
+  background-color: $orangeSurface;
+  .mat-subheading-2 {
+    color: $onSurfaceHigh;
+  }
+  h1 {
+    color: $onSurfaceHigh;
+  }
+  p,p.mat-body-2 {
+    color: $onSurfaceHigh;
+  }
+}
 .wrapper-hero--background {
   overflow: hidden;
   .background-image {

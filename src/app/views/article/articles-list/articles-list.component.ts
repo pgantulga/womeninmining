@@ -2,7 +2,12 @@ import { MenuService } from 'src/app/core/services/menu.service';
 import { filter, switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AfterContentInit, AfterViewInit, Component, OnInit } from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { Article, ArticleService } from 'src/app/core/services/article.service';
 
 @Component({
@@ -16,7 +21,12 @@ export class ArticlesListComponent implements OnInit {
   headerContent: any;
   type: string;
   selected: any;
-  constructor(private articleService: ArticleService, private router: Router, private route: ActivatedRoute, private menu: MenuService) {
+  constructor(
+    private articleService: ArticleService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private menu: MenuService
+  ) {
     this.headerContent = {
       title: 'Бичвэрүүд',
       style: 'primary',
@@ -25,12 +35,11 @@ export class ArticlesListComponent implements OnInit {
         'Сүүлийн үеийн мэдээ мэдээлэл, нийтлэл болон гайхамшигт түүхүүд ',
     };
     this.types = this.menu.topMenu[1].children;
-
   }
   ngOnInit(): void {
     const query$ = this.route.queryParams;
     this.articles$ = query$.pipe(
-      switchMap(params => {
+      switchMap((params) => {
         if (params.type) {
           this.selected = params.type;
           return this.articleService.getArticleByTypes(params.type);
@@ -46,9 +55,8 @@ export class ArticlesListComponent implements OnInit {
       return this.router.navigate(['/articles']);
     }
     this.selected = item;
-    return this.router.navigate(
-      ['/articles'],
-      { queryParams: item.queryParam }
-    );
+    return this.router.navigate(['/articles'], {
+      queryParams: item.queryParam,
+    });
   }
 }

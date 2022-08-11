@@ -40,6 +40,7 @@ export class WrapperHeroComponent implements OnInit {
   isAccent: boolean;
   isRed: boolean;
   isBackground: boolean;
+  isOrange: boolean;
   isDark: boolean;
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -60,6 +61,7 @@ export class WrapperHeroComponent implements OnInit {
     this.isRed = (style === 'red');
     this.isDark = (style === 'dark');
     this.isBackground = (style === 'background');
+    this.isOrange = (style=='orange')
   }
 
 

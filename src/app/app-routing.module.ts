@@ -60,6 +60,12 @@ const routes: Routes = [
         (m) => m.ConferenceModule
       ),
   },
+  {
+    path: 'courses',
+    data: { title: 'Хүний эрх, жендэрийн сургалт', name: 'courses' },
+    loadChildren: () =>
+      import('./views/course/course.module').then((m) => m.CourseModule),
+  },
   { path: '**', redirectTo: '/error/not-found' },
   {
     path: 'error',

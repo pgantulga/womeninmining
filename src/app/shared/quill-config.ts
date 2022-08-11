@@ -23,8 +23,8 @@ export const config = {
         matchVisual: false // https://quilljs.com/docs/modules/clipboard/#matchvisual
     },
     imageCompress: {
-        quality: 0.7, // default
-        maxWidth: 990, // default
+        quality: 1, // default
+        maxWidth: 1000, // default
         maxHeight: 1000, // default
         imageType: 'image/jpeg', // default
         debug: true, // default

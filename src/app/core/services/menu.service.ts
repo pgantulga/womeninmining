@@ -128,7 +128,6 @@ export class MenuService {
           label2: 'Номын нээлт',
           icon: '',
           link: '/opening'
-
         },
         {
           parent: 4,
@@ -152,9 +151,9 @@ export class MenuService {
         {
           label: 'Танилцуулга',
           parent: 5,
-          label2: 'Сургалтын танилцуулга',
+          label2: 'Сургалтын танилцуулга, модулиуд',
           icon: '',
-          link: '/null',
+          link: '/courses',
 
         },
         {
@@ -162,25 +161,24 @@ export class MenuService {
           parent: 5,
           label2: 'Сургалтын модулиуд',
           icon: '',
-          link: '/null',
-
+          link: '/courses/contents',
         },
-        {
-          label: 'Бүртгүүлэх',
-          parent: 5,
-          label2: 'Цахим сургалтад бүртгүүлэх',
-          icon: '',
-          link: '/null',
+        // {
+        //   label: 'Хүний эрхийн магадлан шинжилгээ',
+        //   parent: 5,
+        //   label2: 'Бизнес ба хүний эрх',
+        //   icon: '',
+        //   link: '/courses/examination',
 
-        },
-        {
-          label: 'Үнэлгээ ',
-          parent: 5,
-          label2: 'Сургалтад хамрагдсан байгууллагууд',
-          icon: '',
-          link: '/null',
+        // },
+        // {
+        //   label: 'Үнэлгээ ',
+        //   parent: 5,
+        //   label2: 'Сургалтад хамрагдсан байгууллагууд',
+        //   icon: '',
+        //   link: '/null',
 
-        },
+        // },
       ],
     },
     {
@@ -227,10 +225,10 @@ export class MenuService {
       label: 'Articles',
       link: '/admin/articles',
     },
-    {
-      label: 'Menu',
-      link: '/admin/articles',
-    },
+    // {
+    //   label: 'Menu',
+    //   link: '/admin/articles',
+    // },
     {
       label: 'Stories',
       link: '/admin/stories',
